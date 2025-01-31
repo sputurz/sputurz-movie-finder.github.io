@@ -8,7 +8,7 @@ function getRandomInt(min, max) {
 
 // console.log(getRandomInt(1, 6));
 
-const playersQty = 8
+const playersQty = 1
 let maxDiceOnTable
 if (playersQty == 1) {
     maxDiceOnTable = 4
