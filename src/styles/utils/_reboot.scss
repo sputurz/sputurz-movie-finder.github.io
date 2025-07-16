@@ -1,0 +1,45 @@
+@use './variables';
+@use "./mixins";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: variables.$ff-play;
+  font-style: normal;
+  font-weight: 400;
+  background: linear-gradient(178.73deg, rgba(39, 135, 245, 0.18) -17.53%, rgba(163, 147, 245, 0.18) 131.74%),
+    linear-gradient(180deg, #000000 0%, rgba(39, 36, 36, 0.7) 100%);
+}
+
+main {
+  flex-grow: 1;
+  min-height: calc(100vh - 192px);
+
+  @include mixins.vp-767 {
+  min-height: calc(100vh - 268px);
+  }
+}
+
+img {
+  display: block;
+  height: auto;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}

@@ -1,0 +1,8 @@
+@use './variables';
+
+@mixin vp-767 {
+  @media (min-width: variables.$vp-mobile) {
+    @content;
+  }
+}
+

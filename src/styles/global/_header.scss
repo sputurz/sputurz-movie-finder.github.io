@@ -1,0 +1,9 @@
+@use '../utils/mixins';
+
+.header {
+    height: 64px;
+
+    @include mixins.vp-767 {
+        height: 96px;
+    }
+}
