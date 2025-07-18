@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
 export const StyledSocials = styled.ul`
@@ -21,5 +21,5 @@ export const StyledSocialItem = styled.li`
 
 export const StyledLink = styled.a`
   display: block;
-   line-height: 0
+  line-height: 0;
 `;

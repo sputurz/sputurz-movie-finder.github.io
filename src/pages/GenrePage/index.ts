@@ -1,1 +1,1 @@
-export { GenrePage } from "./GenrePage";
+export { GenrePage } from './GenrePage';

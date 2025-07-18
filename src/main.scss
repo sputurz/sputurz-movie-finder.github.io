@@ -1,13 +1,12 @@
 /* Global */
 /* ------------------------------------ */
-@use "./styles/global/footer.scss";
-@use "./styles/global/header.scss";
+@use './styles/global/footer.scss';
+@use './styles/global/header.scss';
 /* Utils */
 /* ------------------------------------ */
-@use "./styles/utils/normalize.scss";
-@use "./styles/utils/_variables.scss";
-@use "./styles/utils/_mixins.scss";
-@use "./styles/utils/_fonts.scss";
-@use "./styles/utils/_container.scss";
-@use "./styles/utils/_reboot.scss";
-@use "./styles/utils/_visually-hidden.scss";
+@use './styles/utils/normalize.scss';
+@use './styles/utils/_variables.scss';
+@use './styles/utils/_mixins.scss';
+@use './styles/utils/_fonts.scss';
+@use './styles/utils/_reboot.scss';
+@use './styles/utils/_visually-hidden.scss';

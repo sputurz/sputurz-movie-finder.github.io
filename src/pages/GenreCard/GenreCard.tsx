@@ -1,15 +1,14 @@
-import styles from './GenreCard.module.scss';
+import { StyledCard, StyledCardImg, StyledCardName } from './GenreCard.styles';
 
 interface IProps {
-	genre: string;
+  genre: string;
 }
 
 export function GenreCard({ genre }: IProps) {
-	return (
-		<div className={styles.genreCard}>
-			<img className={styles.genreCard__img} src="/images/genre/drama.png" alt="" />
-			<span className={styles.genreCard__name}>{
-				genre[0].toUpperCase() + genre.slice(1)}</span>
-		</div>
-	);
+  return (
+    <StyledCard>
+       <StyledCardImg src="/images/genre/drama.png" alt=""></StyledCardImg>
+      <StyledCardName>{genre[0].toUpperCase() + genre.slice(1)}</StyledCardName>
+    </StyledCard>
+  );
 }
