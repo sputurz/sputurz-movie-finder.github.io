@@ -1,0 +1,65 @@
+{
+  // Общие настройки редактора
+  "files.autoSave": "onFocusChange",
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  
+  // Prettier
+  "prettier.requireConfig": true,
+  "prettier.jsxSingleAttributePerLine": true,
+  "prettier.bracketSameLine": false,
+  "prettier.singleQuote": true,          // Одинарные кавычки
+  "prettier.trailingComma": "all",       // Висячие запятые везде
+  "prettier.printWidth": 80,             // Макс. длина строки
+   "prettier.tabWidth": 2,                // Размер отступа
+  "prettier.semi": false,                // Без точек с запятой
+  
+  // ESLint
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"   // Автофикс ESLint при сохранении
+  },
+  
+  // Отключение встроенных форматтеров
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  
+  // Языковые настройки для Prettier
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
