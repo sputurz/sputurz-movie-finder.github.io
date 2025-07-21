@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
-export const StyledGenrePage = styled.section`
+export const StyledGenresPage = styled.section`
   margin: 40px 0;
 
   ${vp767(css`
@@ -9,7 +9,7 @@ export const StyledGenrePage = styled.section`
   `)}
 `;
 
-export const StyledGenrePageWrap = styled.div`
+export const StyledGenresPageWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -19,7 +19,7 @@ export const StyledGenrePageWrap = styled.div`
   `)}
 `;
 
-export const StyledGenrePageTitle = styled.h1`
+export const StyledGenresPageTitle = styled.h1`
   padding: 0;
   margin: 0;
   font-weight: 700;
@@ -33,7 +33,7 @@ export const StyledGenrePageTitle = styled.h1`
   `)}
 `;
 
-export const StyledGenrePageList = styled.ul`
+export const StyledGenresPageList = styled.ul`
   height: 100%;
   display: grid;
   gap: 24px;
@@ -44,12 +44,8 @@ export const StyledGenrePageList = styled.ul`
 
   ${vp767(css`
     gap: 64px 40px;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   `)}
-
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(4, minmax(180px, 290px));
-  }
 `;
 
-export const StyledGenrePageListItem = styled.li``;
+export const StyledGenresPageListItem = styled.li``;
