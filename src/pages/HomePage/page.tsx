@@ -25,7 +25,9 @@ export default function HomePage() {
             <div></div>
             <span>{movieRandomQuery.data?.genres}</span>
             <div></div>
-            <img src={movieRandomQuery.data.posterUrl} alt="" />
+            <button onClick={() => movieRandomQuery.refetch()}>
+              Повторить запрос
+            </button>
             {/* {movieTop10Query.data.map(
               (movie) =>
                 movie && (

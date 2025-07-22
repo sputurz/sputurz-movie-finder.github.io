@@ -1,5 +1,4 @@
 {
-  // Общие настройки редактора
   "files.autoSave": "onFocusChange",
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
@@ -7,17 +6,17 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
-  
+
   // Prettier
   "prettier.requireConfig": true,
   "prettier.jsxSingleAttributePerLine": true,
   "prettier.bracketSameLine": false,
-  "prettier.singleQuote": true,          // Одинарные кавычки
-  "prettier.trailingComma": "all",       // Висячие запятые везде
-  "prettier.printWidth": 80,             // Макс. длина строки
-   "prettier.tabWidth": 2,                // Размер отступа
-  "prettier.semi": false,                // Без точек с запятой
-  
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.printWidth": 80,
+  "prettier.tabWidth": 2,
+  "prettier.semi": false,
+
   // ESLint
   "eslint.enable": true,
   "eslint.validate": [
@@ -27,14 +26,12 @@
     "typescriptreact"
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"   // Автофикс ESLint при сохранении
+    "source.fixAll.eslint": "explicit"
   },
-  
-  // Отключение встроенных форматтеров
+
   "javascript.format.enable": false,
   "typescript.format.enable": false,
-  
-  // Языковые настройки для Prettier
+
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
