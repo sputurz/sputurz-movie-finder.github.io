@@ -17,8 +17,7 @@ body {
   font-family: variables.$ff-play;
   font-style: normal;
   font-weight: 400;
-  background:
-    linear-gradient(
+  background: linear-gradient(
       178.73deg,
       rgba(39, 135, 245, 0.18) -17.53%,
       rgba(163, 147, 245, 0.18) 131.74%
@@ -43,6 +42,10 @@ img {
 
 a {
   text-decoration: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
 }
 
 button {

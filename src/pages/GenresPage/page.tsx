@@ -9,6 +9,9 @@ import {
 } from './GenresPage.styles';
 import Api from '../../api/api';
 import { useQuery } from '@tanstack/react-query';
+import { genres } from '../../utils/dictionarty';
+
+const currentLang = 'russian';
 
 export default function GenresPage() {
   const movieGenresQuery = useQuery({
@@ -30,7 +33,14 @@ export default function GenresPage() {
                   (genre) =>
                     genre && (
                       <StyledGenresPageListItem key={genre}>
-                        <GenreCard genre={genre}></GenreCard>
+                        <GenreCard
+                          genre={genre}
+                          genreTranslated={
+                            genres[currentLang][
+                              genre as keyof typeof genres.russian
+                            ] || genre
+                          }
+                        />
                       </StyledGenresPageListItem>
                     )
                 )}

@@ -1,9 +1,8 @@
-// Socials.tsx
 import { Icon, IconName } from '../Icon';
 import { StyledLink, StyledSocialItem, StyledSocials } from './Social.styles';
 
 interface SocialItem {
-  name: IconName; // Используем тип из Icon
+  name: IconName;
   url: string;
 }
 

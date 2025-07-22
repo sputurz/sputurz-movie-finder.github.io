@@ -8,10 +8,10 @@ import {
 export function Nav() {
   return (
     <StyledNav>
-      <StyledNavLink to={'/'}>
+      <StyledNavLink to={'/'} aria-label="Ссылка на главную страницу">
         <StyledNavLinkText>Главная</StyledNavLinkText>
       </StyledNavLink>
-      <StyledNavLink to={'/genres'}>
+      <StyledNavLink to={'/genres'} aria-label="Ссылка на страницу с жанрами">
         <StyledNavLinkText>Жанры</StyledNavLinkText>
         <StyledNavLinkSvg name="GenresIcon"></StyledNavLinkSvg>
       </StyledNavLink>

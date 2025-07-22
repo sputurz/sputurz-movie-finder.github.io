@@ -1,14 +1,35 @@
-import { StyledCard, StyledCardImg, StyledCardName } from './GenreCard.styles';
+import { useState } from 'react';
+import {
+  StyledCard,
+  StyledCardImg,
+  StyledCardImgContainer,
+  StyledCardName,
+} from './GenreCard.styles';
 
 interface IProps {
   genre: string;
+  genreTranslated: string;
 }
 
-export function GenreCard({ genre }: IProps) {
+export function GenreCard({ genre, genreTranslated }: IProps) {
+  const [hasError, setHasError] = useState(false);
+
   return (
-    <StyledCard>
-       <StyledCardImg src="/images/genre/drama.png" alt=""></StyledCardImg>
-      <StyledCardName>{genre[0].toUpperCase() + genre.slice(1)}</StyledCardName>
+    <StyledCard href="#">
+      <StyledCardImgContainer>
+        {hasError ? (
+          <StyledCardImg src={`/images/genre/error.jpg`} alt={genre} />
+        ) : (
+          <StyledCardImg
+            src={`/images/genre/${genre}.jpg`}
+            alt={genre}
+            onError={() => setHasError(true)}
+          />
+        )}
+      </StyledCardImgContainer>
+      <StyledCardName>
+        {genreTranslated[0].toUpperCase() + genreTranslated.slice(1)}
+      </StyledCardName>
     </StyledCard>
   );
 }
