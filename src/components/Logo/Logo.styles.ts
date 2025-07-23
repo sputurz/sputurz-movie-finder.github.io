@@ -9,7 +9,6 @@ export const StyledLogoLink = styled(Link)`
   display: flex;
   padding: 7px;
   height: 32px;
-  opacity: 1;
 
   &:hover {
     opacity: 0.8;

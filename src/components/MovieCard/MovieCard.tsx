@@ -7,26 +7,33 @@ import {
 import { IMovie } from '../../models';
 
 interface IProps {
-  // movie: IMovie;
+  movie: IMovie;
+  indexRating?: number;
   isRatingShown?: boolean;
 }
 
-export function MovieCard({ isRatingShown = true }: IProps) {
+export function MovieCard({
+  movie,
+  indexRating,
+  isRatingShown = false,
+}: IProps) {
   const [hasError, setHasError] = useState(false);
 
   return (
-    <StyledMovieCard to={'/genres'}>
+    <StyledMovieCard to={`/movie/${movie.id}`}>
       {hasError ? (
         <StyledMovieCardImg src={`/images/movieCard/error.jpg`} alt={`genre`} />
       ) : (
         <StyledMovieCardImg
-          src={`/images/genre/drama.jpg`}
+          src={movie.posterUrl}
           alt={`genre`}
           onError={() => setHasError(true)}
         />
       )}
 
-      {isRatingShown ? <StyledMovieCardRating>10</StyledMovieCardRating> : null}
+      {isRatingShown ? (
+        <StyledMovieCardRating>{indexRating}</StyledMovieCardRating>
+      ) : null}
     </StyledMovieCard>
   );
 }
