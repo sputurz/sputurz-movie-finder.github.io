@@ -7,7 +7,7 @@ import {
   StyledByGenrePageWrap,
   StyledByGenrePageCard,
   StyledByGenrePageCardImg,
-} from './ByGenrePage.styles';
+} from './MoviesPage.styles';
 
 const genreList: string[] = [
   'history',
@@ -19,7 +19,7 @@ const genreList: string[] = [
   'mystery',
 ];
 
-export default function ByGenrePage() {
+export default function MoviesPage() {
   return (
     <StyledByGenrePage>
       <Container>

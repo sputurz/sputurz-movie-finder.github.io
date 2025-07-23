@@ -1,9 +1,0 @@
-@use '../utils/mixins';
-
-.footer {
-  padding: 24px 0 36px;
-
-  @include mixins.vp-767 {
-    padding: 40px 0;
-  }
-}
