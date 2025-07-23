@@ -12,7 +12,9 @@ export function App() {
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <Header></Header>
-        <AppRouter></AppRouter>
+        <main>
+          <AppRouter></AppRouter>
+        </main>
         <Footer></Footer>
       </QueryClientProvider>
     </BrowserRouter>

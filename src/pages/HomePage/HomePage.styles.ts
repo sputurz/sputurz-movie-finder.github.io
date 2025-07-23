@@ -1,51 +1,72 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
+import { VisuallyHidden } from '../../styles/utils/VisuallyHidden';
 
-export const StyledGenresPage = styled.section`
-  margin: 40px 0;
-
-  ${vp767(css`
-    margin: 64px 0 160px;
-  `)}
+export const StyledHomePageTitle = styled.h1`
+  ${VisuallyHidden}
 `;
 
-export const StyledGenresPageWrap = styled.div`
+export const StyledRandom = styled.section`
+  ${vp767(css``)}
+`;
+
+export const StyledTop = styled.section`
   display: flex;
   flex-direction: column;
+  padding: 32px 0;
   gap: 40px;
 
   ${vp767(css`
+    padding: 40px 0 120px;
     gap: 64px;
   `)}
 `;
 
-export const StyledGenresPageTitle = styled.h1`
-  padding: 0;
+export const StyledTopTitle = styled.h2`
   margin: 0;
+  padding: 0;
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
   color: #ffffff;
 
   ${vp767(css`
-    font-size: 48px;
-    line-height: 56px;
+    font-size: 40px;
+    line-height: 48px;
   `)}
 `;
 
-export const StyledGenresPageList = styled.ul`
-  height: 100%;
-  display: grid;
-  gap: 24px;
-  grid-template-columns: 1fr;
-  margin: 0;
-  padding: 0;
+export const StyledTopList = styled.ul`
+  margin: -80px -20px;
+  padding: 80px 20px;
   list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 40px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   ${vp767(css`
+    margin: 0;
+    padding: 0;
+    overflow-x: unset;
+    scrollbar-width: unset;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 224px);
     gap: 64px 40px;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    justify-content: space-evenly;
+
+    &::-webkit-scrollbar {
+      display: unset;
+    }
   `)}
 `;
 
-export const StyledGenresPageListItem = styled.li``;
+export const StyledTopListItem = styled.li`
+  flex-shrink: 0;
+  ${vp767(css``)}
+`;
