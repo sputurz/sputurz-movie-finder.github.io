@@ -24,7 +24,7 @@ export default function MoviesPage() {
     <StyledByGenrePage>
       <Container>
         <StyledByGenrePageWrap>
-          <StyledByGenrePageTitle>Жанры фильмов</StyledByGenrePageTitle>
+          <StyledByGenrePageTitle>Бла Бла жанр</StyledByGenrePageTitle>
           <StyledByGenrePageList>
             {genreList.map((genre) => (
               <StyledByGenrePageItem key={genre}>

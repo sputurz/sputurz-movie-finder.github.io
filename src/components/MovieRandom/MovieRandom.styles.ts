@@ -2,7 +2,9 @@ import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { Link } from 'react-router-dom';
 
-export const StyledRandom = styled.section`
+export const StyledRandom = styled.section``;
+
+export const StyledRandomWrap = styled.section`
   ${vp767(css``)}
 `;
 

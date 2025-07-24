@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
-export const StyledTop = styled.section`
+export const StyledTop = styled.section``;
+
+export const StyledTopWrap = styled.section`
   display: flex;
   flex-direction: column;
   padding: 32px 0;

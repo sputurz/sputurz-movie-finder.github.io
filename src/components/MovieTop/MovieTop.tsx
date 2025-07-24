@@ -1,10 +1,12 @@
 import { useMovieTop } from '../../hooks/useMovieTop';
+import { Container } from '../Container';
 import { MovieCard } from '../MovieCard';
 import {
   StyledTop,
   StyledTopList,
   StyledTopListItem,
   StyledTopTitle,
+  StyledTopWrap,
 } from './MovieTop.styles';
 
 export function MovieTop() {
@@ -15,22 +17,26 @@ export function MovieTop() {
 
   return (
     <StyledTop>
-      <StyledTopTitle>Топ 10 фильмов</StyledTopTitle>
-      <StyledTopList>
-        {data
-          ? [...data]
-              .sort((a, b) => b.tmdbRating - a.tmdbRating)
-              .map((movie, index) => (
-                <StyledTopListItem key={movie.id}>
-                  <MovieCard
-                    movie={movie}
-                    indexRating={index + 1}
-                    isRatingShown
-                  />
-                </StyledTopListItem>
-              ))
-          : null}
-      </StyledTopList>
+      <Container>
+        <StyledTopWrap>
+          <StyledTopTitle>Топ 10 фильмов</StyledTopTitle>
+          <StyledTopList>
+            {data
+              ? [...data]
+                  .sort((a, b) => b.tmdbRating - a.tmdbRating)
+                  .map((movie, index) => (
+                    <StyledTopListItem key={movie.id}>
+                      <MovieCard
+                        movie={movie}
+                        indexRating={index + 1}
+                        isRatingShown
+                      />
+                    </StyledTopListItem>
+                  ))
+              : null}
+          </StyledTopList>
+        </StyledTopWrap>
+      </Container>
     </StyledTop>
   );
 }
