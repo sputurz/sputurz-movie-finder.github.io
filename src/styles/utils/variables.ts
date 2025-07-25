@@ -15,3 +15,7 @@ export const transitionColor = css`
 export const transitionBorderColor = css`
   transition: border-color ease-in 0.3s;
 `;
+
+export const transitionBgrColor = css`
+  transition: background-color ease-in 0.3s;
+`;

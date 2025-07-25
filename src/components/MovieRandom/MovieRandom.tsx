@@ -15,29 +15,6 @@ export const MovieRandom = () => {
     <StyledRandom>
       <Container>
         <MovieInfo movie={data} onUpdate={refetch} isLoading={isLoading} />
-
-        {/* <StyledRandomWrap>
-          
-         
-           
-         
-          <StyledRandomGenres>
-            {data?.genres.map((genre, index) => (
-              <StyledRandomGenre key={genre + index}>{genre}</StyledRandomGenre>
-            ))}
-          </StyledRandomGenres>
-          <StyledRandomRuntime>{data?.runtime}</StyledRandomRuntime>
-          <StyledRandomTitle>{data?.title}</StyledRandomTitle>
-          <StyledRandomPlot>{data?.plot}</StyledRandomPlot>
-          <StyledRandomBtnUpd
-            onClick={() => {
-              refetch();
-            }}
-          >
-            <Icon name="UpdateIcon"></Icon>
-          </StyledRandomBtnUpd>
-          <StyledRandomLink to={`movie/${data?.id}`}>О фильме</StyledRandomLink>
-        </StyledRandomWrap> */}
       </Container>
     </StyledRandom>
   );

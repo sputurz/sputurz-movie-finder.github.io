@@ -11,6 +11,7 @@ export const UpdateIcon = lazy(
 );
 //movie/home
 export const StarIcon = lazy(() => import('../../assets/icons/star.svg?react'));
+export const LikeIcon = lazy(() => import('../../assets/icons/like.svg?react'));
 // menu
 export const GenresIcon = lazy(
   () => import('../../assets/icons/genres.svg?react')
