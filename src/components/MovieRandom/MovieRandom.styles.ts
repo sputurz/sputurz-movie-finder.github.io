@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const StyledRandom = styled.section``;
 
-export const StyledRandomWrap = styled.section`
+export const StyledRandomWrap = styled.div`
   ${vp767(css``)}
 `;
 

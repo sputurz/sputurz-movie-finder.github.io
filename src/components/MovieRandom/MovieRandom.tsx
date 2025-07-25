@@ -1,6 +1,8 @@
 import { useMovieRandom } from '../../hooks/useMovieRandom';
+import { convertMinsToHoursMins } from '../../utils/convertMinsToHoursMins';
 import { Container } from '../Container';
 import { Icon } from '../Icon';
+import { MovieRating } from '../MovieRating';
 import {
   StyledRandom,
   StyledRandomPlot,
@@ -21,14 +23,19 @@ export function MovieRandom() {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
+  if (!data) return null;
 
   return (
     <StyledRandom>
       <Container>
         <StyledRandomWrap>
-          <StyledRandomImg src={data?.backdropUrl}></StyledRandomImg>
-          <StyledRandomRating>{data?.tmdbRating}</StyledRandomRating>
-          <StyledRandomYear>{data?.releaseDate}</StyledRandomYear>
+          <div>{data.id}</div>
+          <div>{data.tmdbRating}</div>
+          <div> {convertMinsToHoursMins(data.runtime)} </div>
+          <MovieRating rating={data.tmdbRating}></MovieRating>
+          <StyledRandomImg src={data.backdropUrl}></StyledRandomImg>
+          <StyledRandomRating>{data.tmdbRating}</StyledRandomRating>
+          <StyledRandomYear>{data.releaseDate}</StyledRandomYear>
           <StyledRandomGenres>
             {data?.genres.map((genre, index) => (
               <StyledRandomGenre key={genre + index}>{genre}</StyledRandomGenre>
