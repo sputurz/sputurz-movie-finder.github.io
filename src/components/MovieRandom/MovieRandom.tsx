@@ -1,7 +1,7 @@
 import { useMovieRandom } from '../../hooks/useMovieRandom';
 import { Container } from '../Container';
 import { ErrorFallback } from '../ErrorFallback';
-import { MovieInfo } from '../MovieInfo';
+import { MoviePromo } from '../MoviePromo';
 import { StyledRandom } from './MovieRandom.styles';
 
 export const MovieRandom = () => {
@@ -14,7 +14,7 @@ export const MovieRandom = () => {
   return (
     <StyledRandom>
       <Container>
-        <MovieInfo movie={data} onUpdate={refetch} isLoading={isLoading} />
+        <MoviePromo movie={data} onUpdate={refetch} isLoading={isLoading} />
       </Container>
     </StyledRandom>
   );

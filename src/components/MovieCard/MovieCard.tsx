@@ -22,11 +22,14 @@ export function MovieCard({
   return (
     <StyledMovieCard to={`/movie/${movie.id}`}>
       {hasError ? (
-        <StyledMovieCardImg src={`/images/movieCard/error.jpg`} alt={`genre`} />
+        <StyledMovieCardImg
+          src={`/images/movieCard/error.jpg`}
+          alt={movie.title}
+        />
       ) : (
         <StyledMovieCardImg
           src={movie.posterUrl}
-          alt={`genre`}
+          alt={movie.title}
           onError={() => setHasError(true)}
         />
       )}

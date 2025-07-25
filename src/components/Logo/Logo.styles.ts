@@ -7,7 +7,7 @@ export const StyledLogoLink = styled(Link)`
   ${transitionOpacity}
 
   display: flex;
-  padding: 7px;
+  padding: 7px 0;
   height: 32px;
 
   &:hover {
@@ -15,7 +15,7 @@ export const StyledLogoLink = styled(Link)`
   }
 
   ${vp767(css`
-    padding: 8px;
+    padding: 8px 0;
     height: 48px;
   `)}
 `;

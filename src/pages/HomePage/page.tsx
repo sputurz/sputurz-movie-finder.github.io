@@ -1,4 +1,3 @@
-import { Container } from '../../components/Container/Container';
 import { MovieRandom } from '../../components/MovieRandom';
 import { MovieTop } from '../../components/MovieTop/MovieTop';
 import { StyledHomePageTitle } from './HomePage.styles';

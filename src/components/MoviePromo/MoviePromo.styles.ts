@@ -1,38 +1,39 @@
 import styled, { css } from 'styled-components';
-import { vp767 } from '../../styles/utils/mixins';
+import { vp1023, vp767 } from '../../styles/utils/mixins';
 import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
 import { BtnSecondaryStyles } from '../../styles/global/BtnSecondary';
+import { Link } from 'react-router-dom';
 
-export const StyledMovieInfo = styled.div`
+export const StyledMoviePromo = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
 
-  ${vp767(
+  ${vp1023(
     css`
       padding-top: 32px;
-      grid-template-columns: 1fr calc(680 / 1280 * 100%);
+      grid-template-columns: 1fr minmax(0, calc(680 / 1280 * 100%));
       gap: 0;
     `
   )}
 `;
 
-export const StyledMovieInfoImg = styled.img`
+export const StyledMoviePromoImg = styled.img`
   border-radius: 16px;
   width: 100%;
 
-  ${vp767(
+  ${vp1023(
     css`
       grid-column: 2;
     `
   )}
 `;
 
-export const StyledMovieInfoWrap = styled.div`
+export const StyledMoviePromoWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
-  ${vp767(
+  ${vp1023(
     css`
       padding: 74px 20px 0 0;
       grid-column: 1;
@@ -41,16 +42,16 @@ export const StyledMovieInfoWrap = styled.div`
   )}
 `;
 
-export const StyledMovieInfoTextWrap = styled.div`
+export const StyledMoviePromoTextWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  ${vp767(css`
+  ${vp1023(css`
     gap: 16px;
   `)}
 `;
 
-export const StyledMovieInfoTagText = styled.div`
+export const StyledMoviePromoTagText = styled.div`
   display: flex;
   gap: 16px;
   align-items: center;
@@ -70,24 +71,22 @@ export const StyledMovieInfoTagText = styled.div`
   `)}
 `;
 
-export const StyledMovieInfoYear = styled.span`
-  ${vp767(css``)}
-`;
+export const StyledMoviePromoYear = styled.span``;
 
-export const StyledMovieInfoRuntime = styled.span`
-  ${vp767(css``)}
-`;
+export const StyledMoviePromoRuntime = styled.span``;
 
-export const StyledMovieInfoGenres = styled.span`
+export const StyledMoviePromoGenres = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
   max-width: calc((115 / 335) * 100%);
-  ${vp767(css``)}
+  ${vp1023(css`
+    max-width: calc((325 / 580) * 100%);
+  `)}
 `;
 
-export const StyledMovieInfoTitle = styled.h2`
+export const StyledMoviePromoTitle = styled.h2`
   margin: 0;
   padding: 0;
   font-weight: 700;
@@ -101,7 +100,7 @@ export const StyledMovieInfoTitle = styled.h2`
   `)}
 `;
 
-export const StyledMovieInfoPlot = styled.p`
+export const StyledMoviePromoPlot = styled.p`
   margin: 0;
   padding: 0;
   font-weight: 400;
@@ -115,29 +114,43 @@ export const StyledMovieInfoPlot = styled.p`
   `)}
 `;
 
-export const StyledMovieInfoBtnWrap = styled.div`
+export const StyledMoviePromoBtnWrap = styled.div<{ $isAboutMovie?: boolean }>`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr auto auto;
   gap: 16px;
 
-  ${vp767(css``)}
+  grid-template-columns: ${(props) =>
+    props.$isAboutMovie ? '1fr auto' : '1fr auto auto'};
+
+  & > button:first-child {
+    grid-column: ${(props) => (props.$isAboutMovie ? 'span 1' : 'span 3')};
+  }
+
+  ${vp1023(css``)}
 `;
 
-export const StyledMovieInfoBtnUpd = styled.button`
-  ${BtnSecondaryStyles}
+export const StyledMoviePromoBtnVideo = styled.button`
+  ${BtnPrimaryStyles}
 
-  grid-column:span 3;
-  ${vp767(css``)}
+  ${vp1023(css``)}
 `;
 
-export const StyledMovieInfoBtnAbout = styled.button`
+export const StyledMoviePromoBtnUpd = styled.button`
   ${BtnSecondaryStyles}
+  width: 68px;
 
-  ${vp767(css``)}
+  ${vp1023(css``)}
 `;
 
-export const StyledMovieInfoBtnLike = styled.button<{ $isLiked?: boolean }>`
+export const StyledMoviePromoBtnAbout = styled(Link)`
   ${BtnSecondaryStyles}
+
+  ${vp1023(css``)}
+`;
+
+export const StyledMoviePromoBtnLike = styled.button<{ $isLiked?: boolean }>`
+  ${BtnSecondaryStyles}
+  width: 68px;
 
   svg {
     width: 24px;

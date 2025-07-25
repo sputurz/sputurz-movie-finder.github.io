@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 
 // Viewport
 export const vpMobile = `767px`;
+export const vpTablet = `1023px`;
 // Animation
 
 export const transitionOpacity = css`

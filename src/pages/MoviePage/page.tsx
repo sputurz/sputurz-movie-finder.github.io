@@ -2,18 +2,26 @@ import { Container } from '../../components/Container/Container';
 import { StyledMoviePage } from './MoviePage.styles';
 import { useMovie } from '../../hooks/useMovie';
 import { useParams } from 'react-router-dom';
-import { MovieRating } from '../../components/MovieRating';
+import { ErrorFallback } from '../../components/ErrorFallback';
+import { MoviePromo } from '../../components/MoviePromo';
 
 export default function MoviePage() {
   const { movieId } = useParams();
-  const { data } = useMovie(Number(movieId));
+  const { data, error, isLoading, refetch } = useMovie(Number(movieId));
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
+  if (!data) return null;
 
   return (
     <StyledMoviePage>
       <Container>
-        <span>{data?.title}</span>
-        <div>{data?.tmdbRating}</div>
-        <MovieRating rating={data?.tmdbRating}></MovieRating>
+        <MoviePromo
+          movie={data}
+          onUpdate={refetch}
+          isLoading={isLoading}
+          isAboutMovie
+        />
       </Container>
     </StyledMoviePage>
   );
