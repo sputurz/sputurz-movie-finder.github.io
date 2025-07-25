@@ -1,5 +1,6 @@
 import { useMovieTop } from '../../hooks/useMovieTop';
 import { Container } from '../Container';
+import { ErrorFallback } from '../ErrorFallback';
 import { MovieCard } from '../MovieCard';
 import {
   StyledTop,
@@ -13,7 +14,8 @@ export function MovieTop() {
   const { data, error, isLoading } = useMovieTop();
 
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
+  if (!data) return null;
 
   return (
     <StyledTop>

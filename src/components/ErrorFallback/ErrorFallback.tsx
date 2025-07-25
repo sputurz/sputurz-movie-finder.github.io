@@ -1,12 +1,15 @@
 import { Container } from '../Container';
 import { StyledErrorFallback } from './ErrorFallback.styles';
+import type { FC, ReactNode } from 'react';
 
-export const ErrorFallback = () => {
+type Props = {
+  children?: ReactNode;
+};
+
+export const ErrorFallback: FC<Props> = ({ children }) => {
   return (
     <Container>
-      <StyledErrorFallback>
-        Что-то пошло не так. Пожалуйста, перезагрузите страницу.
-      </StyledErrorFallback>
+      <StyledErrorFallback>{children}</StyledErrorFallback>
     </Container>
   );
 };

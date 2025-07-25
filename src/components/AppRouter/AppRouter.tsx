@@ -16,7 +16,13 @@ const routerConfig = [
 ] as const;
 
 export const AppRouter = () => (
-  <ErrorBoundary fallback={<ErrorFallback></ErrorFallback>}>
+  <ErrorBoundary
+    fallback={
+      <ErrorFallback>
+        Что-то пошло не так. Пожалуйста, перезагрузите страницу.
+      </ErrorFallback>
+    }
+  >
     <Suspense fallback={<div>Загрузка...</div>}>
       <Routes>
         {routerConfig.map((route) => (
