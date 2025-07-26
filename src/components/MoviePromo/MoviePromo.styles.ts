@@ -29,17 +29,23 @@ export const StyledMoviePromoImg = styled.img`
   )}
 `;
 
-export const StyledMoviePromoWrap = styled.div`
+export const StyledMoviePromoWrap = styled.div<{ $isAboutMovie?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 32px;
-  ${vp1023(
-    css`
-      padding: 74px 20px 0 0;
-      grid-column: 1;
-      grid-row: 1;
-    `
-  )}
+
+  ${vp1023(css`
+    padding: 74px 20px 0 0;
+    grid-column: 1;
+    grid-row: 1;
+  `)}
+
+  ${({ $isAboutMovie }) =>
+    !$isAboutMovie &&
+    vp1023(css`
+      height: 550px;
+      justify-content: space-between;
+    `)}
 `;
 
 export const StyledMoviePromoTextWrap = styled.div`
@@ -86,7 +92,7 @@ export const StyledMoviePromoGenres = styled.span`
   `)}
 `;
 
-export const StyledMoviePromoTitle = styled.h2`
+export const StyledMoviePromoTitle = styled.h2<{ $isAboutMovie?: boolean }>`
   margin: 0;
   padding: 0;
   font-weight: 700;
@@ -98,9 +104,15 @@ export const StyledMoviePromoTitle = styled.h2`
     font-size: 48px;
     line-height: 56px;
   `)}
+
+  ${({ $isAboutMovie }) =>
+    !$isAboutMovie &&
+    vp767(css`
+      max-height: 120px;
+    `)}
 `;
 
-export const StyledMoviePromoPlot = styled.p`
+export const StyledMoviePromoPlot = styled.p<{ $isAboutMovie?: boolean }>`
   margin: 0;
   padding: 0;
   font-weight: 400;
@@ -112,6 +124,17 @@ export const StyledMoviePromoPlot = styled.p`
     font-size: 24px;
     line-height: 32px;
   `)}
+
+  ${({ $isAboutMovie }) =>
+    !$isAboutMovie &&
+    vp767(css`
+      max-height: 96px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    `)}
 `;
 
 export const StyledMoviePromoBtnWrap = styled.div<{ $isAboutMovie?: boolean }>`

@@ -38,12 +38,11 @@ export const MoviePromo: FC<Props> = ({
     <StyledMoviePromo>
       <StyledMoviePromoImg
         src={
-          movie.backdropUrl ? movie.backdropUrl : '/images/MoviePromo/error.jpg'
+          movie.backdropUrl ? movie.backdropUrl : '/images/moviePromo/error.jpg'
         }
         alt={movie.title}
       />
-
-      <StyledMoviePromoWrap>
+      <StyledMoviePromoWrap $isAboutMovie={isAboutMovie}>
         <StyledMoviePromoTextWrap>
           <StyledMoviePromoTagText>
             <MovieRating rating={movie.tmdbRating}></MovieRating>
@@ -55,8 +54,12 @@ export const MoviePromo: FC<Props> = ({
               {convertMinsToHoursMins(movie.runtime)}
             </StyledMoviePromoRuntime>
           </StyledMoviePromoTagText>
-          <StyledMoviePromoTitle>{movie.title}</StyledMoviePromoTitle>
-          <StyledMoviePromoPlot>{movie.plot}</StyledMoviePromoPlot>
+          <StyledMoviePromoTitle $isAboutMovie={isAboutMovie}>
+            {movie.title}
+          </StyledMoviePromoTitle>
+          <StyledMoviePromoPlot $isAboutMovie={isAboutMovie}>
+            {movie.plot}
+          </StyledMoviePromoPlot>
         </StyledMoviePromoTextWrap>
         <StyledMoviePromoBtnWrap $isAboutMovie={isAboutMovie}>
           <StyledMoviePromoBtnVideo>Трейлер</StyledMoviePromoBtnVideo>

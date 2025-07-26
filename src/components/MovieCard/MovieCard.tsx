@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   StyledMovieCard,
   StyledMovieCardImg,
@@ -17,22 +16,14 @@ export function MovieCard({
   indexRating,
   isRatingShown = false,
 }: IProps) {
-  const [hasError, setHasError] = useState(false);
-
   return (
     <StyledMovieCard to={`/movie/${movie.id}`}>
-      {hasError ? (
-        <StyledMovieCardImg
-          src={`/images/movieCard/error.jpg`}
-          alt={movie.title}
-        />
-      ) : (
-        <StyledMovieCardImg
-          src={movie.posterUrl}
-          alt={movie.title}
-          onError={() => setHasError(true)}
-        />
-      )}
+      <StyledMovieCardImg
+        src={
+          movie.backdropUrl ? movie.posterUrl : '/images/movieCard/error.jpg'
+        }
+        alt={movie.title}
+      />
 
       {isRatingShown ? (
         <StyledMovieCardRating>{indexRating}</StyledMovieCardRating>

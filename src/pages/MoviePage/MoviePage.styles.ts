@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import { vp767 } from '../../styles/utils/mixins';
+import styled from 'styled-components';
+import { VisuallyHidden } from '../../styles/utils/VisuallyHidden';
 
-export const StyledMoviePage = styled.section`
-  ${vp767(css``)}
+export const StyledMoviePageTitle = styled.h1`
+  ${VisuallyHidden}
 `;

@@ -1,9 +1,10 @@
 import { Container } from '../../components/Container/Container';
-import { StyledMoviePage } from './MoviePage.styles';
+import { StyledMoviePageTitle } from './MoviePage.styles';
 import { useMovie } from '../../hooks/useMovie';
 import { useParams } from 'react-router-dom';
 import { ErrorFallback } from '../../components/ErrorFallback';
 import { MoviePromo } from '../../components/MoviePromo';
+import { MovieInfo } from '../../components/MovieInfo';
 
 export default function MoviePage() {
   const { movieId } = useParams();
@@ -14,7 +15,10 @@ export default function MoviePage() {
   if (!data) return null;
 
   return (
-    <StyledMoviePage>
+    <>
+      <StyledMoviePageTitle>
+        {` Cтраница - о фильме ${data.title}`}
+      </StyledMoviePageTitle>
       <Container>
         <MoviePromo
           movie={data}
@@ -23,6 +27,9 @@ export default function MoviePage() {
           isAboutMovie
         />
       </Container>
-    </StyledMoviePage>
+      <Container>
+        <MovieInfo movie={data} />
+      </Container>
+    </>
   );
 }
