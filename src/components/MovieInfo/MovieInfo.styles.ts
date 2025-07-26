@@ -51,6 +51,7 @@ export const StyledMovieInfoItem = styled.li`
     display: grid;
     gap: 8px;
     grid-template-columns: auto 1fr calc(952 / 1280 * 100%);
+    align-items: start;
   `)}
 `;
 
@@ -70,8 +71,8 @@ export const StyledMovieInfoLabel = styled.span`
 export const StyledMovieInfoDash = styled.div`
   ${vp767(
     css`
+      height: 18px;
       border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
-      margin-bottom: 6px;
     `
   )}
 `;

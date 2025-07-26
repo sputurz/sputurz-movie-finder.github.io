@@ -109,6 +109,11 @@ export const StyledMoviePromoTitle = styled.h2<{ $isAboutMovie?: boolean }>`
     !$isAboutMovie &&
     vp767(css`
       max-height: 120px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
     `)}
 `;
 
@@ -165,10 +170,18 @@ export const StyledMoviePromoBtnUpd = styled.button`
   ${vp1023(css``)}
 `;
 
-export const StyledMoviePromoBtnAbout = styled(Link)`
+export const StyledMoviePromoLinkAbout = styled(Link)<{
+  $iSdisabled?: boolean;
+}>`
   ${BtnSecondaryStyles}
 
-  ${vp1023(css``)}
+  ${({ $iSdisabled }) =>
+    $iSdisabled &&
+    css`
+      color: rgba(255, 255, 255, 0.5);
+      pointer-events: none;
+      background: #747474;
+    `}
 `;
 
 export const StyledMoviePromoBtnLike = styled.button<{ $isLiked?: boolean }>`

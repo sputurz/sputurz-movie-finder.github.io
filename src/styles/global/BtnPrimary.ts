@@ -14,6 +14,7 @@ export const BtnPrimaryStyles = css`
   font-size: 18px;
   line-height: 24px;
   color: #ffffff;
+  user-select: none;
 
   &:focus-visible,
   &:hover {

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { IMovie } from '../../models';
 import {
   StyledMoviePromo,
-  StyledMoviePromoBtnAbout,
+  StyledMoviePromoLinkAbout,
   StyledMoviePromoBtnLike,
   StyledMoviePromoBtnUpd,
   StyledMoviePromoBtnVideo,
@@ -23,14 +23,14 @@ import { Icon } from '../Icon';
 
 type Props = {
   movie: IMovie;
-  isLoading?: boolean;
+  isFetching: boolean;
   isAboutMovie?: boolean;
   onUpdate?: () => void;
 };
 
 export const MoviePromo: FC<Props> = ({
   movie,
-  isLoading = false,
+  isFetching,
   isAboutMovie = false,
   onUpdate,
 }) => {
@@ -62,17 +62,22 @@ export const MoviePromo: FC<Props> = ({
           </StyledMoviePromoPlot>
         </StyledMoviePromoTextWrap>
         <StyledMoviePromoBtnWrap $isAboutMovie={isAboutMovie}>
-          <StyledMoviePromoBtnVideo>Трейлер</StyledMoviePromoBtnVideo>
+          <StyledMoviePromoBtnVideo disabled={isFetching}>
+            Трейлер
+          </StyledMoviePromoBtnVideo>
           {isAboutMovie ? null : (
-            <StyledMoviePromoBtnAbout to={`/movie/${movie.id}`}>
+            <StyledMoviePromoLinkAbout
+              $iSdisabled={isFetching}
+              to={`/movie/${movie.id}`}
+            >
               о фильме
-            </StyledMoviePromoBtnAbout>
+            </StyledMoviePromoLinkAbout>
           )}
-          <StyledMoviePromoBtnLike $isLiked={false}>
+          <StyledMoviePromoBtnLike $isLiked={false} disabled={isFetching}>
             <Icon name="LikeIcon"></Icon>
           </StyledMoviePromoBtnLike>
           {isAboutMovie ? null : (
-            <StyledMoviePromoBtnUpd onClick={onUpdate} disabled={isLoading}>
+            <StyledMoviePromoBtnUpd onClick={onUpdate} disabled={isFetching}>
               <Icon name="UpdateIcon"></Icon>
             </StyledMoviePromoBtnUpd>
           )}
