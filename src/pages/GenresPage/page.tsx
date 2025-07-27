@@ -7,56 +7,40 @@ import {
   StyledGenresPageTitle,
   StyledGenresPageWrap,
 } from './GenresPage.styles';
-import Api from '../../api/api';
-import { useQuery } from '@tanstack/react-query';
-import { genres } from '../../utils/dictionarty';
+import { genres, getTransletedValue } from '../../utils/dictionarty';
+import { ErrorFallback } from '../../components/ErrorFallback';
+import { useMovieGenres } from '../../hooks/useMovieGenres';
 
 const currentLang = 'russian';
 
 export default function GenresPage() {
-  const movieGenresQuery = useQuery({
-    queryFn: () => Api.getMovieGenres(),
-    queryKey: ['genres'],
-  });
+  const { data, error } = useMovieGenres();
 
-  switch (movieGenresQuery.status) {
-    case 'pending':
-      return <div>Loader zagluska =0</div>;
-    case 'success':
-      return (
-        <StyledGenresPage>
-          <Container>
-            <StyledGenresPageWrap>
-              <StyledGenresPageTitle>Жанры фильмов</StyledGenresPageTitle>
-              <StyledGenresPageList>
-                {movieGenresQuery.data.map(
-                  (genre) =>
-                    genre && (
-                      <StyledGenresPageListItem key={genre}>
-                        <GenreCard
-                          genre={genre}
-                          genreTranslated={
-                            genres[currentLang][
-                              genre as keyof typeof genres.russian
-                            ] || genre
-                          }
-                        />
-                      </StyledGenresPageListItem>
-                    )
-                )}
-              </StyledGenresPageList>
-            </StyledGenresPageWrap>
-          </Container>
-        </StyledGenresPage>
-      );
-    case 'error':
-      return (
-        <div>
-          <span style={{ color: 'red' }}>Произошла ошибка</span>
-          <button onClick={() => movieGenresQuery.refetch()}>
-            Повторить запрос
-          </button>
-        </div>
-      );
-  }
+  if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
+  if (!data) return null;
+
+  return (
+    <StyledGenresPage>
+      <Container>
+        <StyledGenresPageWrap>
+          <StyledGenresPageTitle>Жанры фильмов</StyledGenresPageTitle>
+          <StyledGenresPageList>
+            {data.map(
+              (genre) =>
+                genre && (
+                  <StyledGenresPageListItem key={genre}>
+                    <GenreCard
+                      genre={genre}
+                      genreTranslated={
+                        getTransletedValue(genres, currentLang, genre) || genre
+                      }
+                    />
+                  </StyledGenresPageListItem>
+                )
+            )}
+          </StyledGenresPageList>
+        </StyledGenresPageWrap>
+      </Container>
+    </StyledGenresPage>
+  );
 }

@@ -22,3 +22,14 @@ export const genres = {
     adventure: 'приключение',
   },
 } as const;
+
+type LocaleDict = Record<string, Record<string, string>>;
+
+export function getTransletedValue<
+  T extends LocaleDict,
+  L extends keyof T,
+  K extends string
+>(dict: T, lang: L, key: K): string {
+  const map = dict[lang];
+  return key in map ? map[key as keyof typeof map] : key;
+}

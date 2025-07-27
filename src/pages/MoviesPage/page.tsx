@@ -1,44 +1,89 @@
+import { useSearchParams } from 'react-router-dom';
 import { Container } from '../../components/Container/Container';
+import { useMovies } from '../../hooks/useMovies';
 import {
-  StyledByGenrePage,
-  StyledByGenrePageList,
-  StyledByGenrePageItem,
-  StyledByGenrePageTitle,
-  StyledByGenrePageWrap,
-  StyledByGenrePageCard,
-  StyledByGenrePageCardImg,
+  StyledMoviesPage,
+  StyledMoviesPageList,
+  StyledMoviesPageItem,
+  StyledMoviesPageBackLink,
+  StyledMoviesPageWrap,
+  StyledMoviesPageCard,
+  StyledMoviesPageCardImg,
+  StyledMoviesPageHideTitle,
+  StyledMoviesPageBtn,
 } from './MoviesPage.styles';
+import { genres, getTransletedValue } from '../../utils/dictionarty';
+import { toUpperFirstChar } from '../../utils/toUpperFirstChar';
+import { ErrorFallback } from '../../components/ErrorFallback';
+import { Icon } from '../../components/Icon';
+import { InfiniteTrigger } from '../../components/InfiniteTrigger';
 
-const genreList: string[] = [
-  'history',
-  'horror',
-  'scifi',
-  'stand-up',
-  'fantasy',
-  'drama',
-  'mystery',
-];
+const currentLang = 'russian';
 
 export default function MoviesPage() {
+  const [searchParams] = useSearchParams();
+
+  const searchCount = searchParams.get('count')
+    ? Number(searchParams.get('count'))
+    : 10;
+
+  const searchTitle = searchParams.get('title') || '';
+  const searchGenre = searchParams.get('genre') || '';
+
+  const { data, error, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useMovies({
+      count: searchCount,
+      title: searchTitle,
+      genre: searchGenre,
+    });
+
+  if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
+  if (!data) return null;
+
   return (
-    <StyledByGenrePage>
+    <StyledMoviesPage>
       <Container>
-        <StyledByGenrePageWrap>
-          <StyledByGenrePageTitle>Бла Бла жанр</StyledByGenrePageTitle>
-          <StyledByGenrePageList>
-            {genreList.map((genre) => (
-              <StyledByGenrePageItem key={genre}>
-                <StyledByGenrePageCard>
-                  <StyledByGenrePageCardImg
-                    src="/images/genre/drama.png"
-                    alt=""
-                  ></StyledByGenrePageCardImg>
-                </StyledByGenrePageCard>
-              </StyledByGenrePageItem>
+        <StyledMoviesPageHideTitle>
+          Поиск фильмов по заданными фильтрам
+        </StyledMoviesPageHideTitle>
+        <StyledMoviesPageWrap>
+          {searchGenre ? (
+            <StyledMoviesPageBackLink to={'/genres'}>
+              <Icon name="LeftIcon"></Icon>
+              {toUpperFirstChar(
+                getTransletedValue(genres, currentLang, searchGenre) ||
+                  searchGenre
+              )}
+            </StyledMoviesPageBackLink>
+          ) : null}
+          <StyledMoviesPageList>
+            {data.pages.flat().map((movie) => (
+              <StyledMoviesPageItem key={movie.id}>
+                <StyledMoviesPageCard>
+                  <StyledMoviesPageCardImg
+                    src={movie.posterUrl}
+                    alt={movie.title}
+                  ></StyledMoviesPageCardImg>
+                </StyledMoviesPageCard>
+              </StyledMoviesPageItem>
             ))}
-          </StyledByGenrePageList>
-        </StyledByGenrePageWrap>
+          </StyledMoviesPageList>
+          {hasNextPage ? (
+            <StyledMoviesPageBtn
+              onClick={() => fetchNextPage()}
+              disabled={!hasNextPage || isFetchingNextPage}
+            >
+              Показать ещё
+            </StyledMoviesPageBtn>
+          ) : null}
+          {hasNextPage && (
+            <InfiniteTrigger
+              disabled={isFetchingNextPage}
+              onIntersect={() => fetchNextPage()}
+            />
+          )}
+        </StyledMoviesPageWrap>
       </Container>
-    </StyledByGenrePage>
+    </StyledMoviesPage>
   );
 }

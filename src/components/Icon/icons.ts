@@ -16,6 +16,8 @@ export const LikeIcon = lazy(() => import('../../assets/icons/like.svg?react'));
 export const GenresIcon = lazy(
   () => import('../../assets/icons/genres.svg?react')
 );
+// movies
+export const LeftIcon = lazy(() => import('../../assets/icons/left.svg?react'));
 
 // Автоматический тип для имен иконок
 export type IconName = keyof typeof import('./icons');

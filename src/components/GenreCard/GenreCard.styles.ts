@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
+import { Link } from 'react-router-dom';
 
-export const StyledCard = styled.a`
+export const StyledCard = styled(Link)`
   height: 100%;
   background: #0a0b0b;
   display: flex;

@@ -13,7 +13,6 @@ import {
 export function MovieTop() {
   const { data, error } = useMovieTop();
 
-  // if (isLoading) return <Loader></Loader>;
   if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
   if (!data) return null;
 

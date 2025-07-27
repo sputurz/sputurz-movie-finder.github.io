@@ -1,7 +1,10 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
+import { VisuallyHidden } from '../../styles/utils/VisuallyHidden';
+import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
+import { Link } from 'react-router-dom';
 
-export const StyledByGenrePage = styled.section`
+export const StyledMoviesPage = styled.section`
   margin: 40px 0;
 
   ${vp767(css`
@@ -9,7 +12,7 @@ export const StyledByGenrePage = styled.section`
   `)}
 `;
 
-export const StyledByGenrePageWrap = styled.div`
+export const StyledMoviesPageWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -19,21 +22,35 @@ export const StyledByGenrePageWrap = styled.div`
   `)}
 `;
 
-export const StyledByGenrePageTitle = styled.h1`
-  padding: 0;
-  margin: 0;
+export const StyledMoviesPageHideTitle = styled.h1`
+  ${VisuallyHidden}
+`;
+
+export const StyledMoviesPageBackLink = styled(Link)`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
   color: #ffffff;
+  display: flex;
+  align-items: center;
 
   ${vp767(css`
     font-size: 48px;
     line-height: 56px;
   `)}
+
+  svg {
+    width: 32px;
+    height: 32px;
+
+    ${vp767(css`
+      width: 40px;
+      height: 40px;
+    `)}
+  }
 `;
 
-export const StyledByGenrePageList = styled.ul`
+export const StyledMoviesPageList = styled.ul`
   height: 100%;
   display: grid;
   gap: 24px;
@@ -49,9 +66,9 @@ export const StyledByGenrePageList = styled.ul`
   `)}
 `;
 
-export const StyledByGenrePageItem = styled.li``;
+export const StyledMoviesPageItem = styled.li``;
 
-export const StyledByGenrePageCard = styled.a`
+export const StyledMoviesPageCard = styled.a`
   width: 100%;
   aspect-ratio: 333 / 500;
   display: flex;
@@ -60,7 +77,20 @@ export const StyledByGenrePageCard = styled.a`
   box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.33);
 `;
 
-export const StyledByGenrePageCardImg = styled.img`
+export const StyledMoviesPageCardImg = styled.img`
   width: 100%;
   border-radius: 16px;
+`;
+
+export const StyledMoviesPageBtn = styled.button`
+  ${BtnPrimaryStyles}
+
+  align-self: center;
+  width: 100%;
+  background-color: #6a5dc2;
+
+  ${vp767(css`
+    width: 218px;
+    background-color: #67a5eb;
+  `)}
 `;

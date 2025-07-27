@@ -5,6 +5,7 @@ import {
   StyledCardImgContainer,
   StyledCardName,
 } from './GenreCard.styles';
+import { toUpperFirstChar } from '../../utils/toUpperFirstChar';
 
 interface IProps {
   genre: string;
@@ -15,7 +16,7 @@ export function GenreCard({ genre, genreTranslated }: IProps) {
   const [hasError, setHasError] = useState(false);
 
   return (
-    <StyledCard href="#">
+    <StyledCard to={`/movies?genre=${genre}`}>
       <StyledCardImgContainer>
         {hasError ? (
           <StyledCardImg src={`/images/genre/error.jpg`} alt={genre} />
@@ -27,9 +28,7 @@ export function GenreCard({ genre, genreTranslated }: IProps) {
           />
         )}
       </StyledCardImgContainer>
-      <StyledCardName>
-        {genreTranslated[0].toUpperCase() + genreTranslated.slice(1)}
-      </StyledCardName>
+      <StyledCardName>{toUpperFirstChar(genreTranslated)}</StyledCardName>
     </StyledCard>
   );
 }
