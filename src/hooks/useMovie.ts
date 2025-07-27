@@ -4,7 +4,7 @@ import { IMovie } from '../models';
 
 export function useMovie(MovieId: IMovie['id']) {
   return useQuery({
-    queryKey: ['movie'],
+    queryKey: ['movies'],
     queryFn: () => Api.getMovie(MovieId),
     retry: 0,
   });
