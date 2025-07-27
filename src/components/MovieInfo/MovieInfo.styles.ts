@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
-export const StyledMovieInfo = styled.section`
+export const StyledMovieInfo = styled.section``;
+
+export const StyledMovieInfoWrap = styled.div`
   display: flex;
   flex-direction: column;
   padding: 32px 0 32px;

@@ -3,28 +3,35 @@ import { vp1023, vp767 } from '../../styles/utils/mixins';
 import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
 import { BtnSecondaryStyles } from '../../styles/global/BtnSecondary';
 import { Link } from 'react-router-dom';
+import { ImageLoader } from '../ImageLoader';
 
-export const StyledMoviePromo = styled.div`
+export const StyledMoviePromo = styled.section``;
+
+export const StyledMoviePromoInner = styled.div`
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 24px;
 
   ${vp1023(
     css`
-      padding-top: 32px;
       grid-template-columns: 1fr minmax(0, calc(680 / 1280 * 100%));
+      grid-template-areas: 'content image';
+      align-items: start;
       gap: 0;
+      padding-top: 32px;
     `
   )}
 `;
 
-export const StyledMoviePromoImg = styled.img`
-  border-radius: 16px;
-  width: 100%;
+export const StyledMoviePromoImgContainer = styled(ImageLoader)`
+  img {
+    width: 100%;
+    border-radius: 16px;
+  }
 
   ${vp1023(
     css`
-      grid-column: 2;
+      grid-area: image;
     `
   )}
 `;
@@ -35,6 +42,7 @@ export const StyledMoviePromoWrap = styled.div<{ $isAboutMovie?: boolean }>`
   gap: 32px;
 
   ${vp1023(css`
+    grid-area: content;
     padding: 74px 20px 0 0;
     grid-column: 1;
     grid-row: 1;

@@ -11,9 +11,9 @@ import {
 } from './MovieTop.styles';
 
 export function MovieTop() {
-  const { data, error, isLoading } = useMovieTop();
+  const { data, error } = useMovieTop();
 
-  if (isLoading) return <div>Loading...</div>;
+  // if (isLoading) return <Loader></Loader>;
   if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
   if (!data) return null;
 

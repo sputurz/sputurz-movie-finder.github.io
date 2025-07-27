@@ -8,8 +8,10 @@ import {
   StyledMovieInfoList,
   StyledMovieInfoTitle,
   StyledMovieInfoValue,
+  StyledMovieInfoWrap,
 } from './MovieInfo.styles';
 import { formatStringToRub } from '../../utils/formatStringToRub';
+import { Container } from '../Container';
 
 type Props = {
   movie: IMovie;
@@ -27,18 +29,22 @@ export const MovieInfo: FC<Props> = ({ movie }) => {
 
   return (
     <StyledMovieInfo>
-      <StyledMovieInfoTitle>О фильме</StyledMovieInfoTitle>
-      <StyledMovieInfoList>
-        {infoList.map((item) =>
-          item.value ? (
-            <StyledMovieInfoItem key={item.value}>
-              <StyledMovieInfoLabel>{item.label}</StyledMovieInfoLabel>
-              <StyledMovieInfoDash></StyledMovieInfoDash>
-              <StyledMovieInfoValue>{item.value}</StyledMovieInfoValue>
-            </StyledMovieInfoItem>
-          ) : null
-        )}
-      </StyledMovieInfoList>
+      <Container>
+        <StyledMovieInfoWrap>
+          <StyledMovieInfoTitle>О фильме</StyledMovieInfoTitle>
+          <StyledMovieInfoList>
+            {infoList.map((item) =>
+              item.value ? (
+                <StyledMovieInfoItem key={item.value}>
+                  <StyledMovieInfoLabel>{item.label}</StyledMovieInfoLabel>
+                  <StyledMovieInfoDash></StyledMovieInfoDash>
+                  <StyledMovieInfoValue>{item.value}</StyledMovieInfoValue>
+                </StyledMovieInfoItem>
+              ) : null
+            )}
+          </StyledMovieInfoList>
+        </StyledMovieInfoWrap>
+      </Container>
     </StyledMovieInfo>
   );
 };

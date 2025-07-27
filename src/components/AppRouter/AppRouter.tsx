@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Route, Routes } from 'react-router-dom';
 import { ErrorFallback } from '../ErrorFallback';
+import { Loader } from '../Loader';
 
 const HomePage = lazy(() => import('../../pages/HomePage/page'));
 const GenresPage = lazy(() => import('../../pages/GenresPage/page'));
@@ -23,7 +24,7 @@ export const AppRouter = () => (
       </ErrorFallback>
     }
   >
-    <Suspense fallback={<div>Загрузка...</div>}>
+    <Suspense fallback={<Loader></Loader>}>
       <Routes>
         {routerConfig.map((route) => (
           <Route
