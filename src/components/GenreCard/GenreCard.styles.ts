@@ -1,8 +1,11 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { Link } from 'react-router-dom';
+import { transitionTransform } from '../../styles/utils/variables';
 
 export const StyledCard = styled(Link)`
+  ${transitionTransform}
+
   height: 100%;
   background: #0a0b0b;
   display: flex;
@@ -10,6 +13,10 @@ export const StyledCard = styled(Link)`
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.33);
+
+  &:hover {
+    transform: scale(0.95);
+  }
 `;
 
 export const StyledCardImgContainer = styled.div`

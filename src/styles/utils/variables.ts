@@ -3,20 +3,28 @@ import { css } from 'styled-components';
 // Viewport
 export const vpMobile = `767px`;
 export const vpTablet = `1023px`;
+
 // Animation
+export const transition = (property: string) => css`
+  transition: ${property} ease-in 0.3s;
+`;
 
 export const transitionOpacity = css`
-  transition: opacity ease-in 0.3s;
+  ${transition('opacity')}
+`;
+
+export const transitionTransform = css`
+  ${transition('transform')}
 `;
 
 export const transitionColor = css`
-  transition: color ease-in 0.3s;
+  ${transition('color')}
 `;
 
 export const transitionBorderColor = css`
-  transition: border-color ease-in 0.3s;
+  ${transition('border-color')}
 `;
 
 export const transitionBgrColor = css`
-  transition: background-color ease-in 0.3s;
+  ${transition('background-color')}
 `;

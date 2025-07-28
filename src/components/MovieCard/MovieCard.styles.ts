@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { transitionOpacity } from '../../styles/utils/variables';
+import { transitionTransform } from '../../styles/utils/variables';
 
 export const StyledMovieCard = styled(Link)`
+  ${transitionTransform}
+
   position: relative;
   aspect-ratio: 224 / 336;
   display: flex;
@@ -13,13 +15,12 @@ export const StyledMovieCard = styled(Link)`
   -webkit-user-select: none;
   -webkit-user-drag: none;
 
-  &:hover img {
-    opacity: 0.8;
+  &:hover {
+    transform: scale(0.95);
   }
 `;
 
 export const StyledMovieCardImg = styled.img`
-  ${transitionOpacity}
   width: 100%;
   height: 100%;
   border-radius: inherit;
