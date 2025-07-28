@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
+import {
+  transitionOpacity,
+  transitionTransform,
+} from '../../styles/utils/variables';
 
 export const StyledSocials = styled.ul`
   display: flex;
@@ -26,6 +30,9 @@ export const StyledSocialItem = styled.li`
 `;
 
 export const StyledLink = styled.a`
+  ${transitionOpacity}
+  ${transitionTransform}
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,5 +40,10 @@ export const StyledLink = styled.a`
   > svg {
     width: 100%;
     height: 100%;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(0.95);
   }
 `;

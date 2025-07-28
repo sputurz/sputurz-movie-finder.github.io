@@ -1,5 +1,10 @@
 import { lazy } from 'react';
 
+// auth
+export const CloseIcon = lazy(
+  () => import('../../assets/icons/close.svg?react')
+);
+
 // socials
 export const VkIcon = lazy(() => import('../../assets/icons/vk.svg?react'));
 export const YtIcon = lazy(() => import('../../assets/icons/yt.svg?react'));

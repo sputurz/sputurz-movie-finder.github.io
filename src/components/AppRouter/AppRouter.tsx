@@ -3,6 +3,8 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { Route, Routes } from 'react-router-dom';
 import { ErrorFallback } from '../ErrorFallback';
 import { Loader } from '../Loader';
+import { Header } from '../Header';
+import { Footer } from '../Footer';
 
 const HomePage = lazy(() => import('../../pages/HomePage/page'));
 const GenresPage = lazy(() => import('../../pages/GenresPage/page'));
@@ -19,21 +21,27 @@ const routerConfig = [
 export const AppRouter = () => (
   <ErrorBoundary
     fallback={
-      <ErrorFallback>
-        Что-то пошло не так. Пожалуйста, перезагрузите страницу.
-      </ErrorFallback>
+      <main>
+        <ErrorFallback>
+          Что-то пошло не так. Пожалуйста, перезагрузите страницу.
+        </ErrorFallback>
+      </main>
     }
   >
     <Suspense fallback={<Loader></Loader>}>
-      <Routes>
-        {routerConfig.map((route) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            element={<route.component />}
-          />
-        ))}
-      </Routes>
+      <Header></Header>
+      <main>
+        <Routes>
+          {routerConfig.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={<route.component />}
+            />
+          ))}
+        </Routes>
+      </main>
+      <Footer></Footer>
     </Suspense>
   </ErrorBoundary>
 );

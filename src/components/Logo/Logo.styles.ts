@@ -1,10 +1,14 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { Link } from 'react-router-dom';
-import { transitionOpacity } from '../../styles/utils/variables';
+import {
+  transitionOpacity,
+  transitionTransform,
+} from '../../styles/utils/variables';
 
 export const StyledLogoLink = styled(Link)`
   ${transitionOpacity}
+  ${transitionTransform}
 
   display: flex;
   padding: 7px 0;
@@ -12,6 +16,7 @@ export const StyledLogoLink = styled(Link)`
 
   &:hover {
     opacity: 0.8;
+    transform: scale(0.95);
   }
 
   ${vp767(css`
@@ -20,4 +25,6 @@ export const StyledLogoLink = styled(Link)`
   `)}
 `;
 
-export const StyledLogoImg = styled.img``;
+export const StyledLogoImg = styled.img`
+  height: 100%;
+`;
