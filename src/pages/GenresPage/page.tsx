@@ -10,10 +10,12 @@ import {
 import { genres, getTransletedValue } from '../../utils/dictionarty';
 import { ErrorFallback } from '../../components/ErrorFallback';
 import { useMovieGenres } from '../../hooks/useMovieGenres';
-
-const currentLang = 'russian';
+import { useAppSelector } from '../../store/hooks';
+import { selectLanguage } from '../../languageSlice';
 
 export default function GenresPage() {
+  const currentLang = useAppSelector(selectLanguage);
+
   const { data, error } = useMovieGenres();
 
   if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;

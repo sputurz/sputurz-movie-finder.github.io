@@ -4,7 +4,11 @@ import { lazy } from 'react';
 export const CloseIcon = lazy(
   () => import('../../assets/icons/close.svg?react')
 );
-
+export const PasswordIcon = lazy(
+  () => import('../../assets/icons/password.svg?react')
+);
+export const MailIcon = lazy(() => import('../../assets/icons/mail.svg?react'));
+export const UserIcon = lazy(() => import('../../assets/icons/user.svg?react'));
 // socials
 export const VkIcon = lazy(() => import('../../assets/icons/vk.svg?react'));
 export const YtIcon = lazy(() => import('../../assets/icons/yt.svg?react'));

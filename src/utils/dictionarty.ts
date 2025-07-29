@@ -21,15 +21,37 @@ export const genres = {
     war: 'военное',
     adventure: 'приключение',
   },
+  english: {
+    history: 'history',
+    horror: 'horror',
+    scifi: 'scifi',
+    'stand-up': 'stand-up',
+    fantasy: 'fantasy',
+    drama: 'drama',
+    mystery: 'mystery',
+    family: 'family',
+    comedy: 'comedy',
+    romance: 'romance',
+    music: 'music',
+    crime: 'crime',
+    'tv-movie': 'tv-movie',
+    documentary: 'documentary',
+    action: 'action',
+    thriller: 'thriller',
+    western: 'western',
+    animation: 'animation',
+    war: 'war',
+    adventure: 'adventure',
+  },
 } as const;
 
 type LocaleDict = Record<string, Record<string, string>>;
 
-export function getTransletedValue<
-  T extends LocaleDict,
-  L extends keyof T,
-  K extends string
->(dict: T, lang: L, key: K): string {
+export function getTransletedValue<T extends LocaleDict, K extends string>(
+  dict: T,
+  lang: string,
+  key: K
+): string {
   const map = dict[lang];
   return key in map ? map[key as keyof typeof map] : key;
 }

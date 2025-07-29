@@ -1,14 +1,24 @@
-import { StyledLoginForm, StyledLoginFormBtn } from './LoginForm.styles';
+import { FormField } from '../FormField';
+import { Icon } from '../Icon';
+import {
+  StyledLoginForm,
+  StyledLoginFormBtn,
+  StyledLoginFormWrap,
+} from './LoginForm.styles';
 
 export const LoginForm = () => {
   return (
     <StyledLoginForm>
-      {/* <FormField label="Email" errorMessage={errors.email?.message}>
-          <input type="text" />
+      <StyledLoginFormWrap>
+        <FormField>
+          <Icon name="MailIcon"></Icon>
+          <input type="text" placeholder="Электронная почта"></input>
         </FormField>
-        <FormField label="РџР°СЂРѕР»СЊ" errorMessage={errors.password?.message}>
-          <input type="password" />
-        </FormField> */}
+        <FormField>
+          <Icon name="PasswordIcon"></Icon>
+          <input type="password" placeholder="Пароль"></input>
+        </FormField>
+      </StyledLoginFormWrap>
 
       <StyledLoginFormBtn type="submit" disabled={false}>
         Войти

@@ -2,20 +2,17 @@ import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { transitionOpacity } from '../../styles/utils/variables';
 
-export const StyledAuthModal = styled.div`
+export const StyledAuthModal = styled.dialog`
   position: fixed;
   inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 20;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-  }
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  width: 100%;
 `;
 
 export const StyledAuthModalWrap = styled.div`

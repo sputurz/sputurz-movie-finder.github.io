@@ -1,12 +1,12 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Container } from '../Container';
 import { Logo } from '../Logo';
 import { Nav } from '../Nav';
 import { StyledHeader, StyledHeaderWrap } from './Header.styles';
-import { AuthModal } from '../AuthModal';
+// import { AuthModal } from '../AuthModal';
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isShown, setIsShown] = useState(false);
 
   return (
     <StyledHeader>
@@ -14,8 +14,8 @@ export function Header() {
         <StyledHeaderWrap>
           <Logo src={'/logoBlack.svg'}></Logo>
           <Nav></Nav>
-          <button onClick={() => setIsOpen(true)}>войти</button>
-          {isOpen && <AuthModal></AuthModal>}
+          {/* <button onClick={() => setIsShown(true)}>Показать модалку</button>
+          {isShown && <AuthModal></AuthModal>} */}
         </StyledHeaderWrap>
       </Container>
     </StyledHeader>
