@@ -5,6 +5,7 @@ import { ErrorFallback } from '../ErrorFallback';
 import { Loader } from '../Loader';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
+import { AuthModal } from '../AuthModal';
 
 const HomePage = lazy(() => import('../../pages/HomePage/page'));
 const GenresPage = lazy(() => import('../../pages/GenresPage/page'));
@@ -30,6 +31,7 @@ export const AppRouter = () => (
   >
     <Suspense fallback={<Loader></Loader>}>
       <Header></Header>
+      <AuthModal></AuthModal>
       <main>
         <Routes>
           {routerConfig.map((route) => (

@@ -11,7 +11,7 @@ import { genres, getTransletedValue } from '../../utils/dictionarty';
 import { ErrorFallback } from '../../components/ErrorFallback';
 import { useMovieGenres } from '../../hooks/useMovieGenres';
 import { useAppSelector } from '../../store/hooks';
-import { selectLanguage } from '../../languageSlice';
+import { selectLanguage } from '../../store/globalSlices/languageSlice';
 
 export default function GenresPage() {
   const currentLang = useAppSelector(selectLanguage);

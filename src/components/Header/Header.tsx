@@ -1,12 +1,12 @@
-// import { useState } from 'react';
+import { useAppDispatch } from '../../store/hooks';
+import { openAuthModal } from '../AuthModal/AuthModalSlice';
 import { Container } from '../Container';
 import { Logo } from '../Logo';
 import { Nav } from '../Nav';
 import { StyledHeader, StyledHeaderWrap } from './Header.styles';
-// import { AuthModal } from '../AuthModal';
 
 export function Header() {
-  // const [isShown, setIsShown] = useState(false);
+  const dispatch = useAppDispatch();
 
   return (
     <StyledHeader>
@@ -14,8 +14,9 @@ export function Header() {
         <StyledHeaderWrap>
           <Logo src={'/logoBlack.svg'}></Logo>
           <Nav></Nav>
-          {/* <button onClick={() => setIsShown(true)}>Показать модалку</button>
-          {isShown && <AuthModal></AuthModal>} */}
+          <button onClick={() => dispatch(openAuthModal())}>
+            Показать модалку
+          </button>
         </StyledHeaderWrap>
       </Container>
     </StyledHeader>

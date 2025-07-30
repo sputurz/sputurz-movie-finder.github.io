@@ -5,14 +5,19 @@ import { transitionOpacity } from '../../styles/utils/variables';
 export const StyledAuthModal = styled.dialog`
   position: fixed;
   inset: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  z-index: 20;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 20;
-  border: none;
-  padding: 0;
-  background-color: transparent;
-  width: 100%;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }
 `;
 
 export const StyledAuthModalWrap = styled.div`
@@ -21,10 +26,10 @@ export const StyledAuthModalWrap = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 24px;
-  margin: auto 20px;
-  padding: 64px 20px 32px;
+  /* margin: auto 20px; */
+  /* padding: 64px 20px 32px; */
   background-color: #ffffff;
-  width: 100%;
+  /* width: 90%; */
 
   z-index: 1;
 
@@ -41,8 +46,8 @@ export const StyledAuthModalWrap = styled.div`
 
   ${vp767(
     css`
-      width: 420px;
-      margin: 0;
+      max-width: 420px;
+      /* margin: 0; */
       padding: 64px 40px;
     `
   )}
