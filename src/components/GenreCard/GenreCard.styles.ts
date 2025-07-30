@@ -15,7 +15,7 @@ export const StyledCard = styled(Link)`
   box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.33);
 
   &:hover {
-    transform: scale(0.95);
+    transform: scale(1.05);
   }
 `;
 

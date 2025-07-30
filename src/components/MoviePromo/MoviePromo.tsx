@@ -57,7 +57,10 @@ export const MoviePromo: FC<Props> = ({
           <StyledMoviePromoWrap $isAboutMovie={isAboutMovie}>
             <StyledMoviePromoTextWrap>
               <StyledMoviePromoTagText>
-                <MovieRating rating={movie.tmdbRating}></MovieRating>
+                {movie.tmdbRating ? (
+                  <MovieRating rating={movie.tmdbRating}></MovieRating>
+                ) : null}
+
                 <StyledMoviePromoYear>{movie.releaseYear}</StyledMoviePromoYear>
                 <StyledMoviePromoGenres>
                   {movie.genres?.join(', ') || ''}

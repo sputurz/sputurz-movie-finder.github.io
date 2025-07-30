@@ -6,7 +6,15 @@ import {
   transitionTransform,
 } from '../../styles/utils/variables';
 
-export const StyledLogoLink = styled(Link)`
+// Обернём Link в forwardRef, чтобы ref прокидывался к <a>
+import React, { forwardRef } from 'react';
+
+const LinkWithRef = forwardRef<
+  HTMLAnchorElement,
+  React.ComponentProps<typeof Link>
+>((props, ref) => React.createElement(Link, { ...props, ref }));
+
+export const StyledLogoLink = styled(LinkWithRef)`
   ${transitionOpacity}
   ${transitionTransform}
 
@@ -16,7 +24,7 @@ export const StyledLogoLink = styled(Link)`
 
   &:hover {
     opacity: 0.8;
-    transform: scale(0.95);
+    transform: scale(1.05);
   }
 
   ${vp767(css`

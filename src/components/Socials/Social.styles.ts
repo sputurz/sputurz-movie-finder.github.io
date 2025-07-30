@@ -44,6 +44,6 @@ export const StyledLink = styled.a`
 
   &:hover {
     opacity: 0.8;
-    transform: scale(0.95);
+    transform: scale(1.1);
   }
 `;

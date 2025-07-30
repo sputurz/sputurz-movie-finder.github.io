@@ -16,7 +16,7 @@ export const StyledMovieCard = styled(Link)`
   -webkit-user-drag: none;
 
   &:hover {
-    transform: scale(0.95);
+    transform: scale(1.05);
   }
 `;
 
