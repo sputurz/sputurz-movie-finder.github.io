@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   StyledAuthModal,
   StyledAuthModalBtnAuthType,
   StyledAuthModalBtnClose,
+  StyledAuthModalBackdrop,
   StyledAuthModalWrap,
 } from './AuthModal.styles';
 import { Logo } from '../Logo';
@@ -16,86 +17,81 @@ export const AuthModal = () => {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector(selectAuthModal);
   const [authType, setAuthType] = useState<string>('auth');
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  // Открытие / закрытие через Redux
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-
-    if (isOpen && !dialog.open) {
-      dialog.showModal();
-      document.body.style.overflow = 'hidden'; // блокировка скролла
-    }
-
-    if (!isOpen && dialog.open) {
-      dialog.close();
-      document.body.style.overflow = ''; // возврат скролла
-    }
-  }, [isOpen]);
-
-  // Закрытие по ESC или клику вне
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-
-    const handleClose = () => {
-      dispatch(closeAuthModal());
-    };
-
-    dialog.addEventListener('close', handleClose);
-    return () => {
-      dialog.removeEventListener('close', handleClose);
-    };
-  }, [dispatch]);
-
-  const handleManualClose = () => {
-    if (dialogRef.current?.open) {
-      dialogRef.current.close();
-    } else {
-      dispatch(closeAuthModal()); // fallback
-    }
-  };
+  // const [shouldRender, setShouldRender] = useState(isOpen);
 
   const toggleAuthType = () => {
     setAuthType((prev) => (prev === 'register' ? 'auth' : 'register'));
   };
 
+  const closeModal = () => {
+    dispatch(closeAuthModal());
+    setAuthType('auth');
+  };
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
   useEffect(() => {
-    console.log('[MODAL STATE]', {
-      isOpen,
-      dialogOpen: dialogRef.current?.open,
-    });
-  }, [isOpen]);
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        dispatch(closeAuthModal());
+        setAuthType('auth');
+      }
+    };
+
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', onKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [isOpen, dispatch]);
+
+  if (!isOpen) return null;
+
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     setShouldRender(true);
+  //   } else {
+  //     const timeout = setTimeout(() => setShouldRender(false), 700);
+  //     return () => clearTimeout(timeout);
+  //   }
+  // }, [isOpen]);
+
+  // if (!shouldRender) return null;
 
   return (
-    <StyledAuthModal
-      ref={dialogRef}
-      onCancel={() => {
-        console.log('cancel triggered');
-        dispatch(closeAuthModal());
-      }}
-    >
-      <StyledAuthModalWrap>
-        <Logo src={'/logoWhite.svg'}></Logo>
-        {authType === 'register' ? <RegistrationForm /> : <LoginForm />}
-        <StyledAuthModalBtnAuthType
-          onClick={toggleAuthType}
-          aria-label={
-            authType === 'register'
-              ? 'Перейти к авторизации'
-              : 'Перейти к регистрации'
-          }
-        >
-          {authType === 'register' ? 'Регистрация' : 'У меня есть пароль'}
-        </StyledAuthModalBtnAuthType>
-        <StyledAuthModalBtnClose
-          onClick={handleManualClose}
-          aria-label={'Закрыть форму'}
-        >
-          <Icon name="CloseIcon"></Icon>
-        </StyledAuthModalBtnClose>
-      </StyledAuthModalWrap>
-    </StyledAuthModal>
+    <StyledAuthModalBackdrop onClick={handleBackdropClick} $isOpen={isOpen}>
+      <StyledAuthModal $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
+        <StyledAuthModalWrap $isOpen={isOpen}>
+          <Logo src={'/logoWhite.svg'}></Logo>
+          {authType === 'register' ? <RegistrationForm /> : <LoginForm />}
+          <StyledAuthModalBtnAuthType
+            onClick={toggleAuthType}
+            aria-label={
+              authType === 'register'
+                ? 'Перейти к авторизации'
+                : 'Перейти к регистрации'
+            }
+          >
+            {authType === 'register' ? 'Регистрация' : 'У меня есть пароль'}
+          </StyledAuthModalBtnAuthType>
+          <StyledAuthModalBtnClose
+            onClick={closeModal}
+            aria-label={'Закрыть форму'}
+          >
+            <Icon name="CloseIcon"></Icon>
+          </StyledAuthModalBtnClose>
+        </StyledAuthModalWrap>
+      </StyledAuthModal>
+    </StyledAuthModalBackdrop>
   );
 };

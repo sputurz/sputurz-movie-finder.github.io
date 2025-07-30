@@ -14,6 +14,7 @@ export const StyledMovieRating = styled.div`
   background-color: ${(props) => props.color};
 
   > svg {
+    color: #ffffff;
     height: 16px;
     width: 16px;
   }

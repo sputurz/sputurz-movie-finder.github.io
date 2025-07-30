@@ -2,36 +2,85 @@ import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { transitionOpacity } from '../../styles/utils/variables';
 
-export const StyledAuthModal = styled.dialog`
-  position: fixed;
-  inset: 0;
-  border: none;
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
-  z-index: 20;
+export const StyledAuthModalBackdrop = styled.div<{ $isOpen: boolean }>`
+  /* ${transitionOpacity} */
 
+  position: absolute;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: env(safe-area-inset-top, 20px);
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.5);
 
-  &::backdrop {
-    background: rgba(0, 0, 0, 0.5);
+  /* Анимация появления/исчезновения */
+  animation: ${({ $isOpen }) => ($isOpen ? 'fadeIn' : 'fadeOut')} 0.7s ease
+    forwards;
+  pointer-events: ${({ $isOpen }) =>
+    $isOpen ? 'auto' : 'none'}; /* Чтобы нельзя было кликать когда скрыт */
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 `;
 
-export const StyledAuthModalWrap = styled.div`
+export const StyledAuthModal = styled.div<{ $isOpen: boolean }>`
+  box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.33);
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-radius: 24px;
-  /* margin: auto 20px; */
-  /* padding: 64px 20px 32px; */
-  background-color: #ffffff;
-  /* width: 90%; */
 
+  margin: 20px;
+  width: 100%;
+  max-height: calc(100dvh - 40px);
   z-index: 1;
+
+  /* animation: slideUp 0.3s ease forwards;
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  } */
+
+  ${vp767(
+    css`
+      width: 420px;
+      margin: 20px auto;
+    `
+  )}
+`;
+
+export const StyledAuthModalWrap = styled.div<{ $isOpen: boolean }>`
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  padding: 64px 20px 32px;
+  overflow-y: auto;
 
   a {
     height: 30px;
@@ -46,8 +95,6 @@ export const StyledAuthModalWrap = styled.div`
 
   ${vp767(
     css`
-      max-width: 420px;
-      /* margin: 0; */
       padding: 64px 40px;
     `
   )}
@@ -84,6 +131,7 @@ export const StyledAuthModalBtnClose = styled.button`
   background-color: transparent;
   width: 48px;
   height: 48px;
+  overflow: unset;
 
   svg {
     width: 24px;
