@@ -1,10 +1,9 @@
 import { css } from 'styled-components';
 import { vp767 } from '../utils/mixins';
-import { transitionBorderColor, transitionColor } from '../utils/variables';
+import { transitionOpacity } from '../utils/variables';
 
 export const NavLinkStyles = css`
-  ${transitionBorderColor}
-  ${transitionColor}
+  ${transitionOpacity}
 
   display: flex;
   align-items: center;
@@ -15,10 +14,10 @@ export const NavLinkStyles = css`
   color: #ffffff;
 
   &:hover {
-    color: #b4a9ff;
+    opacity: 0.8;
   }
 
-  &:active {
+  &.active {
     color: #b4a9ff;
   }
 
@@ -28,12 +27,7 @@ export const NavLinkStyles = css`
     border-bottom: 1px solid transparent;
     opacity: 1;
 
-    &:hover {
-      color: #ffffff;
-      border-bottom: 1px solid rgba(151, 71, 255, 1);
-    }
-
-    &:active {
+    &.active {
       color: #ffffff;
       border-bottom: 1px solid rgba(151, 71, 255, 1);
     }

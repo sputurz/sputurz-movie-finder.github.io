@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { NavLinkStyles } from '../../styles/global/NavLink';
 import { Icon } from '../Icon';
 
@@ -23,7 +23,7 @@ export const StyledNav = styled.nav`
   `)}
 `;
 
-export const StyledNavLink = styled(Link)`
+export const StyledNavLink = styled(NavLink)`
   ${NavLinkStyles}
 
   padding: 0;
