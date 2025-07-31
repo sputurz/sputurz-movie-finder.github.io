@@ -12,6 +12,7 @@ export const NavLinkStyles = css`
   font-size: 18px;
   line-height: 24px;
   color: #ffffff;
+  z-index: 15;
 
   &:hover {
     opacity: 0.8;

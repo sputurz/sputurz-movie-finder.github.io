@@ -5,7 +5,9 @@ import { BtnSecondaryStyles } from '../../styles/global/BtnSecondary';
 import { Link } from 'react-router-dom';
 import { ImageLoader } from '../ImageLoader';
 
-export const StyledMoviePromo = styled.section``;
+export const StyledMoviePromo = styled.section`
+  position: relative;
+`;
 
 export const StyledMoviePromoInner = styled.div`
   display: grid;

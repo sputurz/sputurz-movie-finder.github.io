@@ -1,0 +1,77 @@
+import styled, { css } from 'styled-components';
+import { vp767 } from '../../styles/utils/mixins';
+
+export const StyledUserProfile = styled.section`
+  padding: 16px 0 152px;
+
+  ${vp767(css`
+    padding: 64px 0 120px;
+  `)}
+`;
+
+export const StyledUserProfileWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  ${vp767(
+    css`
+      gap: 64px;
+    `
+  )}
+`;
+
+export const StyledUserProfileTitle = styled.h1`
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #ffffff;
+
+  ${vp767(css`
+    font-size: 48px;
+    line-height: 56px;
+  `)}
+`;
+
+export const StyledUserProfileTabFavorites = styled.div`
+  ${vp767(css``)}
+`;
+
+export const StyledUserProfileTabFavoritesList = styled.ul`
+  margin: -80px -20px;
+  padding: 80px 20px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 40px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  ${vp767(css`
+    margin: 0;
+    padding: 0;
+    overflow-x: unset;
+    scrollbar-width: unset;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 224px);
+    gap: 64px 40px;
+    justify-content: space-evenly;
+
+    &::-webkit-scrollbar {
+      display: unset;
+    }
+  `)}
+`;
+
+export const StyledUserProfileTabFavoritesListItem = styled.li`
+  flex-shrink: 0;
+  width: 224px;
+  height: 336px;
+
+  ${vp767(css``)}
+`;

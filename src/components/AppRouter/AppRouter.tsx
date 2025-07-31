@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { ErrorFallback } from '../ErrorFallback';
 import { Loader } from '../Loader';
 import { Header } from '../Header';
@@ -12,12 +12,29 @@ const HomePage = lazy(() => import('../../pages/HomePage/page'));
 const GenresPage = lazy(() => import('../../pages/GenresPage/page'));
 const MoviesPage = lazy(() => import('../../pages/MoviesPage/page'));
 const MoviePage = lazy(() => import('../../pages/MoviePage/page'));
+const UserProfilePage = lazy(() => import('../../pages/UserProfilePage/page'));
+const SettingTab = lazy(() => import('../../components/SettingTab/SettingTab'));
+const FavoritesTab = lazy(
+  () => import('../../components/FavoritesTab/FavoritesTab')
+);
 
 const routerConfig = [
   { path: '/', component: HomePage },
   { path: '/genres', component: GenresPage },
   { path: '/movies', component: MoviesPage },
   { path: '/movie/:movieId', component: MoviePage },
+  {
+    path: '/profile/*',
+    component: () => (
+      <UserProfilePage>
+        <Routes>
+          <Route index element={<Navigate to="favorites" replace />} />
+          <Route path="favorites" element={<FavoritesTab />} />
+          <Route path="settings" element={<SettingTab />} />
+        </Routes>
+      </UserProfilePage>
+    ),
+  },
 ] as const;
 
 export const AppRouter = () => {

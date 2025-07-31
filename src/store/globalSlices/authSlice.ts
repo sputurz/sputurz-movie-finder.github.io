@@ -44,4 +44,9 @@ export const authSlice = createAppSlice({
 });
 
 export const { setUser, clearUser, setLoading } = authSlice.actions;
-export const { selectAuth } = authSlice.selectors;
+export const {
+  selectAuth,
+  selectUser,
+  selectIsLoading,
+  selectIsAuthenticated,
+} = authSlice.selectors;

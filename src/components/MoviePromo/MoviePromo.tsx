@@ -22,6 +22,7 @@ import { MovieRating } from '../MovieRating';
 import { convertMinsToHoursMins } from '../../utils/convertMinsToHoursMins';
 import { Icon } from '../Icon';
 import { Container } from '../Container';
+import { VideoPlayer } from '../VideoPlayer';
 
 type Props = {
   movie: IMovie;
@@ -39,6 +40,7 @@ export const MoviePromo: FC<Props> = ({
   onUpdate,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [showPlayer, setShowPlayer] = useState(false);
 
   const isBusy = isFetching || isLoading || !imageLoaded;
 
@@ -77,9 +79,18 @@ export const MoviePromo: FC<Props> = ({
               </StyledMoviePromoPlot>
             </StyledMoviePromoTextWrap>
             <StyledMoviePromoBtnWrap $isAboutMovie={isAboutMovie}>
-              <StyledMoviePromoBtnVideo disabled={isBusy}>
+              <StyledMoviePromoBtnVideo
+                disabled={isBusy}
+                onClick={() => setShowPlayer(true)}
+              >
                 Трейлер
               </StyledMoviePromoBtnVideo>
+              {showPlayer && (
+                <VideoPlayer
+                  trailerYouTubeId={movie.trailerYoutubeId}
+                  trailerUrl={movie.trailerUrl}
+                />
+              )}
               {isAboutMovie ? null : (
                 <StyledMoviePromoLinkAbout
                   $iSdisabled={isBusy}
