@@ -9,10 +9,11 @@ import {
 import { LoginUser, LoginUserSchema } from '../../models/Auth';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { loginUser } from '../../api/AuthApi';
+import { getProfile, loginUser } from '../../api/AuthApi';
 
 import { closeAuthModal } from '../AuthModal/AuthModalSlice';
 import { useAppDispatch } from '../../store/hooks';
+import { setUser } from '../../store/globalSlices/authSlice';
 
 export const LoginForm = () => {
   const dispatch = useAppDispatch();
@@ -29,8 +30,10 @@ export const LoginForm = () => {
 
   const loginMutation = useMutation({
     mutationFn: loginUser,
-    onSuccess() {
-      queryClient.invalidateQueries({ queryKey: ['user', 'me'] });
+    async onSuccess() {
+      const user = await getProfile(); // /profile с куки/токеном
+      dispatch(setUser(user));
+      queryClient.invalidateQueries({ queryKey: ['me'] });
       dispatch(closeAuthModal());
       // reset();
     },

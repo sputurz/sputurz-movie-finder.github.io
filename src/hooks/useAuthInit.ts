@@ -17,7 +17,8 @@ export const useAuthInit = () => {
     queryKey: ['me'],
     queryFn: Api.getProfile,
     retry: false,
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
+    // staleTime: 5 * 60 * 1000,
   });
 
   const { data, isError, isFetching } = query;
@@ -28,6 +29,10 @@ export const useAuthInit = () => {
     if (data) dispatch(setUser(data));
     if (isError) dispatch(clearUser());
   }, [data, isError, isFetching, dispatch]);
+
+  useEffect(() => {
+    console.log('useAuthInit status', { data, isFetching, isError });
+  }, [data, isFetching, isError]);
 
   return query;
 };
