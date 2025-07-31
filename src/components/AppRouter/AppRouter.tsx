@@ -6,6 +6,7 @@ import { Loader } from '../Loader';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { AuthModal } from '../AuthModal';
+import { useAuthInit } from '../../hooks/useAuthInit';
 
 const HomePage = lazy(() => import('../../pages/HomePage/page'));
 const GenresPage = lazy(() => import('../../pages/GenresPage/page'));
@@ -19,31 +20,35 @@ const routerConfig = [
   { path: '/movie/:movieId', component: MoviePage },
 ] as const;
 
-export const AppRouter = () => (
-  <ErrorBoundary
-    fallback={
-      <main>
-        <ErrorFallback>
-          Что-то пошло не так. Пожалуйста, перезагрузите страницу.
-        </ErrorFallback>
-      </main>
-    }
-  >
-    <Suspense fallback={<Loader></Loader>}>
-      <Header></Header>
-      <AuthModal></AuthModal>
-      <main>
-        <Routes>
-          {routerConfig.map((route) => (
-            <Route
-              key={route.path}
-              path={route.path}
-              element={<route.component />}
-            />
-          ))}
-        </Routes>
-      </main>
-      <Footer></Footer>
-    </Suspense>
-  </ErrorBoundary>
-);
+export const AppRouter = () => {
+  useAuthInit();
+
+  return (
+    <ErrorBoundary
+      fallback={
+        <main>
+          <ErrorFallback>
+            Что-то пошло не так. Пожалуйста, перезагрузите страницу.
+          </ErrorFallback>
+        </main>
+      }
+    >
+      <Suspense fallback={<Loader></Loader>}>
+        <Header></Header>
+        <AuthModal></AuthModal>
+        <main>
+          <Routes>
+            {routerConfig.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<route.component />}
+              />
+            ))}
+          </Routes>
+        </main>
+        <Footer></Footer>
+      </Suspense>
+    </ErrorBoundary>
+  );
+};

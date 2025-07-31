@@ -1,3 +1,4 @@
+import { getProfile, logoutUser } from '../../api/AuthApi';
 import { useAppDispatch } from '../../store/hooks';
 import { openAuthModal } from '../AuthModal/AuthModalSlice';
 import { Container } from '../Container';
@@ -17,6 +18,9 @@ export function Header() {
           <button onClick={() => dispatch(openAuthModal())}>
             Показать модалку
           </button>
+          <button onClick={() => logoutUser()}>логаут</button>
+          <button onClick={() => getProfile()}>фетч ми</button>
+          <button onClick={() => getProfile()}>фетч ми</button>
         </StyledHeaderWrap>
       </Container>
     </StyledHeader>

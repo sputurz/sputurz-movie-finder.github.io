@@ -5,12 +5,18 @@ export const BASE_URL = 'https://cinemaguide.skillbox.cc';
 const api = axios.create({
   baseURL: BASE_URL,
   // timeout: 50,
+  withCredentials: true,
 });
 
 interface PrismaError {
   name: string;
   clientVersion?: string;
   [key: string]: unknown; // Для других возможных полей
+}
+
+interface RequestOptions {
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  data?: unknown;
 }
 
 const handlePrismaError = (data: unknown): void => {
@@ -20,9 +26,19 @@ const handlePrismaError = (data: unknown): void => {
   }
 };
 
-export const makeRequest = async <T>(url: string): Promise<T> => {
+export const makeRequest = async <T>(
+  url: string,
+  options: RequestOptions = {}
+): Promise<T> => {
+  const { method = 'GET', data } = options;
+
   try {
-    const response = await api.get<T>(url);
+    const response = await api.request<T>({
+      url,
+      method,
+      data,
+    });
+
     handlePrismaError(response.data);
     return response.data;
   } catch (err) {

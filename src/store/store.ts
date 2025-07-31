@@ -3,8 +3,9 @@ import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { languageSlice } from './globalSlices/languageSlice';
 import { authModalSlice } from '../components/AuthModal/AuthModalSlice';
+import { authSlice } from './globalSlices/authSlice';
 
-const rootReducer = combineSlices(languageSlice, authModalSlice);
+const rootReducer = combineSlices(languageSlice, authModalSlice, authSlice);
 
 export type RootState = ReturnType<typeof rootReducer>;
 

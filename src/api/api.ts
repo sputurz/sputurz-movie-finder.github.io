@@ -1,3 +1,4 @@
+import { getProfile, loginUser, logoutUser } from './AuthApi';
 import { getMovieGenres } from './GenresPageApi';
 import { getMovieRandom, getMovieTop10 } from './HomePageApi';
 import { getMovieById } from './MoviePageApi copy';
@@ -9,6 +10,9 @@ const Api = {
   getMovieRandom,
   getMovies,
   getMovieById,
+  loginUser,
+  logoutUser,
+  getProfile,
 };
 
 export default Api;
