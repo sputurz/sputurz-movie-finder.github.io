@@ -29,5 +29,5 @@ export const useAuthInit = () => {
     if (isError) dispatch(clearUser());
   }, [data, isError, isFetching, dispatch]);
 
-  return query; // если тебе нужно вернуть статус запроса
+  return query;
 };
