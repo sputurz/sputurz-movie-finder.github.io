@@ -16,7 +16,7 @@ export default function HomePage() {
       <MoviePromo
         isLoading={isLoading}
         movie={data}
-        onUpdate={refetch}
+        refetch={refetch}
         isFetching={isFetching}
       />
       <MovieTop></MovieTop>

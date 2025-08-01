@@ -23,18 +23,16 @@ import { convertMinsToHoursMins } from '../../utils/convertMinsToHoursMins';
 import { Icon } from '../Icon';
 import { Container } from '../Container';
 import { VideoPlayer } from '../VideoPlayer';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { selectIsAuthenticated } from '../../store/globalSlices/authSlice';
-import { openAuthModal } from '../AuthModal/AuthModalSlice';
-import { useDeleteFavorite } from '../../hooks/useDeleteFavorite';
-import { useAddFavorite } from '../../hooks/useAddFavorite';
+import { useAppSelector } from '../../store/hooks';
+import { selectUser } from '../../store/globalSlices/authSlice';
+import { useLike } from '../../hooks/useLike';
 
 type Props = {
   movie: IMovie;
   isFetching: boolean;
   isLoading: boolean;
   isAboutMovie?: boolean;
-  onUpdate?: () => void;
+  refetch?: () => void;
 };
 
 export const MoviePromo: FC<Props> = ({
@@ -42,33 +40,27 @@ export const MoviePromo: FC<Props> = ({
   isFetching,
   isLoading,
   isAboutMovie = false,
-  onUpdate,
+  refetch,
 }) => {
-  const dispatch = useAppDispatch();
-  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const user = useAppSelector(selectUser);
+  const isLiked = user?.favorites.includes(movie.id.toString()) || false;
 
-  const { deleteFavoriteHandler, isPending } = useDeleteFavorite(movie.id);
-  const { addFavoriteHandler } = useAddFavorite(movie.id);
+  const { onLike } = useLike(movie.id);
 
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showPlayer, setShowPlayer] = useState(false);
 
   const isBusy = isFetching || isLoading || !imageLoaded;
 
-  const onLike = () => {
-    if (isAuthenticated) {
-      addFavoriteHandler();
-    } else {
-      dispatch(openAuthModal());
+  const onUpdate = () => {
+    if (refetch) {
+      refetch();
     }
   };
 
   return (
     <StyledMoviePromo>
       <Container>
-        <button onClick={deleteFavoriteHandler} disabled={isPending}>
-          delete
-        </button>
         <StyledMoviePromoInner>
           <StyledMoviePromoImgContainer
             src={movie.backdropUrl || '/images/moviePromo/error.jpg'}
@@ -122,7 +114,7 @@ export const MoviePromo: FC<Props> = ({
                 </StyledMoviePromoLinkAbout>
               )}
               <StyledMoviePromoBtnLike
-                $isLiked={false}
+                $isLiked={isLiked}
                 disabled={isBusy}
                 onClick={onLike}
               >
