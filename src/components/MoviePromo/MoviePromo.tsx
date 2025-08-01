@@ -26,8 +26,8 @@ import { VideoPlayer } from '../VideoPlayer';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { selectIsAuthenticated } from '../../store/globalSlices/authSlice';
 import { openAuthModal } from '../AuthModal/AuthModalSlice';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { addFavorite, deleteFavorite } from '../../api/Favorites';
+import { useDeleteFavorite } from '../../hooks/useDeleteFavorite';
+import { useAddFavorite } from '../../hooks/useAddFavorite';
 
 type Props = {
   movie: IMovie;
@@ -47,43 +47,28 @@ export const MoviePromo: FC<Props> = ({
   const dispatch = useAppDispatch();
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
+  const { deleteFavoriteHandler, isPending } = useDeleteFavorite(movie.id);
+  const { addFavoriteHandler } = useAddFavorite(movie.id);
+
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showPlayer, setShowPlayer] = useState(false);
 
   const isBusy = isFetching || isLoading || !imageLoaded;
 
-  const queryClient = useQueryClient();
-
-  const addFavoriteMutation = useMutation<void, Error, string>({
-    mutationFn: (id) => addFavorite(id),
-    async onSuccess() {
-      queryClient.invalidateQueries({ queryKey: ['me'] });
-    },
-  });
-
-  const deleteFavoriteMutation = useMutation<void, Error, number>({
-    mutationFn: (id) => deleteFavorite(id),
-    async onSuccess() {
-      queryClient.invalidateQueries({ queryKey: ['me'] });
-    },
-  });
-
   const onLike = () => {
     if (isAuthenticated) {
-      addFavoriteMutation.mutate(movie.id.toString());
+      addFavoriteHandler();
     } else {
       dispatch(openAuthModal());
     }
   };
 
-  const deletefav = () => {
-    deleteFavoriteMutation.mutate(movie.id);
-  };
-
   return (
     <StyledMoviePromo>
       <Container>
-        <button onClick={deletefav}>delete</button>
+        <button onClick={deleteFavoriteHandler} disabled={isPending}>
+          delete
+        </button>
         <StyledMoviePromoInner>
           <StyledMoviePromoImgContainer
             src={movie.backdropUrl || '/images/moviePromo/error.jpg'}
