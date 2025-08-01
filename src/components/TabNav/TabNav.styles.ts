@@ -20,6 +20,11 @@ export const StyledTabNavLink = styled(NavLink)`
   display: flex;
   gap: 4px;
 
+  &.active {
+    color: #ffffff;
+    border-bottom: 1px solid rgba(151, 71, 255, 1);
+  }
+
   & svg {
     width: 24px;
     height: 24px;

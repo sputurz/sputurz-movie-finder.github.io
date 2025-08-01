@@ -24,15 +24,10 @@ import { Icon } from '../Icon';
 import { Container } from '../Container';
 import { VideoPlayer } from '../VideoPlayer';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import {
-  selectIsAuthenticated,
-  setUser,
-} from '../../store/globalSlices/authSlice';
+import { selectIsAuthenticated } from '../../store/globalSlices/authSlice';
 import { openAuthModal } from '../AuthModal/AuthModalSlice';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { getProfile } from '../../api/AuthApi';
 import { addFavorite, deleteFavorite } from '../../api/Favorites';
-import { number } from 'zod/v4-mini';
 
 type Props = {
   movie: IMovie;
@@ -75,7 +70,6 @@ export const MoviePromo: FC<Props> = ({
 
   const onLike = () => {
     if (isAuthenticated) {
-      console.log(movie.id);
       addFavoriteMutation.mutate(movie.id.toString());
     } else {
       dispatch(openAuthModal());

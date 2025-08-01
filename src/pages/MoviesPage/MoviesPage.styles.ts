@@ -68,7 +68,7 @@ export const StyledMoviesPageList = styled.ul`
 
 export const StyledMoviesPageItem = styled.li``;
 
-export const StyledMoviesPageCard = styled.a`
+export const StyledMoviesPageCard = styled(Link)`
   width: 100%;
   aspect-ratio: 333 / 500;
   display: flex;

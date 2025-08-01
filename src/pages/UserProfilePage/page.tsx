@@ -1,14 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import { Container } from '../../components/Container';
 import { ErrorFallback } from '../../components/ErrorFallback';
-import { MovieCard } from '../../components/MovieCard';
 import { TabNav } from '../../components/TabNav';
 import { useMovieTop } from '../../hooks/useMovieTop';
 import {
   StyledUserProfile,
-  StyledUserProfileTabFavorites,
-  StyledUserProfileTabFavoritesList,
-  StyledUserProfileTabFavoritesListItem,
   StyledUserProfileTitle,
   StyledUserProfileWrap,
 } from './UserProfilePage.styles.styles';
@@ -30,16 +26,6 @@ export default function UserProfilePage({
         <StyledUserProfileWrap>
           <StyledUserProfileTitle>Мой аккаунт</StyledUserProfileTitle>
           <TabNav></TabNav>
-          {/* <StyledUserProfileTabFavorites>
-            <StyledUserProfileTabFavoritesList>
-              {data.map((movie) => (
-                <StyledUserProfileTabFavoritesListItem key={movie.id}>
-                  <MovieCard movie={movie} />
-                </StyledUserProfileTabFavoritesListItem>
-              ))}
-            </StyledUserProfileTabFavoritesList>
-          </StyledUserProfileTabFavorites>
-           */}
           {children || <Outlet />}
         </StyledUserProfileWrap>
       </Container>
