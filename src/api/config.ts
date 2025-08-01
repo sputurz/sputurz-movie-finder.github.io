@@ -17,6 +17,7 @@ interface PrismaError {
 interface RequestOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
   data?: unknown;
+  credentials?: 'include' | 'omit' | 'same-origin';
 }
 
 const handlePrismaError = (data: unknown): void => {

@@ -14,23 +14,43 @@ export const RegistrationForm = () => {
       <StyledRegistrationFormWrap>
         <FormField>
           <Icon name="MailIcon"></Icon>
-          <input type="text" placeholder="Электронная почта"></input>
+          <input
+            type="text"
+            placeholder="Электронная почта"
+            autoComplete="email"
+          ></input>
         </FormField>
         <FormField>
           <Icon name="UserIcon"></Icon>
-          <input type="text" placeholder="Имя"></input>
+          <input
+            type="text"
+            placeholder="Имя"
+            autoComplete="given-name"
+          ></input>
         </FormField>
         <FormField>
           <Icon name="UserIcon"></Icon>
-          <input type="text" placeholder="Фамилия"></input>
+          <input
+            type="text"
+            placeholder="Фамилия"
+            autoComplete="family-name"
+          ></input>
         </FormField>
         <FormField>
           <Icon name="PasswordIcon"></Icon>
-          <input type="password" placeholder="Пароль"></input>
+          <input
+            type="password"
+            placeholder="Пароль"
+            autoComplete="new-password"
+          ></input>
         </FormField>
         <FormField>
           <Icon name="PasswordIcon"></Icon>
-          <input type="password" placeholder="Подтвердите пароль"></input>
+          <input
+            type="password"
+            placeholder="Подтвердите пароль"
+            autoComplete="new-password"
+          ></input>
         </FormField>
       </StyledRegistrationFormWrap>
 

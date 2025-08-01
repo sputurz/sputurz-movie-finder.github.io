@@ -31,7 +31,7 @@ export const LoginForm = () => {
   const loginMutation = useMutation({
     mutationFn: loginUser,
     async onSuccess() {
-      const user = await getProfile(); // /profile с куки/токеном
+      const user = await getProfile();
       dispatch(setUser(user));
       queryClient.invalidateQueries({ queryKey: ['me'] });
       dispatch(closeAuthModal());
@@ -55,6 +55,7 @@ export const LoginForm = () => {
             type="text"
             placeholder="Электронная почта"
             {...register('email')}
+            autoComplete="email"
           ></input>
         </FormField>
         <FormField>
@@ -63,6 +64,7 @@ export const LoginForm = () => {
             type="password"
             placeholder="Пароль"
             {...register('password')}
+            autoComplete="current-password"
           ></input>
         </FormField>
       </StyledLoginFormWrap>

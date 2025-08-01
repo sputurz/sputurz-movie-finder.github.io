@@ -1,4 +1,5 @@
 import { getProfile, loginUser, logoutUser } from './AuthApi';
+import { addFavorite, deleteFavorite } from './Favorites';
 import { getMovieGenres } from './GenresPageApi';
 import { getMovieRandom, getMovieTop10 } from './HomePageApi';
 import { getMovieById } from './MoviePageApi copy';
@@ -13,6 +14,8 @@ const Api = {
   loginUser,
   logoutUser,
   getProfile,
+  addFavorite,
+  deleteFavorite,
 };
 
 export default Api;

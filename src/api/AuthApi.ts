@@ -2,7 +2,7 @@ import { LoginUser, User } from '../models';
 import { makeRequest } from './config';
 
 export const loginUser = (payload: LoginUser): Promise<void> => {
-  return makeRequest<void>('/auth/login', {
+  return makeRequest('/auth/login', {
     method: 'POST',
     data: payload,
   });

@@ -19,13 +19,13 @@ export const AuthModal = () => {
   const logoRef = useRef<HTMLAnchorElement>(null);
 
   // автоскрол от кнопки к лого на случай если модалка будет "не в полное окно"
-  const onToggleAuthType = () => {
-    toggleAuthType();
+  // const onToggleAuthType = () => {
+  //   toggleAuthType();
 
-    if (logoRef.current) {
-      logoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  //   if (logoRef.current) {
+  //     logoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  //   }
+  // };
 
   // фича для стиля анимации фейдаута
   useEffect(() => {
@@ -46,7 +46,7 @@ export const AuthModal = () => {
           <Logo src={'/logoWhite.svg'} ref={logoRef}></Logo>
           {authType === 'register' ? <RegistrationForm /> : <LoginForm />}
           <StyledAuthModalBtnAuthType
-            onClick={onToggleAuthType}
+            onClick={toggleAuthType}
             aria-label={
               authType === 'register'
                 ? 'Перейти к авторизации'

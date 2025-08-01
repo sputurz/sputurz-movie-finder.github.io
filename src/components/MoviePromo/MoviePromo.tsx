@@ -23,6 +23,16 @@ import { convertMinsToHoursMins } from '../../utils/convertMinsToHoursMins';
 import { Icon } from '../Icon';
 import { Container } from '../Container';
 import { VideoPlayer } from '../VideoPlayer';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import {
+  selectIsAuthenticated,
+  setUser,
+} from '../../store/globalSlices/authSlice';
+import { openAuthModal } from '../AuthModal/AuthModalSlice';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { getProfile } from '../../api/AuthApi';
+import { addFavorite, deleteFavorite } from '../../api/Favorites';
+import { number } from 'zod/v4-mini';
 
 type Props = {
   movie: IMovie;
@@ -39,14 +49,47 @@ export const MoviePromo: FC<Props> = ({
   isAboutMovie = false,
   onUpdate,
 }) => {
+  const dispatch = useAppDispatch();
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showPlayer, setShowPlayer] = useState(false);
 
   const isBusy = isFetching || isLoading || !imageLoaded;
 
+  const queryClient = useQueryClient();
+
+  const addFavoriteMutation = useMutation<void, Error, string>({
+    mutationFn: (id) => addFavorite(id),
+    async onSuccess() {
+      queryClient.invalidateQueries({ queryKey: ['me'] });
+    },
+  });
+
+  const deleteFavoriteMutation = useMutation<void, Error, number>({
+    mutationFn: (id) => deleteFavorite(id),
+    async onSuccess() {
+      queryClient.invalidateQueries({ queryKey: ['me'] });
+    },
+  });
+
+  const onLike = () => {
+    if (isAuthenticated) {
+      console.log(movie.id);
+      addFavoriteMutation.mutate(movie.id.toString());
+    } else {
+      dispatch(openAuthModal());
+    }
+  };
+
+  const deletefav = () => {
+    deleteFavoriteMutation.mutate(movie.id);
+  };
+
   return (
     <StyledMoviePromo>
       <Container>
+        <button onClick={deletefav}>delete</button>
         <StyledMoviePromoInner>
           <StyledMoviePromoImgContainer
             src={movie.backdropUrl || '/images/moviePromo/error.jpg'}
@@ -99,7 +142,11 @@ export const MoviePromo: FC<Props> = ({
                   о фильме
                 </StyledMoviePromoLinkAbout>
               )}
-              <StyledMoviePromoBtnLike $isLiked={false} disabled={isBusy}>
+              <StyledMoviePromoBtnLike
+                $isLiked={false}
+                disabled={isBusy}
+                onClick={onLike}
+              >
                 <Icon name="LikeIcon"></Icon>
               </StyledMoviePromoBtnLike>
               {isAboutMovie ? null : (
