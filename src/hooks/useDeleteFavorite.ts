@@ -9,6 +9,7 @@ export function useDeleteFavorite(movieId: IMovie['id']) {
     mutationFn: deleteFavorite,
     async onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['me'] });
+      queryClient.invalidateQueries({ queryKey: ['favorites'] });
     },
   });
 

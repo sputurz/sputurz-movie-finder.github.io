@@ -7,8 +7,6 @@ import {
   StyledMoviesPageItem,
   StyledMoviesPageBackLink,
   StyledMoviesPageWrap,
-  StyledMoviesPageCard,
-  StyledMoviesPageCardImg,
   StyledMoviesPageHideTitle,
   StyledMoviesPageBtn,
 } from './MoviesPage.styles';
@@ -17,7 +15,7 @@ import { toUpperFirstChar } from '../../utils/toUpperFirstChar';
 import { ErrorFallback } from '../../components/ErrorFallback';
 import { Icon } from '../../components/Icon';
 import { InfiniteTrigger } from '../../components/InfiniteTrigger';
-import { Key } from 'react';
+import { MovieCard } from '../../components/MovieCard';
 
 const currentLang = 'russian';
 
@@ -58,24 +56,11 @@ export default function MoviesPage() {
             </StyledMoviesPageBackLink>
           ) : null}
           <StyledMoviesPageList>
-            {data.pages
-              .flat()
-              .map(
-                (movie: {
-                  id: Key | null | undefined;
-                  posterUrl: string | undefined;
-                  title: string | undefined;
-                }) => (
-                  <StyledMoviesPageItem key={movie.id}>
-                    <StyledMoviesPageCard to={`/movie/${movie.id}`}>
-                      <StyledMoviesPageCardImg
-                        src={movie.posterUrl}
-                        alt={movie.title}
-                      ></StyledMoviesPageCardImg>
-                    </StyledMoviesPageCard>
-                  </StyledMoviesPageItem>
-                )
-              )}
+            {data.pages.flat().map((movie) => (
+              <StyledMoviesPageItem key={movie.id}>
+                <MovieCard movie={movie}></MovieCard>
+              </StyledMoviesPageItem>
+            ))}
           </StyledMoviesPageList>
           {hasNextPage ? (
             <StyledMoviesPageBtn

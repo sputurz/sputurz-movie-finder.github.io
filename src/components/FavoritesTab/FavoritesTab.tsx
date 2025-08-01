@@ -16,15 +16,11 @@ export default function FavoritesTab() {
   return (
     <StyledFavoritesTab>
       <StyledFavoritesTabist>
-        {data
-          ? [...data]
-              .sort((a, b) => b.tmdbRating - a.tmdbRating)
-              .map((movie) => (
-                <StyledFavoritesTabListItem key={movie.id}>
-                  <MovieCard movie={movie} />
-                </StyledFavoritesTabListItem>
-              ))
-          : null}
+        {data.map((movie) => (
+          <StyledFavoritesTabListItem key={movie.id}>
+            <MovieCard movie={movie} isUserProfile />
+          </StyledFavoritesTabListItem>
+        ))}
       </StyledFavoritesTabist>
     </StyledFavoritesTab>
   );

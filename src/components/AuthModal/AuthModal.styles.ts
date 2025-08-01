@@ -3,8 +3,6 @@ import { vp767 } from '../../styles/utils/mixins';
 import { transitionOpacity } from '../../styles/utils/variables';
 
 export const StyledAuthModalBackdrop = styled.div<{ $isOpen: boolean }>`
-  /* ${transitionOpacity} */
-
   position: absolute;
   inset: 0;
   display: flex;
@@ -17,8 +15,7 @@ export const StyledAuthModalBackdrop = styled.div<{ $isOpen: boolean }>`
   /* Анимация появления/исчезновения */
   animation: ${({ $isOpen }) => ($isOpen ? 'fadeIn' : 'fadeOut')} 0.7s ease
     forwards;
-  pointer-events: ${({ $isOpen }) =>
-    $isOpen ? 'auto' : 'none'}; /* Чтобы нельзя было кликать когда скрыт */
+  pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
 
   @keyframes fadeIn {
     from {
@@ -44,7 +41,7 @@ export const StyledAuthModal = styled.div<{ $isOpen: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
-
+  border-radius: 24px;
   margin: 20px;
   width: 100%;
   max-height: calc(100dvh - 40px);
@@ -72,7 +69,7 @@ export const StyledAuthModal = styled.div<{ $isOpen: boolean }>`
 `;
 
 export const StyledAuthModalWrap = styled.div<{ $isOpen: boolean }>`
-  border-radius: 24px;
+  border-radius: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;

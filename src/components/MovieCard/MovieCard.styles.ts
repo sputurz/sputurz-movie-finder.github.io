@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { transitionTransform } from '../../styles/utils/variables';
+import {
+  transitionOpacity,
+  transitionTransform,
+} from '../../styles/utils/variables';
 
-export const StyledMovieCard = styled(Link)`
+export const StyledMovieCard = styled.div`
   ${transitionTransform}
 
   position: relative;
@@ -15,9 +18,29 @@ export const StyledMovieCard = styled(Link)`
   -webkit-user-select: none;
   -webkit-user-drag: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.05);
   }
+
+  button {
+    display: none;
+  }
+
+  &:hover button,
+  &:focus-within button {
+    display: flex;
+  }
+`;
+
+export const StyledMovieCardLink = styled(Link)`
+  ${transitionTransform}
+
+  border-radius: inherit;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 `;
 
 export const StyledMovieCardImg = styled.img`
@@ -47,4 +70,30 @@ export const StyledMovieCardRating = styled.span`
   line-height: 32px;
   color: #6a5dc2;
   z-index: 2;
+`;
+
+export const StyledMovieCardBtnDelete = styled.button`
+  ${transitionOpacity}
+
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #ffffff;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
 `;

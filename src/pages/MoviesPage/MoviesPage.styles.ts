@@ -61,25 +61,14 @@ export const StyledMoviesPageList = styled.ul`
 
   ${vp767(css`
     gap: 64px 40px;
-    /* grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); */
-    grid-template-columns: repeat(5, 224px);
+    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
   `)}
 `;
 
-export const StyledMoviesPageItem = styled.li``;
-
-export const StyledMoviesPageCard = styled(Link)`
-  width: 100%;
-  aspect-ratio: 333 / 500;
-  display: flex;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.33);
-`;
-
-export const StyledMoviesPageCardImg = styled.img`
-  width: 100%;
-  border-radius: 16px;
+export const StyledMoviesPageItem = styled.li`
+  ${vp767(css`
+    max-width: 224px;
+  `)}
 `;
 
 export const StyledMoviesPageBtn = styled.button`
