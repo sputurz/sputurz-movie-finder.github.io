@@ -1,12 +1,12 @@
-import { lazy, Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ErrorFallback } from '../ErrorFallback';
 import { Loader } from '../Loader';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { AuthModal } from '../AuthModal';
 import { useAuthInit } from '../../hooks/useAuthInit';
+import { ErrorBoundary } from 'react-error-boundary';
+import { lazy, Suspense } from 'react';
 
 const HomePage = lazy(() => import('../../pages/HomePage/page'));
 const GenresPage = lazy(() => import('../../pages/GenresPage/page'));
@@ -18,11 +18,20 @@ const FavoritesTab = lazy(
   () => import('../../components/FavoritesTab/FavoritesTab')
 );
 
+// Создаем кастомный компонент для MoviePage с ключом
+const MoviePageWithKey = () => {
+  const location = useLocation();
+  return <MoviePage key={location.pathname} />;
+};
+
 const routerConfig = [
   { path: '/', component: HomePage },
   { path: '/genres', component: GenresPage },
   { path: '/movies', component: MoviesPage },
-  { path: '/movie/:movieId', component: MoviePage },
+  {
+    path: '/movie/:movieId',
+    component: MoviePageWithKey,
+  },
   {
     path: '/profile/*',
     component: () => (

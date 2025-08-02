@@ -24,7 +24,7 @@ export default function MoviePage() {
       <MoviePromo
         isFetching={isFetching}
         movie={data}
-        onUpdate={refetch}
+        refetch={refetch}
         isLoading={isLoading}
         isAboutMovie
       />

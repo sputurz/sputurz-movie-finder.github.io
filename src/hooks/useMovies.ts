@@ -7,10 +7,13 @@ import { AxiosError } from 'axios';
 export function useMovies(params: Omit<IGetMovies, 'page'>) {
   return useInfiniteQuery<Movies, AxiosError>({
     queryKey: ['movies', params],
+
     queryFn: ({ pageParam = 0 }) =>
       Api.getMovies({ ...params, page: pageParam as number }),
+
     getNextPageParam: (lastPage, allPages) => {
       const count = params.count ?? 10;
+
       return lastPage.length < count ? undefined : allPages.length;
     },
     initialPageParam: 0,

@@ -7,25 +7,22 @@ import {
   StyledMoviePromoBtnUpd,
   StyledMoviePromoBtnVideo,
   StyledMoviePromoBtnWrap,
-  StyledMoviePromoGenres,
   StyledMoviePromoPlot,
-  StyledMoviePromoRuntime,
   StyledMoviePromoTagText,
   StyledMoviePromoTextWrap,
   StyledMoviePromoTitle,
   StyledMoviePromoWrap,
-  StyledMoviePromoYear,
   StyledMoviePromoImgContainer,
   StyledMoviePromoInner,
 } from './MoviePromo.styles';
 import { MovieRating } from '../MovieRating';
-import { convertMinsToHoursMins } from '../../utils/convertMinsToHoursMins';
 import { Icon } from '../Icon';
 import { Container } from '../Container';
 import { VideoPlayer } from '../VideoPlayer';
 import { useAppSelector } from '../../store/hooks';
 import { selectUser } from '../../store/globalSlices/authSlice';
 import { useLike } from '../../hooks/useLike';
+import { MovieTagList } from '../MovieTagList';
 
 type Props = {
   movie: IMovie;
@@ -77,13 +74,7 @@ export const MoviePromo: FC<Props> = ({
                   <MovieRating rating={movie.tmdbRating}></MovieRating>
                 ) : null}
 
-                <StyledMoviePromoYear>{movie.releaseYear}</StyledMoviePromoYear>
-                <StyledMoviePromoGenres>
-                  {movie.genres?.join(', ') || ''}
-                </StyledMoviePromoGenres>
-                <StyledMoviePromoRuntime>
-                  {convertMinsToHoursMins(movie.runtime)}
-                </StyledMoviePromoRuntime>
+                <MovieTagList movie={movie}></MovieTagList>
               </StyledMoviePromoTagText>
               <StyledMoviePromoTitle $isAboutMovie={isAboutMovie}>
                 {movie.title}

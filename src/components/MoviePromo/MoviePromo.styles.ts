@@ -87,21 +87,6 @@ export const StyledMoviePromoTagText = styled.div`
   `)}
 `;
 
-export const StyledMoviePromoYear = styled.span``;
-
-export const StyledMoviePromoRuntime = styled.span``;
-
-export const StyledMoviePromoGenres = styled.span`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: inline-block;
-  max-width: calc((115 / 335) * 100%);
-  ${vp1023(css`
-    max-width: calc((325 / 580) * 100%);
-  `)}
-`;
-
 export const StyledMoviePromoTitle = styled.h2<{ $isAboutMovie?: boolean }>`
   margin: 0;
   padding: 0;

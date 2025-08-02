@@ -10,7 +10,6 @@ import { LoginUser, LoginUserSchema } from '../../models/Auth';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getProfile, loginUser } from '../../api/AuthApi';
-
 import { closeAuthModal } from '../AuthModal/AuthModalSlice';
 import { useAppDispatch } from '../../store/hooks';
 import { setUser } from '../../store/globalSlices/authSlice';
