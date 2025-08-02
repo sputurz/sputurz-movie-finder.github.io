@@ -4,6 +4,9 @@ import {
   StyledAuthModalBtnClose,
   StyledAuthModalBackdrop,
   StyledAuthModalWrap,
+  StyledAuthModalBtnLogin,
+  StyledAuthModalSuccsessTitle,
+  StyledAuthModalSuccsessText,
 } from './AuthModal.styles';
 import { Logo } from '../Logo';
 import { Icon } from '../Icon';
@@ -13,11 +16,21 @@ import { useModal } from '../../hooks/useModal';
 import { useEffect, useRef, useState } from 'react';
 
 export const AuthModal = () => {
-  const { isOpen, authType, toggleAuthType, closeModal, handleBackdropClick } =
-    useModal();
+  const {
+    isOpen,
+    authType,
+    toggleAuthType,
+    closeModal,
+    handleBackdropClick,
+    isRegisterSuccess,
+    onSuccessRegister,
+    onSuccessBtnClick,
+  } = useModal();
   const [shouldRender, setShouldRender] = useState(isOpen);
+
   const logoRef = useRef<HTMLAnchorElement>(null);
 
+  // !пока в бэта тесте =))
   // автоскрол от кнопки к лого на случай если модалка будет "не в полное окно"
   // const onToggleAuthType = () => {
   //   toggleAuthType();
@@ -28,6 +41,7 @@ export const AuthModal = () => {
   // };
 
   // фича для стиля анимации фейдаута
+
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true);
@@ -44,17 +58,37 @@ export const AuthModal = () => {
       <StyledAuthModal $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
         <StyledAuthModalWrap $isOpen={isOpen}>
           <Logo src={'/logoWhite.svg'} ref={logoRef}></Logo>
-          {authType === 'register' ? <RegistrationForm /> : <LoginForm />}
-          <StyledAuthModalBtnAuthType
-            onClick={toggleAuthType}
-            aria-label={
-              authType === 'register'
-                ? 'Перейти к авторизации'
-                : 'Перейти к регистрации'
-            }
-          >
-            {authType === 'register' ? 'Регистрация' : 'У меня есть пароль'}
-          </StyledAuthModalBtnAuthType>
+          {!isRegisterSuccess ? (
+            <>
+              {authType === 'register' ? (
+                <RegistrationForm onSuccess={onSuccessRegister} />
+              ) : (
+                <LoginForm />
+              )}
+              <StyledAuthModalBtnAuthType
+                onClick={toggleAuthType}
+                aria-label={
+                  authType === 'register'
+                    ? 'Перейти к авторизации'
+                    : 'Перейти к регистрации'
+                }
+              >
+                {authType === 'register' ? 'Регистрация' : 'У меня есть пароль'}
+              </StyledAuthModalBtnAuthType>
+            </>
+          ) : (
+            <>
+              <StyledAuthModalSuccsessTitle>
+                Регистрация завершена
+              </StyledAuthModalSuccsessTitle>
+              <StyledAuthModalSuccsessText>
+                Используйте вашу электронную почту для входа
+              </StyledAuthModalSuccsessText>
+              <StyledAuthModalBtnLogin onClick={onSuccessBtnClick}>
+                Войти
+              </StyledAuthModalBtnLogin>
+            </>
+          )}
           <StyledAuthModalBtnClose
             onClick={closeModal}
             aria-label={'Закрыть форму'}

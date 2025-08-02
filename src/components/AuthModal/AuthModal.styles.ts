@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { transitionOpacity } from '../../styles/utils/variables';
+import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
 
 export const StyledAuthModalBackdrop = styled.div<{ $isOpen: boolean }>`
   position: absolute;
@@ -145,4 +146,31 @@ export const StyledAuthModalBtnClose = styled.button`
     top: 0;
     right: -72px;
   `)}
+`;
+
+export const StyledAuthModalBtnLogin = styled.button`
+  ${BtnPrimaryStyles}
+
+  width: 100%;
+`;
+
+export const StyledAuthModalSuccsessTitle = styled.span`
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #000000;
+  padding-top: 32px;
+
+  ${vp767(css`
+    padding-top: 40px;
+  `)}
+`;
+
+export const StyledAuthModalSuccsessText = styled.span`
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+  padding: 24px 0;
 `;

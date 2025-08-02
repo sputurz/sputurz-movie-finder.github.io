@@ -13,7 +13,11 @@ import { RegisterUserConfirm, RegisterUserSchema } from '../../models';
 import { useForm } from 'react-hook-form';
 import { registerUser } from '../../api/AuthApi';
 
-export const RegistrationForm = () => {
+interface IProps {
+  onSuccess: () => void;
+}
+
+export const RegistrationForm: React.FC<IProps> = ({ onSuccess }) => {
   const queryClient = useQueryClient();
 
   const {
@@ -29,7 +33,7 @@ export const RegistrationForm = () => {
     mutationFn: registerUser,
     async onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['login'] });
-
+      onSuccess();
       reset();
     },
   });

@@ -9,6 +9,7 @@ export const useModal = () => {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector(selectAuthModal);
   const [authType, setAuthType] = useState<string>('auth');
+  const [isRegisterSuccess, SetIsRegisterSuccess] = useState(false);
 
   const toggleAuthType = () => {
     setAuthType((prev) => (prev === 'register' ? 'auth' : 'register'));
@@ -23,6 +24,15 @@ export const useModal = () => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
+  };
+
+  const onSuccessRegister = () => {
+    SetIsRegisterSuccess(true);
+    setAuthType('auth');
+  };
+
+  const onSuccessBtnClick = () => {
+    SetIsRegisterSuccess(false);
   };
 
   useEffect(() => {
@@ -46,5 +56,14 @@ export const useModal = () => {
     };
   }, [isOpen, dispatch]);
 
-  return { isOpen, authType, toggleAuthType, closeModal, handleBackdropClick };
+  return {
+    isOpen,
+    authType,
+    toggleAuthType,
+    closeModal,
+    handleBackdropClick,
+    isRegisterSuccess,
+    onSuccessRegister,
+    onSuccessBtnClick,
+  };
 };
