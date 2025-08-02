@@ -8,7 +8,7 @@ export const NavLinkStyles = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 0;
+  padding: 4px 0;
   font-size: 18px;
   line-height: 24px;
   color: #ffffff;
@@ -23,6 +23,7 @@ export const NavLinkStyles = css`
   }
 
   ${vp767(css`
+    padding: 8px 0;
     font-size: 24px;
     line-height: 32px;
     border-bottom: 1px solid transparent;

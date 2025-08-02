@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import {
   selectIsAuthenticated,
   selectUser,
@@ -8,7 +7,17 @@ import { openAuthModal } from '../AuthModal/AuthModalSlice';
 import { Container } from '../Container';
 import { Logo } from '../Logo';
 import { Nav } from '../Nav';
-import { StyledHeader, StyledHeaderWrap } from './Header.styles';
+import {
+  StyledHeader,
+  StyledHeaderWrap,
+  StyledHeaderNavLink,
+  StyledHeaderNavLinkText,
+  StyledHeaderBtnModal,
+  StyledHeaderBtnModalText,
+  StyledHeaderInner,
+} from './Header.styles';
+import { Icon } from '../Icon';
+import { Search } from '../Search';
 
 export function Header() {
   const dispatch = useAppDispatch();
@@ -20,11 +29,20 @@ export function Header() {
       <Container>
         <StyledHeaderWrap>
           <Logo src={'/logoBlack.svg'}></Logo>
-          <Nav></Nav>
+          <StyledHeaderInner>
+            <Nav></Nav>
+            <Search></Search>
+          </StyledHeaderInner>
           {isAuthenticated ? (
-            <NavLink to={'/profile'}>{user?.name}</NavLink>
+            <StyledHeaderNavLink to={'/profile'}>
+              <StyledHeaderNavLinkText>{user?.name}</StyledHeaderNavLinkText>
+              <Icon name="UserIcon"></Icon>
+            </StyledHeaderNavLink>
           ) : (
-            <button onClick={() => dispatch(openAuthModal())}>Войти</button>
+            <StyledHeaderBtnModal onClick={() => dispatch(openAuthModal())}>
+              <StyledHeaderBtnModalText>Войти</StyledHeaderBtnModalText>
+              <Icon name="UserIcon"></Icon>
+            </StyledHeaderBtnModal>
           )}
         </StyledHeaderWrap>
       </Container>

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { vp767 } from '../../styles/utils/mixins';
+import { vp1023, vp767 } from '../../styles/utils/mixins';
 import { NavLink } from 'react-router-dom';
 import { NavLinkStyles } from '../../styles/global/NavLink';
 import { Icon } from '../Icon';
@@ -9,17 +9,18 @@ export const StyledNav = styled.nav`
     display: none;
   }
 
-  display: grid;
-  gap: 20px;
-  grid-template-columns: auto auto;
+  display: flex;
 
   ${vp767(css`
-    & > :first-child {
-      display: grid;
-    }
+    gap: 30px;
 
-    gap: 20px;
-    grid-template-columns: auto auto 1fr;
+    & > :first-child {
+      display: flex;
+    }
+  `)}
+
+  ${vp1023(css`
+    gap: 40px;
   `)}
 `;
 
@@ -41,9 +42,17 @@ export const StyledNavLink = styled(NavLink)`
 
   ${vp767(
     css`
-      padding: 8px 0;
+      font-size: 18px;
+      line-height: 24px;
+      padding: 4px 0;
     `
   )}
+
+  ${vp1023(css`
+    padding: 8px 0;
+    font-size: 24px;
+    line-height: 32px;
+  `)}
 `;
 
 export const StyledNavLinkText = styled.span`

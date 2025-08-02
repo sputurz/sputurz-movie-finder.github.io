@@ -15,7 +15,6 @@ export function Nav() {
         <StyledNavLinkText>Жанры</StyledNavLinkText>
         <StyledNavLinkSvg name="GenresIcon"></StyledNavLinkSvg>
       </StyledNavLink>
-      <span>По</span>
     </StyledNav>
   );
 }

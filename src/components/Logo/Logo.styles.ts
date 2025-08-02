@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { vp767 } from '../../styles/utils/mixins';
+import { vp1023, vp767 } from '../../styles/utils/mixins';
 import { Link } from 'react-router-dom';
 import {
   transitionOpacity,
@@ -19,8 +19,13 @@ export const StyledLogoLink = styled(LinkWithRef)`
   ${transitionTransform}
 
   display: flex;
+  align-items: center;
+
   padding: 7px 0;
-  height: 32px;
+
+  img {
+    height: 18px;
+  }
 
   &:hover {
     opacity: 0.8;
@@ -28,8 +33,19 @@ export const StyledLogoLink = styled(LinkWithRef)`
   }
 
   ${vp767(css`
+    padding: 13px 0;
+
+    img {
+      height: 24px;
+    }
+  `)}
+
+  ${vp1023(css`
     padding: 8px 0;
-    height: 48px;
+
+    img {
+      height: 32px;
+    }
   `)}
 `;
 
