@@ -9,7 +9,7 @@ export const StyledAuthModalBackdrop = styled.div<{ $isOpen: boolean }>`
   justify-content: center;
   align-items: center;
   padding-top: env(safe-area-inset-top, 20px);
-  z-index: 20;
+  z-index: 60;
   background-color: rgba(0, 0, 0, 0.5);
 
   /* Анимация появления/исчезновения */

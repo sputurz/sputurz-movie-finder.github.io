@@ -32,7 +32,7 @@ export const StyledSearchBackdrop = styled.div<{ $isMobileSearch?: boolean }>`
   inset: 0;
   background-color: ${(props) =>
     props.$isMobileSearch ? 'rgba(0, 0, 0, 0.5)' : 'transparent'};
-  z-index: 499;
+  z-index: 49;
   pointer-events: ${(props) => (props.$isMobileSearch ? 'unset' : 'none')};
 `;
 
@@ -42,7 +42,7 @@ export const StyledSearchWrap = styled.label<{ $isMobileSearch?: boolean }>`
   top: 12px;
   left: 20px;
   width: calc(100% - 40px);
-  z-index: 500;
+  z-index: 50;
 
   & > input {
     width: 100%;

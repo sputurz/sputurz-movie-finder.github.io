@@ -27,3 +27,10 @@ export const StyledLoginFormBtn = styled.button`
   width: 100%;
   ${vp767(css``)}
 `;
+
+export const StyledLoginFormErrorText = styled.span`
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ff7575;
+`;

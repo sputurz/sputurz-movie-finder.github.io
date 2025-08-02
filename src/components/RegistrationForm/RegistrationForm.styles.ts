@@ -33,3 +33,10 @@ export const StyledRegistrationFormBtn = styled.button`
 
   width: 100%;
 `;
+
+export const StyledRegistrationFormErrorText = styled.span`
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ff7575;
+`;

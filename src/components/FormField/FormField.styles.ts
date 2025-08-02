@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components';
-import { vp767 } from '../../styles/utils/mixins';
+import styled from 'styled-components';
 import {
   transitionBorderColor,
   transitionColor,
@@ -8,6 +7,7 @@ import {
 export const StyledFormField = styled.label<{ $isError?: boolean }>`
   position: relative;
   display: flex;
+  flex-direction: column;
   width: 100%;
 
   & > input,
@@ -16,7 +16,8 @@ export const StyledFormField = styled.label<{ $isError?: boolean }>`
 
     background-color: transparent;
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.4);
+    border: 1px solid
+      ${(props) => (props.$isError ? '#FF7575' : 'rgba(0, 0, 0, 0.4)')};
     border-radius: 8px;
     padding: 16px 16px 16px 52px;
     font-weight: 400;
@@ -43,11 +44,6 @@ export const StyledFormField = styled.label<{ $isError?: boolean }>`
     border-color: #b4a9ff;
   }
 
-  & > input:invalid,
-  & > textarea:invalid {
-    border-color: #ff7575;
-  }
-
   & > svg {
     ${transitionColor}
     color: ${(props) => (props.$isError ? '#FF7575' : 'rgba(0, 0, 0, 0.4)')};
@@ -58,10 +54,15 @@ export const StyledFormField = styled.label<{ $isError?: boolean }>`
     left: 16px;
   }
 
-  &:focus-within > svg,
-  &:hover > svg {
-    color: ${(props) => (props.$isError ? '#FF7575' : '#b4a9ff')};
+  &:hover > svg,
+  &:focus-within > svg {
+    color: #b4a9ff;
   }
+`;
 
-  ${vp767(css``)}
+export const StyledFormFieldErrorText = styled.span<{ $isError?: boolean }>`
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ff7575;
 `;

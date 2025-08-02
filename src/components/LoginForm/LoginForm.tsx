@@ -4,6 +4,7 @@ import { Icon } from '../Icon';
 import {
   StyledLoginForm,
   StyledLoginFormBtn,
+  StyledLoginFormErrorText,
   StyledLoginFormWrap,
 } from './LoginForm.styles';
 import { LoginUser, LoginUserSchema } from '../../models/Auth';
@@ -21,8 +22,8 @@ export const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    // formState: { errors },
-    // reset,
+    formState: { errors },
+    reset,
   } = useForm<LoginUser>({
     resolver: zodResolver(LoginUserSchema),
   });
@@ -34,10 +35,7 @@ export const LoginForm = () => {
       dispatch(setUser(user));
       queryClient.invalidateQueries({ queryKey: ['me'] });
       dispatch(closeAuthModal());
-      // reset();
-    },
-    onError() {
-      // reset();
+      reset();
     },
   });
 
@@ -48,7 +46,10 @@ export const LoginForm = () => {
       })}
     >
       <StyledLoginFormWrap>
-        <FormField>
+        <FormField
+          errorMessage={errors.email?.message}
+          isError={!!errors.email}
+        >
           <Icon name="MailIcon"></Icon>
           <input
             type="text"
@@ -57,7 +58,10 @@ export const LoginForm = () => {
             autoComplete="email"
           ></input>
         </FormField>
-        <FormField>
+        <FormField
+          errorMessage={errors.password?.message}
+          isError={!!errors.password}
+        >
           <Icon name="PasswordIcon"></Icon>
           <input
             type="password"
@@ -71,6 +75,11 @@ export const LoginForm = () => {
       <StyledLoginFormBtn type="submit" disabled={loginMutation.isPending}>
         Войти
       </StyledLoginFormBtn>
+      {loginMutation.error && (
+        <StyledLoginFormErrorText>
+          {loginMutation.error.message}
+        </StyledLoginFormErrorText>
+      )}
     </StyledLoginForm>
   );
 };
