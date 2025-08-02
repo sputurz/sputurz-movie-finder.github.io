@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { Icon } from '../Icon';
 import {
   StyledSearchBackdrop,

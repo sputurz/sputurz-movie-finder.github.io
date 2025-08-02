@@ -90,7 +90,12 @@ export const MoviePromo: FC<Props> = ({
               >
                 Трейлер
               </StyledMoviePromoBtnVideo>
-              {showPlayer && <VideoPlayer videoId={movie.trailerYoutubeId} />}
+              {showPlayer && (
+                <VideoPlayer
+                  trailerYouTubeId={movie.trailerYoutubeId}
+                  trailerUrl={movie.trailerUrl}
+                />
+              )}
               {isAboutMovie ? null : (
                 <StyledMoviePromoLinkAbout
                   $iSdisabled={isBusy}

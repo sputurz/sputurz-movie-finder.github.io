@@ -1,7 +1,13 @@
-@use './variables';
-@use './mixins';
+import { createGlobalStyle, css } from 'styled-components';
+import { vp767 } from './utils/mixins';
+import { FontStyle } from './utils/fonts';
+import { NormalizeStyle } from './utils/normalize';
 
-*,
+export const GlobalStyle = createGlobalStyle`
+${FontStyle}
+${NormalizeStyle}
+
+ *,
 *::after,
 *::before {
   box-sizing: border-box;
@@ -18,7 +24,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-size: 14px;
-  font-family: variables.$ff-play;
+  font-family: 'Play';
   font-style: normal;
   font-weight: 400;
   background-image: linear-gradient(
@@ -31,10 +37,10 @@ body {
 main {
   flex-grow: 1;
   min-height: calc(100vh - 168px);
-
-  @include mixins.vp-767 {
-    min-height: calc(100vh - 237px);
-  }
+ 
+     ${vp767(css`
+       min-height: calc(100vh - 237px);
+     `)}
 }
 
 img {
@@ -64,3 +70,4 @@ use {
   width: 100%;
   height: 100%;
 }
+`;

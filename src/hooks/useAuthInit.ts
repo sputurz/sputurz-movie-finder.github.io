@@ -30,9 +30,5 @@ export const useAuthInit = () => {
     if (isError) dispatch(clearUser());
   }, [data, isError, isFetching, dispatch]);
 
-  useEffect(() => {
-    console.log('useAuthInit status', { data, isFetching, isError });
-  }, [data, isFetching, isError]);
-
   return query;
 };
