@@ -1,1 +1,0 @@
-import{p as s,q as o,P as r}from"./index-J5vA05xB.js";function l(i){const e=s(),t=o({mutationFn:r,async onSuccess(){e.invalidateQueries({queryKey:["me"]}),e.invalidateQueries({queryKey:["favorites"]})}}),n=()=>{t.mutate(i)},a=t.isPending;return{deleteFavoriteHandler:n,isPending:a}}export{l as u};
