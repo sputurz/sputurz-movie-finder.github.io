@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { StyledFormField, StyledFormFieldErrorText } from './FormField.styles';
+import * as S from './FormField.styles';
 
 interface IProps {
   children: ReactNode;
@@ -9,11 +9,9 @@ interface IProps {
 
 export const FormField: FC<IProps> = ({ children, isError, errorMessage }) => {
   return (
-    <StyledFormField $isError={isError}>
+    <S.Label $isError={isError}>
       {children}
-      {errorMessage && (
-        <StyledFormFieldErrorText>{errorMessage}</StyledFormFieldErrorText>
-      )}
-    </StyledFormField>
+      {errorMessage && <S.ErrorText>{errorMessage}</S.ErrorText>}
+    </S.Label>
   );
 };

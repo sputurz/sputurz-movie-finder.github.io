@@ -3,7 +3,7 @@ import { vp767 } from '../../styles/utils/mixins';
 import { transitionOpacity } from '../../styles/utils/variables';
 import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
 
-export const StyledAuthModalBackdrop = styled.div<{ $isOpen: boolean }>`
+export const Backdrop = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   inset: 0;
   display: flex;
@@ -13,7 +13,6 @@ export const StyledAuthModalBackdrop = styled.div<{ $isOpen: boolean }>`
   z-index: 60;
   background-color: rgba(0, 0, 0, 0.5);
 
-  /* Анимация появления/исчезновения */
   animation: ${({ $isOpen }) => ($isOpen ? 'fadeIn' : 'fadeOut')} 0.7s ease
     forwards;
   pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
@@ -37,7 +36,7 @@ export const StyledAuthModalBackdrop = styled.div<{ $isOpen: boolean }>`
   }
 `;
 
-export const StyledAuthModal = styled.div<{ $isOpen: boolean }>`
+export const Wrap = styled.div<{ $isOpen: boolean }>`
   box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.33);
   position: relative;
   display: flex;
@@ -69,7 +68,7 @@ export const StyledAuthModal = styled.div<{ $isOpen: boolean }>`
   )}
 `;
 
-export const StyledAuthModalWrap = styled.div<{ $isOpen: boolean }>`
+export const Inner = styled.div<{ $isOpen: boolean }>`
   border-radius: inherit;
   display: flex;
   flex-direction: column;
@@ -98,7 +97,7 @@ export const StyledAuthModalWrap = styled.div<{ $isOpen: boolean }>`
   )}
 `;
 
-export const StyledAuthModalBtnAuthType = styled.button`
+export const BtnAuthType = styled.button`
   ${transitionOpacity}
 
   border: none;
@@ -111,11 +110,9 @@ export const StyledAuthModalBtnAuthType = styled.button`
   &:hover {
     opacity: 0.5;
   }
-
-  ${vp767(css``)}
 `;
 
-export const StyledAuthModalBtnClose = styled.button`
+export const BtnClose = styled.button`
   ${transitionOpacity}
 
   display: flex;
@@ -148,13 +145,13 @@ export const StyledAuthModalBtnClose = styled.button`
   `)}
 `;
 
-export const StyledAuthModalBtnLogin = styled.button`
+export const BtnLogin = styled.button`
   ${BtnPrimaryStyles}
 
   width: 100%;
 `;
 
-export const StyledAuthModalSuccsessTitle = styled.span`
+export const SuccsessTitle = styled.span`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
@@ -166,7 +163,7 @@ export const StyledAuthModalSuccsessTitle = styled.span`
   `)}
 `;
 
-export const StyledAuthModalSuccsessText = styled.span`
+export const SuccsessText = styled.span`
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;

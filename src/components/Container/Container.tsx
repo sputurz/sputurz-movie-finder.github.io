@@ -1,10 +1,10 @@
 import type { FC, ReactNode } from 'react';
-import { StyleContainer } from './Container.styles';
+import * as S from './Container.styles';
 
-type Props = {
+type IProps = {
   children?: ReactNode;
 };
 
-export const Container: FC<Props> = ({ children }) => {
-  return <StyleContainer>{children}</StyleContainer>;
+export const Container: FC<IProps> = ({ children }) => {
+  return <S.Wrap>{children}</S.Wrap>;
 };

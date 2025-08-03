@@ -1,13 +1,4 @@
-import {
-  StyledAuthModal,
-  StyledAuthModalBtnAuthType,
-  StyledAuthModalBtnClose,
-  StyledAuthModalBackdrop,
-  StyledAuthModalWrap,
-  StyledAuthModalBtnLogin,
-  StyledAuthModalSuccsessTitle,
-  StyledAuthModalSuccsessText,
-} from './AuthModal.styles';
+import * as S from './AuthModal.styles';
 import { Logo } from '../Logo';
 import { Icon } from '../Icon';
 import { LoginForm } from '../LoginForm';
@@ -54,9 +45,9 @@ export const AuthModal = () => {
   if (!shouldRender) return null;
 
   return (
-    <StyledAuthModalBackdrop onClick={handleBackdropClick} $isOpen={isOpen}>
-      <StyledAuthModal $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
-        <StyledAuthModalWrap $isOpen={isOpen}>
+    <S.Backdrop onClick={handleBackdropClick} $isOpen={isOpen}>
+      <S.Wrap $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
+        <S.Inner $isOpen={isOpen}>
           <Logo src={'/logoWhite.svg'} ref={logoRef}></Logo>
           {!isRegisterSuccess ? (
             <>
@@ -65,7 +56,7 @@ export const AuthModal = () => {
               ) : (
                 <LoginForm />
               )}
-              <StyledAuthModalBtnAuthType
+              <S.BtnAuthType
                 onClick={toggleAuthType}
                 aria-label={
                   authType === 'register'
@@ -74,29 +65,22 @@ export const AuthModal = () => {
                 }
               >
                 {authType === 'register' ? 'Регистрация' : 'У меня есть пароль'}
-              </StyledAuthModalBtnAuthType>
+              </S.BtnAuthType>
             </>
           ) : (
             <>
-              <StyledAuthModalSuccsessTitle>
-                Регистрация завершена
-              </StyledAuthModalSuccsessTitle>
-              <StyledAuthModalSuccsessText>
+              <S.SuccsessTitle>Регистрация завершена</S.SuccsessTitle>
+              <S.SuccsessText>
                 Используйте вашу электронную почту для входа
-              </StyledAuthModalSuccsessText>
-              <StyledAuthModalBtnLogin onClick={onSuccessBtnClick}>
-                Войти
-              </StyledAuthModalBtnLogin>
+              </S.SuccsessText>
+              <S.BtnLogin onClick={onSuccessBtnClick}>Войти</S.BtnLogin>
             </>
           )}
-          <StyledAuthModalBtnClose
-            onClick={closeModal}
-            aria-label={'Закрыть форму'}
-          >
+          <S.BtnClose onClick={closeModal} aria-label={'Закрыть форму'}>
             <Icon name="CloseIcon"></Icon>
-          </StyledAuthModalBtnClose>
-        </StyledAuthModalWrap>
-      </StyledAuthModal>
-    </StyledAuthModalBackdrop>
+          </S.BtnClose>
+        </S.Inner>
+      </S.Wrap>
+    </S.Backdrop>
   );
 };

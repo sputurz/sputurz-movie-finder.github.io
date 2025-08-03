@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { NavLinkStyles } from '../../styles/global/NavLink';
 import { transitionOpacity } from '../../styles/utils/variables';
 
-export const StyledHeader = styled.header`
+export const Header = styled.header`
   padding: 16px 0;
 
   ${vp767(css`
@@ -12,7 +12,7 @@ export const StyledHeader = styled.header`
   `)}
 `;
 
-export const StyledHeaderWrap = styled.div`
+export const Wrap = styled.div`
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 20px;
@@ -26,7 +26,7 @@ export const StyledHeaderWrap = styled.div`
   `)}
 `;
 
-export const StyledHeaderInner = styled.div`
+export const Inner = styled.div`
   display: flex;
   gap: 20px;
   width: 100%;
@@ -40,7 +40,7 @@ export const StyledHeaderInner = styled.div`
   `)}
 `;
 
-export const StyledHeaderNavLink = styled(NavLink)`
+export const LinkItem = styled(NavLink)`
   ${NavLinkStyles}
 
   svg {
@@ -60,7 +60,7 @@ export const StyledHeaderNavLink = styled(NavLink)`
   `)}
 `;
 
-export const StyledHeaderNavLinkText = styled.span`
+export const LinkText = styled.span`
   display: none;
 
   ${vp767(css`
@@ -75,7 +75,7 @@ export const StyledHeaderNavLinkText = styled.span`
   `)}
 `;
 
-export const StyledHeaderBtnModal = styled.button`
+export const BtnModal = styled.button`
   ${transitionOpacity}
 
   display: flex;
@@ -112,7 +112,7 @@ export const StyledHeaderBtnModal = styled.button`
   }
 `;
 
-export const StyledHeaderBtnModalText = styled.span`
+export const BtnModalText = styled.span`
   display: none;
 
   ${vp767(css`

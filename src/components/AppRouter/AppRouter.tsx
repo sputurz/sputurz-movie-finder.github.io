@@ -18,7 +18,6 @@ const FavoritesTab = lazy(
   () => import('../../components/FavoritesTab/FavoritesTab')
 );
 
-// Создаем кастомный компонент для MoviePage с ключом
 const MoviePageWithKey = () => {
   const location = useLocation();
   return <MoviePage key={location.pathname} />;

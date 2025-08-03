@@ -1,11 +1,7 @@
 import { useFavorites } from '../../hooks/useFavorites';
 import { ErrorFallback } from '../ErrorFallback';
 import { MovieCard } from '../MovieCard';
-import {
-  StyledFavoritesTab,
-  StyledFavoritesTabist,
-  StyledFavoritesTabListItem,
-} from './FavoritesTab.styles';
+import * as S from './FavoritesTab.styles';
 
 export default function FavoritesTab() {
   const { data, error } = useFavorites();
@@ -14,14 +10,14 @@ export default function FavoritesTab() {
   if (!data) return null;
 
   return (
-    <StyledFavoritesTab>
-      <StyledFavoritesTabist>
+    <S.Wrap>
+      <S.List>
         {data.map((movie) => (
-          <StyledFavoritesTabListItem key={movie.id}>
+          <S.Item key={movie.id}>
             <MovieCard movie={movie} isUserProfile />
-          </StyledFavoritesTabListItem>
+          </S.Item>
         ))}
-      </StyledFavoritesTabist>
-    </StyledFavoritesTab>
+      </S.List>
+    </S.Wrap>
   );
 }

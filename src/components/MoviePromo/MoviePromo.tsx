@@ -10,7 +10,7 @@ import { selectUser } from '../../store/globalSlices/authSlice';
 import { useLike } from '../../hooks/useLike';
 import { MovieTagList } from '../MovieTagList';
 
-type Props = {
+type IProps = {
   movie: IMovie;
   isFetching: boolean;
   isLoading: boolean;
@@ -18,7 +18,7 @@ type Props = {
   refetch?: () => void;
 };
 
-export const MoviePromo: FC<Props> = ({
+export const MoviePromo: FC<IProps> = ({
   movie,
   isFetching,
   isLoading,

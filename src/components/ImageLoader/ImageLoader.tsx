@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react';
-import { StyledImage, StyledImageLoader } from './ImageLoader.styles';
+import * as S from './ImageLoader.styles';
 import { Loader } from '../Loader';
 
-type Props = {
+type IProps = {
   src: string;
   alt?: string;
   isFetching: boolean;
@@ -11,7 +11,7 @@ type Props = {
   className?: string;
 };
 
-export const ImageLoader: FC<Props> = ({
+export const ImageLoader: FC<IProps> = ({
   src,
   alt,
   isFetching,
@@ -21,28 +21,22 @@ export const ImageLoader: FC<Props> = ({
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  // сбрасываем состояние загрузки при новом fetch или новом src
   useEffect(() => {
     setImageLoaded(false);
-    onImageLoadedChange?.(false); // уведомляем родителя
+    onImageLoadedChange?.(false);
   }, [src, isFetching, onImageLoadedChange]);
 
   const handleImageLoad = () => {
     setImageLoaded(true);
-    onImageLoadedChange?.(true); // уведомляем родителя
+    onImageLoadedChange?.(true);
   };
 
   const isBusy = isFetching || isLoading || !imageLoaded;
 
   return (
-    <StyledImageLoader className={className}>
-      <StyledImage
-        $isBusy={isBusy}
-        src={src}
-        alt={alt}
-        onLoad={handleImageLoad}
-      />
+    <S.Wrap className={className}>
+      <S.Img $isBusy={isBusy} src={src} alt={alt} onLoad={handleImageLoad} />
       {isBusy && <Loader />}
-    </StyledImageLoader>
+    </S.Wrap>
   );
 };

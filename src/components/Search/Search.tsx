@@ -7,12 +7,8 @@ import { useDebouncedValue } from '../../hooks/useDebouncedValue';
 import { SearchCard } from '../SearchCard';
 import { useState } from 'react';
 
-type FormValues = {
-  searchQuery: string;
-};
-
 export function Search() {
-  const { register, watch, reset, setFocus } = useForm<FormValues>();
+  const { register, watch, reset, setFocus } = useForm();
   const searchValue = watch('searchQuery');
   const debouncedSearch = useDebouncedValue(searchValue, 300);
   const { data, error } = useSearch(debouncedSearch);

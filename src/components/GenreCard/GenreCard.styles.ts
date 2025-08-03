@@ -3,7 +3,7 @@ import { vp767 } from '../../styles/utils/mixins';
 import { Link } from 'react-router-dom';
 import { transitionTransform } from '../../styles/utils/variables';
 
-export const StyledCard = styled(Link)`
+export const LinkItem = styled(Link)`
   ${transitionTransform}
 
   height: 100%;
@@ -19,7 +19,7 @@ export const StyledCard = styled(Link)`
   }
 `;
 
-export const StyledCardImgContainer = styled.div`
+export const ImgContainer = styled.div`
   position: relative;
   width: 100%;
   height: 0;
@@ -33,7 +33,7 @@ export const StyledCardImgContainer = styled.div`
   `)}
 `;
 
-export const StyledCardImg = styled.img`
+export const Img = styled.img`
   position: absolute;
   top: 0;
   left: 0;
@@ -45,15 +45,11 @@ export const StyledCardImg = styled.img`
   -webkit-user-drag: none;
 `;
 
-export const StyledCardName = styled.span`
+export const Text = styled.span`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
   color: #ffffff;
   text-align: center;
   padding: 22px 0 30px;
-
-  /* white-space: nowrap; */
-  /* overflow: hidden; */
-  /* text-overflow: ellipsis; */
 `;

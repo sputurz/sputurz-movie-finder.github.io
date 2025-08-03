@@ -7,15 +7,7 @@ import { openAuthModal } from '../AuthModal/AuthModalSlice';
 import { Container } from '../Container';
 import { Logo } from '../Logo';
 import { Nav } from '../Nav';
-import {
-  StyledHeader,
-  StyledHeaderWrap,
-  StyledHeaderNavLink,
-  StyledHeaderNavLinkText,
-  StyledHeaderBtnModal,
-  StyledHeaderBtnModalText,
-  StyledHeaderInner,
-} from './Header.styles';
+import * as S from './Header.styles';
 import { Icon } from '../Icon';
 import { Search } from '../Search';
 
@@ -25,27 +17,27 @@ export function Header() {
   const user = useAppSelector(selectUser);
 
   return (
-    <StyledHeader>
+    <S.Header>
       <Container>
-        <StyledHeaderWrap>
+        <S.Wrap>
           <Logo src={'/logoBlack.svg'}></Logo>
-          <StyledHeaderInner>
+          <S.Inner>
             <Nav></Nav>
             <Search></Search>
-          </StyledHeaderInner>
+          </S.Inner>
           {isAuthenticated ? (
-            <StyledHeaderNavLink to={'/profile'}>
-              <StyledHeaderNavLinkText>{user?.name}</StyledHeaderNavLinkText>
+            <S.LinkItem to={'/profile'}>
+              <S.LinkText>{user?.name}</S.LinkText>
               <Icon name="UserIcon"></Icon>
-            </StyledHeaderNavLink>
+            </S.LinkItem>
           ) : (
-            <StyledHeaderBtnModal onClick={() => dispatch(openAuthModal())}>
-              <StyledHeaderBtnModalText>Войти</StyledHeaderBtnModalText>
+            <S.BtnModal onClick={() => dispatch(openAuthModal())}>
+              <S.BtnModalText>Войти</S.BtnModalText>
               <Icon name="UserIcon"></Icon>
-            </StyledHeaderBtnModal>
+            </S.BtnModal>
           )}
-        </StyledHeaderWrap>
+        </S.Wrap>
       </Container>
-    </StyledHeader>
+    </S.Header>
   );
 }

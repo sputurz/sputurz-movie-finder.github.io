@@ -3,11 +3,11 @@ import { IMovie } from '../../models';
 import * as S from './MovieTagList.styles';
 import { convertMinsToHoursMins } from '../../utils/convertMinsToHoursMins';
 
-type Props = {
+type IProps = {
   movie: IMovie;
 };
 
-export const MovieTagList: FC<Props> = ({ movie }) => {
+export const MovieTagList: FC<IProps> = ({ movie }) => {
   return (
     <S.Wrap>
       <span>{movie.releaseYear}</span>

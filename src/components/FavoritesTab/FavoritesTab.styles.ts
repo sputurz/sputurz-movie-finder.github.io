@@ -1,13 +1,11 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
-export const StyledFavoritesTab = styled.div`
+export const Wrap = styled.div`
   color: white;
-
-  ${vp767(css``)}
 `;
 
-export const StyledFavoritesTabist = styled.ul`
+export const List = styled.ul`
   margin: -80px -20px;
   padding: 80px 20px;
   list-style-type: none;
@@ -37,10 +35,8 @@ export const StyledFavoritesTabist = styled.ul`
   `)}
 `;
 
-export const StyledFavoritesTabListItem = styled.li`
+export const Item = styled.li`
   flex-shrink: 0;
   width: 224px;
   height: 336px;
-
-  ${vp767(css``)}
 `;

@@ -4,7 +4,7 @@ import {
   transitionColor,
 } from '../../styles/utils/variables';
 
-export const StyledFormField = styled.label<{ $isError?: boolean }>`
+export const Label = styled.label<{ $isError?: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@ export const StyledFormField = styled.label<{ $isError?: boolean }>`
   }
 `;
 
-export const StyledFormFieldErrorText = styled.span<{ $isError?: boolean }>`
+export const ErrorText = styled.span<{ $isError?: boolean }>`
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;

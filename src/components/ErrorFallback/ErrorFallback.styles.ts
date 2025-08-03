@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
-export const StyledErrorFallback = styled.p`
+export const Wrap = styled.p`
   margin: 0;
   padding: 0;
   font-weight: 700;

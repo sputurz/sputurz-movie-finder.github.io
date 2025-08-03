@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const StyledImageLoader = styled.div`
+export const Wrap = styled.div`
   position: relative;
   width: 100%;
   overflow: hidden;
 `;
 
-export const StyledImage = styled.img<{ $isBusy: boolean }>`
+export const Img = styled.img<{ $isBusy: boolean }>`
   opacity: ${({ $isBusy }) => ($isBusy ? 0.1 : 1)};
 `;

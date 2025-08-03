@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { StyledInfiniteTrigger } from './InfiniteTrigger.styles';
+import * as S from './InfiniteTrigger.styles';
 
 export function InfiniteTrigger({
   onIntersect,
@@ -27,5 +27,5 @@ export function InfiniteTrigger({
     };
   }, [disabled, onIntersect]);
 
-  return <StyledInfiniteTrigger ref={ref} />;
+  return <S.Wrap ref={ref} />;
 }
