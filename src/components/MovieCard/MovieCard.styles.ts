@@ -5,7 +5,7 @@ import {
   transitionTransform,
 } from '../../styles/utils/variables';
 
-export const StyledMovieCard = styled.div`
+export const Card = styled.div`
   ${transitionTransform}
 
   position: relative;
@@ -33,17 +33,16 @@ export const StyledMovieCard = styled.div`
   }
 `;
 
-export const StyledMovieCardLink = styled(Link)`
+export const LinkItem = styled(Link)`
   ${transitionTransform}
 
   border-radius: inherit;
-
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
 `;
 
-export const StyledMovieCardImg = styled.img`
+export const Img = styled.img`
   width: 100%;
   height: 100%;
   border-radius: inherit;
@@ -52,7 +51,7 @@ export const StyledMovieCardImg = styled.img`
   -webkit-user-drag: none;
 `;
 
-export const StyledMovieCardRating = styled.span`
+export const Rating = styled.span`
   user-select: none;
   width: 62px;
   height: 48px;
@@ -72,7 +71,7 @@ export const StyledMovieCardRating = styled.span`
   z-index: 2;
 `;
 
-export const StyledMovieCardBtnDelete = styled.button`
+export const BtnDelete = styled.button`
   ${transitionOpacity}
 
   position: absolute;

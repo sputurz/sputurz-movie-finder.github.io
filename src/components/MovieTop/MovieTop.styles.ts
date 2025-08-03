@@ -1,9 +1,7 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
-export const StyledTop = styled.section``;
-
-export const StyledTopWrap = styled.section`
+export const Wrap = styled.section`
   display: flex;
   flex-direction: column;
   padding: 32px 0;
@@ -15,7 +13,7 @@ export const StyledTopWrap = styled.section`
   `)}
 `;
 
-export const StyledTopTitle = styled.h2`
+export const Title = styled.h2`
   margin: 0;
   padding: 0;
   font-weight: 700;
@@ -29,7 +27,7 @@ export const StyledTopTitle = styled.h2`
   `)}
 `;
 
-export const StyledTopList = styled.ul`
+export const List = styled.ul`
   margin: -80px -20px;
   padding: 80px 20px;
   list-style-type: none;
@@ -59,10 +57,8 @@ export const StyledTopList = styled.ul`
   `)}
 `;
 
-export const StyledTopListItem = styled.li`
+export const Item = styled.li`
   flex-shrink: 0;
   width: 224px;
   height: 336px;
-
-  ${vp767(css``)}
 `;

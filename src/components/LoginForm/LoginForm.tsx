@@ -1,12 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { FormField } from '../FormField';
 import { Icon } from '../Icon';
-import {
-  StyledLoginForm,
-  StyledLoginFormBtn,
-  StyledLoginFormErrorText,
-  StyledLoginFormWrap,
-} from './LoginForm.styles';
+import * as S from './LoginForm.styles';
 import { LoginUser, LoginUserSchema } from '../../models/Auth';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -40,12 +35,12 @@ export const LoginForm = () => {
   });
 
   return (
-    <StyledLoginForm
+    <S.Form
       onSubmit={handleSubmit(({ email, password }) => {
         loginMutation.mutate({ email, password });
       })}
     >
-      <StyledLoginFormWrap>
+      <S.Wrap>
         <FormField
           errorMessage={errors.email?.message}
           isError={!!errors.email}
@@ -70,16 +65,14 @@ export const LoginForm = () => {
             autoComplete="current-password"
           ></input>
         </FormField>
-      </StyledLoginFormWrap>
+      </S.Wrap>
 
-      <StyledLoginFormBtn type="submit" disabled={loginMutation.isPending}>
+      <S.BtnSubmit type="submit" disabled={loginMutation.isPending}>
         Войти
-      </StyledLoginFormBtn>
+      </S.BtnSubmit>
       {loginMutation.error && (
-        <StyledLoginFormErrorText>
-          {loginMutation.error.message}
-        </StyledLoginFormErrorText>
+        <S.ErrorText>{loginMutation.error.message}</S.ErrorText>
       )}
-    </StyledLoginForm>
+    </S.Form>
   );
 };

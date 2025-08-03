@@ -5,8 +5,6 @@ import {
   transitionOpacity,
   transitionTransform,
 } from '../../styles/utils/variables';
-
-// Обернём Link в forwardRef, чтобы ref прокидывался к <a>
 import React, { forwardRef } from 'react';
 
 const LinkWithRef = forwardRef<
@@ -14,7 +12,7 @@ const LinkWithRef = forwardRef<
   React.ComponentProps<typeof Link>
 >((props, ref) => React.createElement(Link, { ...props, ref }));
 
-export const StyledLogoLink = styled(LinkWithRef)`
+export const LinkItem = styled(LinkWithRef)`
   ${transitionOpacity}
   ${transitionTransform}
 
@@ -49,6 +47,6 @@ export const StyledLogoLink = styled(LinkWithRef)`
   `)}
 `;
 
-export const StyledLogoImg = styled.img`
+export const Img = styled.img`
   height: 100%;
 `;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledMovieRating = styled.div<{
+export const Wrap = styled.div<{
   $color?: string;
   $isSearch?: boolean;
 }>`
@@ -22,7 +22,7 @@ export const StyledMovieRating = styled.div<{
   }
 `;
 
-export const StyledMovieRatingText = styled.span<{
+export const Text = styled.span<{
   $isSearch?: boolean;
 }>`
   font-weight: 700;

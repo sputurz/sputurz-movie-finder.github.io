@@ -2,13 +2,7 @@ import { useMovieTop } from '../../hooks/useMovieTop';
 import { Container } from '../Container';
 import { ErrorFallback } from '../ErrorFallback';
 import { MovieCard } from '../MovieCard';
-import {
-  StyledTop,
-  StyledTopList,
-  StyledTopListItem,
-  StyledTopTitle,
-  StyledTopWrap,
-} from './MovieTop.styles';
+import * as S from './MovieTop.styles';
 
 export function MovieTop() {
   const { data, error } = useMovieTop();
@@ -17,27 +11,27 @@ export function MovieTop() {
   if (!data) return null;
 
   return (
-    <StyledTop>
+    <section>
       <Container>
-        <StyledTopWrap>
-          <StyledTopTitle>Топ 10 фильмов</StyledTopTitle>
-          <StyledTopList>
+        <S.Wrap>
+          <S.Title>Топ 10 фильмов</S.Title>
+          <S.List>
             {data
               ? [...data]
                   .sort((a, b) => b.tmdbRating - a.tmdbRating)
                   .map((movie, index) => (
-                    <StyledTopListItem key={movie.id}>
+                    <S.Item key={movie.id}>
                       <MovieCard
                         movie={movie}
                         indexRating={index + 1}
                         isRatingShown
                       />
-                    </StyledTopListItem>
+                    </S.Item>
                   ))
               : null}
-          </StyledTopList>
-        </StyledTopWrap>
+          </S.List>
+        </S.Wrap>
       </Container>
-    </StyledTop>
+    </section>
   );
 }

@@ -1,10 +1,4 @@
-import {
-  StyledMovieCardLink,
-  StyledMovieCardBtnDelete,
-  StyledMovieCardImg,
-  StyledMovieCardRating,
-  StyledMovieCard,
-} from './MovieCard.styles';
+import * as S from './MovieCard.styles';
 import { IMovie } from '../../models';
 import { useDeleteFavorite } from '../../hooks/useDeleteFavorite';
 import { Icon } from '../Icon';
@@ -25,23 +19,21 @@ export function MovieCard({
   const { deleteFavoriteHandler } = useDeleteFavorite(movie.id);
 
   return (
-    <StyledMovieCard>
-      <StyledMovieCardLink to={`/movie/${movie.id}`}>
-        <StyledMovieCardImg
+    <S.Card>
+      <S.LinkItem to={`/movie/${movie.id}`}>
+        <S.Img
           src={
             movie.backdropUrl ? movie.posterUrl : '/images/movieCard/error.jpg'
           }
           alt={movie.title}
         />
-      </StyledMovieCardLink>
-      {isRatingShown ? (
-        <StyledMovieCardRating>{indexRating}</StyledMovieCardRating>
-      ) : null}
+      </S.LinkItem>
+      {isRatingShown ? <S.Rating>{indexRating}</S.Rating> : null}
       {isUserProfile ? (
-        <StyledMovieCardBtnDelete onClick={deleteFavoriteHandler}>
+        <S.BtnDelete onClick={deleteFavoriteHandler}>
           <Icon name="CloseIcon"></Icon>
-        </StyledMovieCardBtnDelete>
+        </S.BtnDelete>
       ) : null}
-    </StyledMovieCard>
+    </S.Card>
   );
 }

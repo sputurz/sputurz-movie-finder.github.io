@@ -1,20 +1,6 @@
 import { FC, useState } from 'react';
 import { IMovie } from '../../models';
-import {
-  StyledMoviePromo,
-  StyledMoviePromoLinkAbout,
-  StyledMoviePromoBtnLike,
-  StyledMoviePromoBtnUpd,
-  StyledMoviePromoBtnVideo,
-  StyledMoviePromoBtnWrap,
-  StyledMoviePromoPlot,
-  StyledMoviePromoTagText,
-  StyledMoviePromoTextWrap,
-  StyledMoviePromoTitle,
-  StyledMoviePromoWrap,
-  StyledMoviePromoImgContainer,
-  StyledMoviePromoInner,
-} from './MoviePromo.styles';
+import * as S from './MoviePromo.styles';
 import { MovieRating } from '../MovieRating';
 import { Icon } from '../Icon';
 import { Container } from '../Container';
@@ -71,37 +57,33 @@ export const MoviePromo: FC<Props> = ({
   };
 
   return (
-    <StyledMoviePromo>
+    <section>
       <Container>
-        <StyledMoviePromoInner>
-          <StyledMoviePromoImgContainer
+        <S.Inner>
+          <S.ImgWrap
             src={movie.backdropUrl || '/images/moviePromo/error.jpg'}
             alt={movie.title}
             isFetching={isFetching}
             isLoading={isLoading}
             onImageLoadedChange={setImageLoaded}
-          ></StyledMoviePromoImgContainer>
+          ></S.ImgWrap>
 
-          <StyledMoviePromoWrap $isAboutMovie={isAboutMovie}>
-            <StyledMoviePromoTextWrap>
-              <StyledMoviePromoTagText>
+          <S.Wrap $isAboutMovie={isAboutMovie}>
+            <S.TextWrap>
+              <S.Tag>
                 {movie.tmdbRating ? (
                   <MovieRating rating={movie.tmdbRating}></MovieRating>
                 ) : null}
 
                 <MovieTagList movie={movie}></MovieTagList>
-              </StyledMoviePromoTagText>
-              <StyledMoviePromoTitle $isAboutMovie={isAboutMovie}>
-                {movie.title}
-              </StyledMoviePromoTitle>
-              <StyledMoviePromoPlot $isAboutMovie={isAboutMovie}>
-                {movie.plot}
-              </StyledMoviePromoPlot>
-            </StyledMoviePromoTextWrap>
-            <StyledMoviePromoBtnWrap $isAboutMovie={isAboutMovie}>
-              <StyledMoviePromoBtnVideo disabled={isBusy} onClick={onVideoBtn}>
+              </S.Tag>
+              <S.Title $isAboutMovie={isAboutMovie}>{movie.title}</S.Title>
+              <S.Plot $isAboutMovie={isAboutMovie}>{movie.plot}</S.Plot>
+            </S.TextWrap>
+            <S.BtnWrap $isAboutMovie={isAboutMovie}>
+              <S.BtnVideo disabled={isBusy} onClick={onVideoBtn}>
                 Трейлер
-              </StyledMoviePromoBtnVideo>
+              </S.BtnVideo>
               {showPlayer && (
                 <VideoPlayer
                   trailerYouTubeId={movie.trailerYoutubeId}
@@ -111,29 +93,22 @@ export const MoviePromo: FC<Props> = ({
                 />
               )}
               {isAboutMovie ? null : (
-                <StyledMoviePromoLinkAbout
-                  $iSdisabled={isBusy}
-                  to={`/movie/${movie.id}`}
-                >
+                <S.LinkItem $iSdisabled={isBusy} to={`/movie/${movie.id}`}>
                   о фильме
-                </StyledMoviePromoLinkAbout>
+                </S.LinkItem>
               )}
-              <StyledMoviePromoBtnLike
-                $isLiked={isLiked}
-                disabled={isBusy}
-                onClick={onLike}
-              >
+              <S.BtnLike $isLiked={isLiked} disabled={isBusy} onClick={onLike}>
                 <Icon name="LikeIcon"></Icon>
-              </StyledMoviePromoBtnLike>
+              </S.BtnLike>
               {isAboutMovie ? null : (
-                <StyledMoviePromoBtnUpd onClick={onUpdate} disabled={isBusy}>
+                <S.BtnUpdate onClick={onUpdate} disabled={isBusy}>
                   <Icon name="UpdateIcon"></Icon>
-                </StyledMoviePromoBtnUpd>
+                </S.BtnUpdate>
               )}
-            </StyledMoviePromoBtnWrap>
-          </StyledMoviePromoWrap>
-        </StyledMoviePromoInner>
+            </S.BtnWrap>
+          </S.Wrap>
+        </S.Inner>
       </Container>
-    </StyledMoviePromo>
+    </section>
   );
 };

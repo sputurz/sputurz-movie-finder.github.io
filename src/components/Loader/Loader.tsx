@@ -1,9 +1,9 @@
-import { StyledLoader, StyledLoaderInner } from './Loader.styles';
+import * as S from './Loader.styles';
 
 export const Loader = () => {
   return (
-    <StyledLoader>
-      <StyledLoaderInner></StyledLoaderInner>
-    </StyledLoader>
+    <S.Wrap>
+      <S.Inner></S.Inner>
+    </S.Wrap>
   );
 };

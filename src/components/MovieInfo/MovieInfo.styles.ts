@@ -1,9 +1,7 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
-export const StyledMovieInfo = styled.section``;
-
-export const StyledMovieInfoWrap = styled.div`
+export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   padding: 32px 0 32px;
@@ -15,7 +13,7 @@ export const StyledMovieInfoWrap = styled.div`
   `)}
 `;
 
-export const StyledMovieInfoTitle = styled.h2`
+export const Title = styled.h2`
   padding: 0;
   margin: 0;
   font-weight: 700;
@@ -29,7 +27,7 @@ export const StyledMovieInfoTitle = styled.h2`
   `)}
 `;
 
-export const StyledMovieInfoList = styled.ul`
+export const List = styled.ul`
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -44,7 +42,7 @@ export const StyledMovieInfoList = styled.ul`
   )}
 `;
 
-export const StyledMovieInfoItem = styled.li`
+export const Item = styled.li`
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -57,7 +55,7 @@ export const StyledMovieInfoItem = styled.li`
   `)}
 `;
 
-export const StyledMovieInfoLabel = styled.span`
+export const Label = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -70,7 +68,7 @@ export const StyledMovieInfoLabel = styled.span`
   `)}
 `;
 
-export const StyledMovieInfoDash = styled.div`
+export const Border = styled.div`
   ${vp767(
     css`
       height: 18px;
@@ -79,11 +77,9 @@ export const StyledMovieInfoDash = styled.div`
   )}
 `;
 
-export const StyledMovieInfoValue = styled.span`
+export const Value = styled.span`
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   color: #ffffff;
-
-  ${vp767(css``)}
 `;

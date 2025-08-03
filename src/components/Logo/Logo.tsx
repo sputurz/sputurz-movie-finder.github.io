@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { StyledLogoImg, StyledLogoLink } from './Logo.styles.ts';
+import * as S from './Logo.styles.ts';
 import { useAppDispatch } from '../../store/hooks.ts';
 import { closeAuthModal } from '../AuthModal/AuthModalSlice.ts';
 
@@ -15,13 +15,13 @@ export const Logo = forwardRef<HTMLAnchorElement, IProps>(({ src }, ref) => {
   };
 
   return (
-    <StyledLogoLink
+    <S.LinkItem
       to="/"
       aria-label="Ссылка на главную страницу"
       ref={ref}
       onClick={handleClick}
     >
-      <StyledLogoImg src={src} alt="Лого - Маруся" />
-    </StyledLogoLink>
+      <S.Img src={src} alt="Лого - Маруся" />
+    </S.LinkItem>
   );
 });

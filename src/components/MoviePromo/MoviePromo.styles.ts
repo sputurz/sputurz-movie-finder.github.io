@@ -5,11 +5,7 @@ import { BtnSecondaryStyles } from '../../styles/global/BtnSecondary';
 import { Link } from 'react-router-dom';
 import { ImageLoader } from '../ImageLoader';
 
-export const StyledMoviePromo = styled.section`
-  position: relative;
-`;
-
-export const StyledMoviePromoInner = styled.div`
+export const Inner = styled.div`
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 24px;
@@ -25,7 +21,7 @@ export const StyledMoviePromoInner = styled.div`
   )}
 `;
 
-export const StyledMoviePromoImgContainer = styled(ImageLoader)`
+export const ImgWrap = styled(ImageLoader)`
   img {
     width: 100%;
     border-radius: 16px;
@@ -38,7 +34,7 @@ export const StyledMoviePromoImgContainer = styled(ImageLoader)`
   )}
 `;
 
-export const StyledMoviePromoWrap = styled.div<{ $isAboutMovie?: boolean }>`
+export const Wrap = styled.div<{ $isAboutMovie?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -58,7 +54,7 @@ export const StyledMoviePromoWrap = styled.div<{ $isAboutMovie?: boolean }>`
     `)}
 `;
 
-export const StyledMoviePromoTextWrap = styled.div`
+export const TextWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -67,7 +63,7 @@ export const StyledMoviePromoTextWrap = styled.div`
   `)}
 `;
 
-export const StyledMoviePromoTagText = styled.div`
+export const Tag = styled.div`
   display: flex;
   gap: 16px;
   align-items: center;
@@ -87,7 +83,7 @@ export const StyledMoviePromoTagText = styled.div`
   `)}
 `;
 
-export const StyledMoviePromoTitle = styled.h2<{ $isAboutMovie?: boolean }>`
+export const Title = styled.h2<{ $isAboutMovie?: boolean }>`
   margin: 0;
   padding: 0;
   font-weight: 700;
@@ -112,7 +108,7 @@ export const StyledMoviePromoTitle = styled.h2<{ $isAboutMovie?: boolean }>`
     `)}
 `;
 
-export const StyledMoviePromoPlot = styled.p<{ $isAboutMovie?: boolean }>`
+export const Plot = styled.p<{ $isAboutMovie?: boolean }>`
   margin: 0;
   padding: 0;
   font-weight: 400;
@@ -137,7 +133,7 @@ export const StyledMoviePromoPlot = styled.p<{ $isAboutMovie?: boolean }>`
     `)}
 `;
 
-export const StyledMoviePromoBtnWrap = styled.div<{ $isAboutMovie?: boolean }>`
+export const BtnWrap = styled.div<{ $isAboutMovie?: boolean }>`
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 16px;
@@ -148,24 +144,18 @@ export const StyledMoviePromoBtnWrap = styled.div<{ $isAboutMovie?: boolean }>`
   & > button:first-child {
     grid-column: ${(props) => (props.$isAboutMovie ? 'span 1' : 'span 3')};
   }
-
-  ${vp1023(css``)}
 `;
 
-export const StyledMoviePromoBtnVideo = styled.button`
+export const BtnVideo = styled.button`
   ${BtnPrimaryStyles}
-
-  ${vp1023(css``)}
 `;
 
-export const StyledMoviePromoBtnUpd = styled.button`
+export const BtnUpdate = styled.button`
   ${BtnSecondaryStyles}
   width: 68px;
-
-  ${vp1023(css``)}
 `;
 
-export const StyledMoviePromoLinkAbout = styled(Link)<{
+export const LinkItem = styled(Link)<{
   $iSdisabled?: boolean;
 }>`
   ${BtnSecondaryStyles}
@@ -179,7 +169,7 @@ export const StyledMoviePromoLinkAbout = styled(Link)<{
     `}
 `;
 
-export const StyledMoviePromoBtnLike = styled.button<{ $isLiked?: boolean }>`
+export const BtnLike = styled.button<{ $isLiked?: boolean }>`
   ${BtnSecondaryStyles}
   width: 68px;
 

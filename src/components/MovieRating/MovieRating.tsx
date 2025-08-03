@@ -1,7 +1,7 @@
 import { IMovie } from '../../models';
 import { setRatingColor } from '../../utils/setRatingColor';
 import { Icon } from '../Icon';
-import { StyledMovieRating, StyledMovieRatingText } from './MovieRating.styles';
+import * as S from './MovieRating.styles';
 
 interface IProps {
   rating: IMovie['tmdbRating'] | undefined | null;
@@ -14,11 +14,11 @@ export function MovieRating({ rating, isSearch }: IProps) {
   }
 
   return (
-    <StyledMovieRating $color={setRatingColor(rating)} $isSearch={isSearch}>
+    <S.Wrap $color={setRatingColor(rating)} $isSearch={isSearch}>
       <Icon name="StarIcon"></Icon>
-      <StyledMovieRatingText $isSearch={isSearch}>
+      <S.Text $isSearch={isSearch}>
         {rating.toFixed(1).replace('.', ',')}
-      </StyledMovieRatingText>
-    </StyledMovieRating>
+      </S.Text>
+    </S.Wrap>
   );
 }

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { vp1023, vp767 } from '../../styles/utils/mixins';
 
-export const StyledMovieTagList = styled.div`
+export const Wrap = styled.div`
   display: flex;
   gap: 16px;
   align-items: center;
@@ -21,11 +21,7 @@ export const StyledMovieTagList = styled.div`
   `)}
 `;
 
-export const StyledMovieTagListYear = styled.span``;
-
-export const StyledMovieTagListRuntime = styled.span``;
-
-export const StyledMovieTagListGenres = styled.span`
+export const Genres = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

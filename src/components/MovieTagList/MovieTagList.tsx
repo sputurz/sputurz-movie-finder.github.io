@@ -1,11 +1,6 @@
 import { FC } from 'react';
 import { IMovie } from '../../models';
-import {
-  StyledMovieTagList,
-  StyledMovieTagListGenres,
-  StyledMovieTagListRuntime,
-  StyledMovieTagListYear,
-} from './MovieTagList.styles';
+import * as S from './MovieTagList.styles';
 import { convertMinsToHoursMins } from '../../utils/convertMinsToHoursMins';
 
 type Props = {
@@ -14,14 +9,10 @@ type Props = {
 
 export const MovieTagList: FC<Props> = ({ movie }) => {
   return (
-    <StyledMovieTagList>
-      <StyledMovieTagListYear>{movie.releaseYear}</StyledMovieTagListYear>
-      <StyledMovieTagListGenres>
-        {movie.genres?.join(', ') || ''}
-      </StyledMovieTagListGenres>
-      <StyledMovieTagListRuntime>
-        {convertMinsToHoursMins(movie.runtime)}
-      </StyledMovieTagListRuntime>
-    </StyledMovieTagList>
+    <S.Wrap>
+      <span>{movie.releaseYear}</span>
+      <S.Genres>{movie.genres?.join(', ') || ''}</S.Genres>
+      <span>{convertMinsToHoursMins(movie.runtime)}</span>
+    </S.Wrap>
   );
 };
