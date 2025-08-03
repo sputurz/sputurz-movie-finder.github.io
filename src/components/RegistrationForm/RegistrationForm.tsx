@@ -1,23 +1,18 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { FormField } from '../FormField';
 import { Icon } from '../Icon';
-import {
-  StyledRegistrationForm,
-  StyledRegistrationFormBtn,
-  StyledRegistrationFormErrorText,
-  StyledRegistrationFormTitle,
-  StyledRegistrationFormWrap,
-} from './RegistrationForm.styles';
+import * as S from './RegistrationForm.styles';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { RegisterUserConfirm, RegisterUserSchema } from '../../models';
 import { useForm } from 'react-hook-form';
 import { registerUser } from '../../api/AuthApi';
+import { FC } from 'react';
 
 interface IProps {
   onSuccess: () => void;
 }
 
-export const RegistrationForm: React.FC<IProps> = ({ onSuccess }) => {
+export const RegistrationForm: FC<IProps> = ({ onSuccess }) => {
   const queryClient = useQueryClient();
 
   const {
@@ -39,13 +34,13 @@ export const RegistrationForm: React.FC<IProps> = ({ onSuccess }) => {
   });
 
   return (
-    <StyledRegistrationForm
+    <S.Form
       onSubmit={handleSubmit(({ email, password, name, surname }) => {
         RegisterMutation.mutate({ email, password, name, surname });
       })}
     >
-      <StyledRegistrationFormTitle>Регистрация</StyledRegistrationFormTitle>
-      <StyledRegistrationFormWrap>
+      <S.Title>Регистрация</S.Title>
+      <S.Wrap>
         <FormField
           errorMessage={errors.email?.message}
           isError={!!errors.email}
@@ -103,19 +98,14 @@ export const RegistrationForm: React.FC<IProps> = ({ onSuccess }) => {
             {...register('confirmPassword')}
           ></input>
         </FormField>
-      </StyledRegistrationFormWrap>
+      </S.Wrap>
 
-      <StyledRegistrationFormBtn
-        type="submit"
-        disabled={RegisterMutation.isPending}
-      >
+      <S.BtnSubmit type="submit" disabled={RegisterMutation.isPending}>
         Создать аккаунт
-      </StyledRegistrationFormBtn>
+      </S.BtnSubmit>
       {RegisterMutation.error && (
-        <StyledRegistrationFormErrorText>
-          {RegisterMutation.error.message}
-        </StyledRegistrationFormErrorText>
+        <S.ErrorText>{RegisterMutation.error.message}</S.ErrorText>
       )}
-    </StyledRegistrationForm>
+    </S.Form>
   );
 };

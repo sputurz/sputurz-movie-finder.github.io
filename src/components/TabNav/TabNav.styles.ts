@@ -3,7 +3,7 @@ import { vp767 } from '../../styles/utils/mixins';
 import { NavLinkStyles } from '../../styles/global/NavLink';
 import { NavLink } from 'react-router-dom';
 
-export const StyledTabNav = styled.nav`
+export const Wrap = styled.nav`
   display: flex;
   gap: 24px;
 
@@ -12,7 +12,7 @@ export const StyledTabNav = styled.nav`
   `)}
 `;
 
-export const StyledTabNavLink = styled(NavLink)`
+export const LinkItem = styled(NavLink)`
   ${NavLinkStyles}
 
   font-size: 24px;
@@ -28,8 +28,6 @@ export const StyledTabNavLink = styled(NavLink)`
   & svg {
     width: 24px;
     height: 24px;
-
-    ${vp767(css``)}
   }
 
   &:first-child svg {
@@ -43,8 +41,4 @@ export const StyledTabNavLink = styled(NavLink)`
       gap: 8px;
     `
   )}
-`;
-
-export const StyledTabNavLinkText = styled.span`
-  ${vp767(css``)}
 `;

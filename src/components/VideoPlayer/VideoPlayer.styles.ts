@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { transitionOpacity } from '../../styles/utils/variables';
 
-export const VideoPlayerBackdrop = styled.div`
+export const Backdrop = styled.div`
   position: fixed;
   inset: 0;
   display: flex;
@@ -13,7 +13,7 @@ export const VideoPlayerBackdrop = styled.div`
   z-index: 60;
 `;
 
-export const VideoPlayerInner = styled.div`
+export const Wrap = styled.div`
   position: relative;
   width: min(100vw, calc(100vh * (16 / 9)));
   height: min(100vh, calc(100vw * (9 / 16)));
@@ -33,7 +33,7 @@ export const VideoPlayerInner = styled.div`
   `)}
 `;
 
-export const VideoPlayerBtnClose = styled.button`
+export const BtnClose = styled.button`
   ${transitionOpacity}
 
   position: absolute;
@@ -48,6 +48,10 @@ export const VideoPlayerBtnClose = styled.button`
   background-color: #ffffff;
   padding: 0;
   border: none;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #ffffff;
 
   svg {
     color: #000000;
@@ -69,15 +73,9 @@ export const VideoPlayerBtnClose = styled.button`
   &:hover {
     opacity: 0.5;
   }
-
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 48px;
-
-  color: #ffffff;
 `;
 
-export const VideoPlayerError = styled.span`
+export const ErrorText = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;

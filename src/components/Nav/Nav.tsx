@@ -1,20 +1,16 @@
-import {
-  StyledNav,
-  StyledNavLink,
-  StyledNavLinkSvg,
-  StyledNavLinkText,
-} from './Nav.styles';
+import { Icon } from '../Icon';
+import * as S from './Nav.styles';
 
 export function Nav() {
   return (
-    <StyledNav>
-      <StyledNavLink to={'/'} aria-label="Ссылка на главную страницу">
-        <StyledNavLinkText>Главная</StyledNavLinkText>
-      </StyledNavLink>
-      <StyledNavLink to={'/genres'} aria-label="Ссылка на страницу с жанрами">
-        <StyledNavLinkText>Жанры</StyledNavLinkText>
-        <StyledNavLinkSvg name="GenresIcon"></StyledNavLinkSvg>
-      </StyledNavLink>
-    </StyledNav>
+    <S.Wrap>
+      <S.LinkItem to={'/'} aria-label="Ссылка на главную страницу">
+        <S.LinkText>Главная</S.LinkText>
+      </S.LinkItem>
+      <S.LinkItem to={'/genres'} aria-label="Ссылка на страницу с жанрами">
+        <S.LinkText>Жанры</S.LinkText>
+        <Icon name="GenresIcon"></Icon>
+      </S.LinkItem>
+    </S.Wrap>
   );
 }

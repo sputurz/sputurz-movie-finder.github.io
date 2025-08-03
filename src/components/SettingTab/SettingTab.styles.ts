@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
 
-export const StyledSettingTab = styled.div`
+export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -14,7 +14,7 @@ export const StyledSettingTab = styled.div`
   )}
 `;
 
-export const StyledSettingTabBtnLogout = styled.button`
+export const BtnLogout = styled.button`
   ${BtnPrimaryStyles}
 
   ${vp767(
@@ -24,7 +24,7 @@ export const StyledSettingTabBtnLogout = styled.button`
   )}
 `;
 
-export const StyledSettingTabList = styled.ul`
+export const List = styled.ul`
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -35,14 +35,14 @@ export const StyledSettingTabList = styled.ul`
   ${vp767(css``)}
 `;
 
-export const StyledSettingTabTextListItem = styled.li`
+export const ListItem = styled.li`
   display: flex;
   gap: 16px;
 
   ${vp767(css``)}
 `;
 
-export const StyledSettingTabTextWrap = styled.div`
+export const TextWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -50,7 +50,7 @@ export const StyledSettingTabTextWrap = styled.div`
   ${vp767(css``)}
 `;
 
-export const StyledSettingTabTextLabel = styled.span`
+export const Label = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,7 +75,7 @@ export const StyledSettingTabTextLabel = styled.span`
   `)}
 `;
 
-export const StyledSettingTabTag = styled.span`
+export const TagKey = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -87,7 +87,7 @@ export const StyledSettingTabTag = styled.span`
   `)}
 `;
 
-export const StyledSettingTabText = styled.span`
+export const TagValue = styled.span`
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;

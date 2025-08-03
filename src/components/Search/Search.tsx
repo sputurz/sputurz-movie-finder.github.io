@@ -1,13 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { Icon } from '../Icon';
-import {
-  StyledSearchBackdrop,
-  StyledSearchBtnMobile,
-  StyledSearchBtnReset,
-  StyledSearchResultItem,
-  StyledSearchResultList,
-  StyledSearchWrap,
-} from './Search.styles';
+import * as S from './Search.styles';
 import { useSearch } from '../../hooks/useSearch';
 import { ErrorFallback } from '../ErrorFallback';
 import { useDebouncedValue } from '../../hooks/useDebouncedValue';
@@ -46,15 +39,15 @@ export function Search() {
 
   return (
     <>
-      <StyledSearchBtnMobile onClick={onMobileSearch}>
+      <S.BtnMobile onClick={onMobileSearch}>
         <Icon name="SearchIcon" />
-      </StyledSearchBtnMobile>
+      </S.BtnMobile>
 
-      <StyledSearchBackdrop
+      <S.Backdrop
         onClick={onBackdrop}
         $isMobileSearch={isMobileSearch}
-      ></StyledSearchBackdrop>
-      <StyledSearchWrap $isMobileSearch={isMobileSearch}>
+      ></S.Backdrop>
+      <S.Wrap $isMobileSearch={isMobileSearch}>
         <Icon name="SearchIcon" />
         <input
           type="text"
@@ -62,27 +55,23 @@ export function Search() {
           {...register('searchQuery')}
           defaultValue=""
         />
-        <StyledSearchBtnReset
-          $isEmpty={!searchValue}
-          onClick={handleReset}
-          type="button"
-        >
+        <S.BtnReset $isEmpty={!searchValue} onClick={handleReset} type="button">
           <Icon name="CloseIcon" />
-        </StyledSearchBtnReset>
+        </S.BtnReset>
 
         {data && data.length > 0 ? (
-          <StyledSearchResultList>
+          <S.ResultList>
             {data?.map((movie) => (
-              <StyledSearchResultItem key={movie.id}>
+              <S.ResultItem key={movie.id}>
                 <SearchCard
                   movie={movie}
                   onCardClick={handleReset}
                 ></SearchCard>
-              </StyledSearchResultItem>
+              </S.ResultItem>
             ))}
-          </StyledSearchResultList>
+          </S.ResultList>
         ) : null}
-      </StyledSearchWrap>
+      </S.Wrap>
     </>
   );
 }

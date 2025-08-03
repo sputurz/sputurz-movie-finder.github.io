@@ -2,9 +2,8 @@ import styled, { css } from 'styled-components';
 import { vp1023, vp767 } from '../../styles/utils/mixins';
 import { NavLink } from 'react-router-dom';
 import { NavLinkStyles } from '../../styles/global/NavLink';
-import { Icon } from '../Icon';
 
-export const StyledNav = styled.nav`
+export const Wrap = styled.nav`
   & > :first-child {
     display: none;
   }
@@ -24,7 +23,7 @@ export const StyledNav = styled.nav`
   `)}
 `;
 
-export const StyledNavLink = styled(NavLink)`
+export const LinkItem = styled(NavLink)`
   ${NavLinkStyles}
 
   padding: 0;
@@ -55,7 +54,7 @@ export const StyledNavLink = styled(NavLink)`
   `)}
 `;
 
-export const StyledNavLinkText = styled.span`
+export const LinkText = styled.span`
   display: none;
   ${vp767(
     css`
@@ -63,5 +62,3 @@ export const StyledNavLinkText = styled.span`
     `
   )}
 `;
-
-export const StyledNavLinkSvg = styled(Icon)``;

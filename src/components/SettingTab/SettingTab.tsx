@@ -2,45 +2,36 @@ import { useLogout } from '../../hooks/useLogout';
 import { selectUser } from '../../store/globalSlices/authSlice';
 import { useAppSelector } from '../../store/hooks';
 import { Icon } from '../Icon';
-import {
-  StyledSettingTab,
-  StyledSettingTabBtnLogout,
-  StyledSettingTabTag,
-  StyledSettingTabList,
-  StyledSettingTabText,
-  StyledSettingTabTextListItem,
-  StyledSettingTabTextWrap,
-  StyledSettingTabTextLabel,
-} from './SettingTab.styles';
+import * as S from './SettingTab.styles';
 
 export default function SettingTab() {
   const { handleLogout, isPending } = useLogout();
   const user = useAppSelector(selectUser);
 
   return (
-    <StyledSettingTab>
-      <StyledSettingTabList>
-        <StyledSettingTabTextListItem>
-          <StyledSettingTabTextLabel>{`${user?.name[0]}${user?.surname[0]}`}</StyledSettingTabTextLabel>
-          <StyledSettingTabTextWrap>
-            <StyledSettingTabTag>Имя Фамилия</StyledSettingTabTag>
-            <StyledSettingTabText>{`${user?.name} ${user?.surname}`}</StyledSettingTabText>
-          </StyledSettingTabTextWrap>
-        </StyledSettingTabTextListItem>
-        <StyledSettingTabTextListItem>
-          <StyledSettingTabTextLabel>
+    <S.Wrap>
+      <S.List>
+        <S.ListItem>
+          <S.Label>{`${user?.name[0]}${user?.surname[0]}`}</S.Label>
+          <S.TextWrap>
+            <S.TagKey>Имя Фамилия</S.TagKey>
+            <S.TagValue>{`${user?.name} ${user?.surname}`}</S.TagValue>
+          </S.TextWrap>
+        </S.ListItem>
+        <S.ListItem>
+          <S.Label>
             <Icon name="MailIcon"></Icon>
-          </StyledSettingTabTextLabel>
-          <StyledSettingTabTextWrap>
-            <StyledSettingTabTag>Электронная почта</StyledSettingTabTag>
-            <StyledSettingTabText>{user?.email}</StyledSettingTabText>
-          </StyledSettingTabTextWrap>
-        </StyledSettingTabTextListItem>
-      </StyledSettingTabList>
+          </S.Label>
+          <S.TextWrap>
+            <S.TagKey>Электронная почта</S.TagKey>
+            <S.TagValue>{user?.email}</S.TagValue>
+          </S.TextWrap>
+        </S.ListItem>
+      </S.List>
 
-      <StyledSettingTabBtnLogout onClick={handleLogout} disabled={isPending}>
+      <S.BtnLogout onClick={handleLogout} disabled={isPending}>
         Выйти из аккаунта
-      </StyledSettingTabBtnLogout>
-    </StyledSettingTab>
+      </S.BtnLogout>
+    </S.Wrap>
   );
 }

@@ -5,7 +5,7 @@ import {
   transitionTransform,
 } from '../../styles/utils/variables';
 
-export const StyledSocials = styled.ul`
+export const Wrap = styled.ul`
   display: flex;
   gap: 24px;
   list-style-type: none;
@@ -19,7 +19,7 @@ export const StyledSocials = styled.ul`
   `)}
 `;
 
-export const StyledSocialItem = styled.li`
+export const Item = styled.li`
   width: 24px;
   height: 24px;
 
@@ -29,7 +29,7 @@ export const StyledSocialItem = styled.li`
   `)}
 `;
 
-export const StyledLink = styled.a`
+export const LinkItem = styled.a`
   ${transitionOpacity}
   ${transitionTransform}
 

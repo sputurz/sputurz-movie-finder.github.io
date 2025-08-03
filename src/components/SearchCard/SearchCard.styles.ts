@@ -3,7 +3,7 @@ import { vp767 } from '../../styles/utils/mixins';
 import { Link } from 'react-router-dom';
 import { transitionBorderColor } from '../../styles/utils/variables';
 
-export const StyledSearchCard = styled(Link)`
+export const LinkItem = styled(Link)`
   ${transitionBorderColor}
   width: 220px;
   display: flex;
@@ -30,7 +30,7 @@ export const StyledSearchCard = styled(Link)`
   }
 `;
 
-export const StyledSearchCardImg = styled.img`
+export const Img = styled.img`
   width: 158px;
   height: 206px;
 
@@ -41,15 +41,13 @@ export const StyledSearchCardImg = styled.img`
   `)}
 `;
 
-export const StyledSearchCardWrap = styled.div`
+export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-
-  ${vp767(css``)}
 `;
 
-export const StyledSearchCardInner = styled.div`
+export const Inner = styled.div`
   display: flex;
   gap: 12px;
   font-weight: 400;
@@ -57,27 +55,11 @@ export const StyledSearchCardInner = styled.div`
   line-height: 20px;
   color: rgba(255, 255, 255, 0.7);
   flex-wrap: wrap;
-
-  ${vp767(css``)}
 `;
 
-export const StyledSearchCardTitle = styled.span`
+export const Title = styled.span`
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
   color: #ffffff;
-
-  ${vp767(css``)}
-`;
-
-export const StyledSearchCardYear = styled.span`
-  ${vp767(css``)}
-`;
-
-export const StyledSearchCardGenres = styled.span`
-  ${vp767(css``)}
-`;
-
-export const StyledSearchCardRuntime = styled.span`
-  ${vp767(css``)}
 `;

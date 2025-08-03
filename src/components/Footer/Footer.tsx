@@ -1,13 +1,13 @@
 import { Container } from '../Container';
-import { Socials } from '../Socials';
-import { StyleFooter } from './Footer.styles';
+import { Social } from '../Socials';
+import * as S from './Footer.styles';
 
 export const Footer = () => {
   return (
-    <StyleFooter>
+    <S.Wrap>
       <Container>
-        <Socials></Socials>
+        <Social></Social>
       </Container>
-    </StyleFooter>
+    </S.Wrap>
   );
 };

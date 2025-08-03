@@ -1,21 +1,17 @@
-import React from 'react';
+import { FC } from 'react';
 import ReactPlayer from 'react-player';
-import {
-  VideoPlayerBackdrop,
-  VideoPlayerBtnClose,
-  VideoPlayerError,
-  VideoPlayerInner,
-} from './VideoPlayer.styles';
+import * as S from './VideoPlayer.styles';
 import { Icon } from '../Icon';
+import { IMovie } from '../../models';
 
-interface MovieTrailerProps {
-  trailerUrl: string;
-  trailerYouTubeId: string;
+interface IProps {
+  trailerUrl: IMovie['trailerUrl'];
+  trailerYouTubeId: IMovie['trailerYoutubeId'];
   onBackdrop: () => void;
   onClose: () => void;
 }
 
-export const VideoPlayer: React.FC<MovieTrailerProps> = ({
+export const VideoPlayer: FC<IProps> = ({
   trailerUrl,
   trailerYouTubeId,
   onBackdrop,
@@ -26,17 +22,17 @@ export const VideoPlayer: React.FC<MovieTrailerProps> = ({
     : trailerUrl;
 
   return (
-    <VideoPlayerBackdrop onClick={onBackdrop}>
-      <VideoPlayerInner onClick={(e) => e.stopPropagation()}>
+    <S.Backdrop onClick={onBackdrop}>
+      <S.Wrap onClick={(e) => e.stopPropagation()}>
         {videoSrc ? (
           <ReactPlayer src={videoSrc} />
         ) : (
-          <VideoPlayerError>Видео не найдено</VideoPlayerError>
+          <S.ErrorText>Видео не найдено</S.ErrorText>
         )}
-        <VideoPlayerBtnClose onClick={onClose}>
+        <S.BtnClose onClick={onClose}>
           <Icon name="CloseIcon"></Icon>
-        </VideoPlayerBtnClose>
-      </VideoPlayerInner>
-    </VideoPlayerBackdrop>
+        </S.BtnClose>
+      </S.Wrap>
+    </S.Backdrop>
   );
 };

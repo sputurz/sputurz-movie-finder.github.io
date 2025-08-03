@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { transitionOpacity } from '../../styles/utils/variables';
 
-export const StyledSearchBtnMobile = styled.button`
+export const BtnMobile = styled.button`
   ${transitionOpacity}
 
   display: flex;
@@ -27,7 +27,7 @@ export const StyledSearchBtnMobile = styled.button`
   `)}
 `;
 
-export const StyledSearchBackdrop = styled.div<{ $isMobileSearch?: boolean }>`
+export const Backdrop = styled.div<{ $isMobileSearch?: boolean }>`
   position: ${(props) => (props.$isMobileSearch ? 'absolute' : 'fixed')};
   inset: 0;
   background-color: ${(props) =>
@@ -36,7 +36,7 @@ export const StyledSearchBackdrop = styled.div<{ $isMobileSearch?: boolean }>`
   pointer-events: ${(props) => (props.$isMobileSearch ? 'unset' : 'none')};
 `;
 
-export const StyledSearchWrap = styled.label<{ $isMobileSearch?: boolean }>`
+export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
   position: absolute;
   display: ${(props) => (props.$isMobileSearch ? 'flex' : 'none')};
   top: 12px;
@@ -98,7 +98,7 @@ export const StyledSearchWrap = styled.label<{ $isMobileSearch?: boolean }>`
   `)}
 `;
 
-export const StyledSearchBtnReset = styled.button<{ $isEmpty?: boolean }>`
+export const BtnReset = styled.button<{ $isEmpty?: boolean }>`
   ${transitionOpacity}
 
   display: ${(props) => (props.$isEmpty ? 'none' : 'flex')};
@@ -123,7 +123,7 @@ export const StyledSearchBtnReset = styled.button<{ $isEmpty?: boolean }>`
   }
 `;
 
-export const StyledSearchResultList = styled.ul`
+export const ResultList = styled.ul`
   display: flex;
   flex-direction: row;
   margin: 0;
@@ -164,7 +164,7 @@ export const StyledSearchResultList = styled.ul`
   }
 `;
 
-export const StyledSearchResultItem = styled.li`
+export const ResultItem = styled.li`
   width: 220px;
 
   ${vp767(css`
