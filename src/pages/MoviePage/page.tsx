@@ -11,7 +11,6 @@ export default function MoviePage() {
     Number(movieId)
   );
 
-  if (isLoading) return <div>Loading...</div>;
   if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
   if (!data) return null;
 

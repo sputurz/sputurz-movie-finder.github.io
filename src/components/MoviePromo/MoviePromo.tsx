@@ -55,6 +55,21 @@ export const MoviePromo: FC<Props> = ({
     }
   };
 
+  const onVideoBtn = () => {
+    setShowPlayer(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const onBackdrop = () => {
+    setShowPlayer(false);
+    document.body.style.overflow = '';
+  };
+
+  const onClose = () => {
+    setShowPlayer(false);
+    document.body.style.overflow = '';
+  };
+
   return (
     <StyledMoviePromo>
       <Container>
@@ -84,16 +99,15 @@ export const MoviePromo: FC<Props> = ({
               </StyledMoviePromoPlot>
             </StyledMoviePromoTextWrap>
             <StyledMoviePromoBtnWrap $isAboutMovie={isAboutMovie}>
-              <StyledMoviePromoBtnVideo
-                disabled={isBusy}
-                onClick={() => setShowPlayer(true)}
-              >
+              <StyledMoviePromoBtnVideo disabled={isBusy} onClick={onVideoBtn}>
                 Трейлер
               </StyledMoviePromoBtnVideo>
               {showPlayer && (
                 <VideoPlayer
                   trailerYouTubeId={movie.trailerYoutubeId}
                   trailerUrl={movie.trailerUrl}
+                  onBackdrop={onBackdrop}
+                  onClose={onClose}
                 />
               )}
               {isAboutMovie ? null : (
