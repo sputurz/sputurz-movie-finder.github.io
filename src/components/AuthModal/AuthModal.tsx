@@ -6,7 +6,7 @@ import { RegistrationForm } from '../RegistrationForm';
 import { useModal } from '../../hooks/useModal';
 import { useEffect, useRef, useState } from 'react';
 
-export const AuthModal = () => {
+export default function AuthModal() {
   const {
     isOpen,
     authType,
@@ -83,4 +83,4 @@ export const AuthModal = () => {
       </S.Wrap>
     </S.Backdrop>
   );
-};
+}

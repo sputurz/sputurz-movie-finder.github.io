@@ -1,13 +1,15 @@
+import { useAppSelector } from '../../store/hooks';
+import { selectAuthModal } from '../AuthModal/AuthModalSlice';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ErrorFallback } from '../ErrorFallback';
 import { Loader } from '../Loader';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
-import { AuthModal } from '../AuthModal';
 import { useAuthInit } from '../../hooks/useAuthInit';
 import { ErrorBoundary } from 'react-error-boundary';
 import { lazy, Suspense } from 'react';
 
+const AuthModal = lazy(() => import('../AuthModal/AuthModal'));
 const HomePage = lazy(() => import('../../pages/HomePage/page'));
 const GenresPage = lazy(() => import('../../pages/GenresPage/page'));
 const MoviesPage = lazy(() => import('../../pages/MoviesPage/page'));
@@ -47,6 +49,7 @@ const routerConfig = [
 
 export const AppRouter = () => {
   useAuthInit();
+  const isAuthModalOpen = useAppSelector(selectAuthModal);
 
   return (
     <ErrorBoundary
@@ -60,7 +63,11 @@ export const AppRouter = () => {
     >
       <Suspense fallback={<Loader></Loader>}>
         <Header></Header>
-        <AuthModal></AuthModal>
+        {isAuthModalOpen ? (
+          <Suspense fallback={null}>
+            <AuthModal />
+          </Suspense>
+        ) : null}
         <main>
           <Routes>
             {routerConfig.map((route) => (
