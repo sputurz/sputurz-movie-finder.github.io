@@ -5,7 +5,8 @@ import { useSearch } from '../../hooks/useSearch';
 import { ErrorFallback } from '../ErrorFallback';
 import { useDebouncedValue } from '../../hooks/useDebouncedValue';
 import { SearchCard } from '../SearchCard';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 
 export function Search() {
   const { register, watch, reset, setFocus } = useForm();
@@ -13,9 +14,15 @@ export function Search() {
   const debouncedSearch = useDebouncedValue(searchValue, 300);
   const { data, error } = useSearch(debouncedSearch);
   const [isMobileSearch, setIsMobileSearch] = useState(false);
+  const wrapRef = useRef<HTMLLabelElement>(null);
+
+  const isOutside = useOnClickOutside({
+    ref: wrapRef,
+  });
 
   const onMobileSearch = () => {
     setIsMobileSearch(true);
+    queueMicrotask(() => setFocus('searchQuery'));
     document.body.style.overflow = 'hidden';
   };
 
@@ -26,7 +33,7 @@ export function Search() {
 
   const handleReset = () => {
     reset({ searchQuery: '' });
-    setFocus('searchQuery');
+    queueMicrotask(() => setFocus('searchQuery'));
     setIsMobileSearch(false);
     document.body.style.overflow = '';
   };
@@ -43,7 +50,7 @@ export function Search() {
         onClick={onBackdrop}
         $isMobileSearch={isMobileSearch}
       ></S.Backdrop>
-      <S.Wrap $isMobileSearch={isMobileSearch}>
+      <S.Wrap $isMobileSearch={isMobileSearch} ref={wrapRef}>
         <Icon name="SearchIcon" />
         <input
           type="text"
@@ -55,7 +62,7 @@ export function Search() {
           <Icon name="CloseIcon" />
         </S.BtnReset>
 
-        {data && data.length > 0 ? (
+        {data && data.length > 0 && !isOutside ? (
           <S.ResultList>
             {data?.map((movie) => (
               <S.ResultItem key={movie.id}>
@@ -68,6 +75,9 @@ export function Search() {
           </S.ResultList>
         ) : null}
       </S.Wrap>
+      <span style={{ color: isOutside ? 'green' : 'red', fontWeight: 'bold' }}>
+        {!isOutside ? 'Внутри' : 'Снаружи'}
+      </span>
     </>
   );
 }
