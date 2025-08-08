@@ -40,3 +40,13 @@ export const Item = styled.li`
   width: 224px;
   height: 336px;
 `;
+
+export const Text = styled.span`
+  font-size: 18px;
+  line-height: 24px;
+
+  ${vp767(css`
+    font-size: 24px;
+    line-height: 32px;
+  `)}
+`;

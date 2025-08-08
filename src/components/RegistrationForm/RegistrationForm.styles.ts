@@ -32,6 +32,10 @@ export const BtnSubmit = styled.button`
   ${BtnPrimaryStyles}
 
   width: 100%;
+
+  &:disabled {
+    background: #888888;
+  }
 `;
 
 export const ErrorText = styled.span`

@@ -28,13 +28,13 @@ export const RegisterUserSchema = z
     email: z
       .string()
       .email('Введите корректный email')
-      .min(5, 'Email должен содержать не менее 5-ти символов'),
+      .min(5, 'Email должен содержать не менее пяти символов'),
     password: z
       .string()
-      .min(6, 'Пароль должен содержать не менее 6-ми символов'),
+      .min(6, 'Пароль должен содержать не менее шести символов'),
     confirmPassword: z
       .string()
-      .min(6, 'Пароль должен содержать не менее 6-ми символов'),
+      .min(6, 'Пароль должен содержать не менее шести символов'),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: 'Пароли не совпадают',

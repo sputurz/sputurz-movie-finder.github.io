@@ -11,13 +11,17 @@ export default function FavoritesTab() {
 
   return (
     <S.Wrap>
-      <S.List>
-        {data.map((movie) => (
-          <S.Item key={movie.id}>
-            <MovieCard movie={movie} isUserProfile />
-          </S.Item>
-        ))}
-      </S.List>
+      {data.length ? (
+        <S.List>
+          {data.map((movie) => (
+            <S.Item key={movie.id}>
+              <MovieCard movie={movie} isUserProfile />
+            </S.Item>
+          ))}
+        </S.List>
+      ) : (
+        <S.Text>Список фильмов пока пуст</S.Text>
+      )}
     </S.Wrap>
   );
 }

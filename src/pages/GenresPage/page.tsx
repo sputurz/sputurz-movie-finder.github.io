@@ -1,7 +1,7 @@
 import { Container } from '../../components/Container/Container';
 import { GenreCard } from '../../components/GenreCard';
 import * as S from './GenresPage.styles';
-import { genres, getTransletedValue } from '../../utils/dictionarty';
+import { genres, getTransletedValue } from '../../utils/dictionary';
 import { ErrorFallback } from '../../components/ErrorFallback';
 import { useMovieGenres } from '../../hooks/useMovieGenres';
 import { useAppSelector } from '../../store/hooks';

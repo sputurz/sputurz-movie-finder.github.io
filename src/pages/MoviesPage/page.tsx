@@ -2,16 +2,17 @@ import { useSearchParams } from 'react-router-dom';
 import { Container } from '../../components/Container/Container';
 import { useMovies } from '../../hooks/useMovies';
 import * as S from './MoviesPage.styles';
-import { genres, getTransletedValue } from '../../utils/dictionarty';
+import { genres, getTransletedValue } from '../../utils/dictionary';
 import { toUpperFirstChar } from '../../utils/toUpperFirstChar';
 import { ErrorFallback } from '../../components/ErrorFallback';
 import { Icon } from '../../components/Icon';
 import { InfiniteTrigger } from '../../components/InfiniteTrigger';
 import { MovieCard } from '../../components/MovieCard';
-
-const currentLang = 'russian';
+import { selectLanguage } from '../../store/globalSlices/languageSlice';
+import { useAppSelector } from '../../store/hooks';
 
 export default function MoviesPage() {
+  const currentLang = useAppSelector(selectLanguage);
   const [searchParams] = useSearchParams();
 
   const searchCount = searchParams.get('count')
