@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
-export const StyledUserProfile = styled.section`
+export const Wrap = styled.section`
   padding: 16px 0 152px;
 
   ${vp767(css`
@@ -9,7 +9,7 @@ export const StyledUserProfile = styled.section`
   `)}
 `;
 
-export const StyledUserProfileWrap = styled.div`
+export const Inner = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -20,7 +20,7 @@ export const StyledUserProfileWrap = styled.div`
   )}
 `;
 
-export const StyledUserProfileTitle = styled.h1`
+export const Title = styled.h1`
   margin: 0;
   padding: 0;
   font-weight: 700;

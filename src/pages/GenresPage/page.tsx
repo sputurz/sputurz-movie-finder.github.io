@@ -1,12 +1,6 @@
 import { Container } from '../../components/Container/Container';
 import { GenreCard } from '../../components/GenreCard';
-import {
-  StyledGenresPage,
-  StyledGenresPageList,
-  StyledGenresPageListItem,
-  StyledGenresPageTitle,
-  StyledGenresPageWrap,
-} from './GenresPage.styles';
+import * as S from './GenresPage.styles';
 import { genres, getTransletedValue } from '../../utils/dictionarty';
 import { ErrorFallback } from '../../components/ErrorFallback';
 import { useMovieGenres } from '../../hooks/useMovieGenres';
@@ -22,27 +16,27 @@ export default function GenresPage() {
   if (!data) return null;
 
   return (
-    <StyledGenresPage>
+    <S.Wrap>
       <Container>
-        <StyledGenresPageWrap>
-          <StyledGenresPageTitle>Жанры фильмов</StyledGenresPageTitle>
-          <StyledGenresPageList>
+        <S.Inner>
+          <S.Title>Жанры фильмов</S.Title>
+          <S.List>
             {data.map(
               (genre) =>
                 genre && (
-                  <StyledGenresPageListItem key={genre}>
+                  <li key={genre}>
                     <GenreCard
                       genre={genre}
                       genreTranslated={
                         getTransletedValue(genres, currentLang, genre) || genre
                       }
                     />
-                  </StyledGenresPageListItem>
+                  </li>
                 )
             )}
-          </StyledGenresPageList>
-        </StyledGenresPageWrap>
+          </S.List>
+        </S.Inner>
       </Container>
-    </StyledGenresPage>
+    </S.Wrap>
   );
 }

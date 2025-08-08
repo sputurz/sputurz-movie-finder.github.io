@@ -1,4 +1,4 @@
-import { StyledMoviePageTitle } from './MoviePage.styles';
+import * as S from './MoviePage.styles';
 import { useParams } from 'react-router-dom';
 import { ErrorFallback } from '../../components/ErrorFallback';
 import { MoviePromo } from '../../components/MoviePromo';
@@ -16,9 +16,7 @@ export default function MoviePage() {
 
   return (
     <>
-      <StyledMoviePageTitle>
-        {` Cтраница - о фильме ${data.title}`}
-      </StyledMoviePageTitle>
+      <S.Title>{` Cтраница - о фильме ${data.title}`}</S.Title>
 
       <MoviePromo
         isFetching={isFetching}

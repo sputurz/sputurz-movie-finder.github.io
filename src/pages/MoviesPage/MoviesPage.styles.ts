@@ -4,7 +4,7 @@ import { VisuallyHidden } from '../../styles/utils/VisuallyHidden';
 import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
 import { Link } from 'react-router-dom';
 
-export const StyledMoviesPage = styled.section`
+export const Wrap = styled.section`
   margin: 40px 0;
 
   ${vp767(css`
@@ -12,7 +12,7 @@ export const StyledMoviesPage = styled.section`
   `)}
 `;
 
-export const StyledMoviesPageWrap = styled.div`
+export const Inner = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -22,11 +22,11 @@ export const StyledMoviesPageWrap = styled.div`
   `)}
 `;
 
-export const StyledMoviesPageHideTitle = styled.h1`
+export const Title = styled.h1`
   ${VisuallyHidden}
 `;
 
-export const StyledMoviesPageBackLink = styled(Link)`
+export const LinkItem = styled(Link)`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
@@ -50,7 +50,7 @@ export const StyledMoviesPageBackLink = styled(Link)`
   }
 `;
 
-export const StyledMoviesPageList = styled.ul`
+export const List = styled.ul`
   height: 100%;
   display: grid;
   gap: 24px;
@@ -65,13 +65,13 @@ export const StyledMoviesPageList = styled.ul`
   `)}
 `;
 
-export const StyledMoviesPageItem = styled.li`
+export const ListItem = styled.li`
   ${vp767(css`
     max-width: 224px;
   `)}
 `;
 
-export const StyledMoviesPageBtn = styled.button`
+export const Btn = styled.button`
   ${BtnPrimaryStyles}
 
   align-self: center;

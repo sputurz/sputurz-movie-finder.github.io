@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
-export const StyledGenresPage = styled.section`
+export const Wrap = styled.section`
   margin: 40px 0;
 
   ${vp767(css`
@@ -9,7 +9,7 @@ export const StyledGenresPage = styled.section`
   `)}
 `;
 
-export const StyledGenresPageWrap = styled.div`
+export const Inner = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -19,7 +19,7 @@ export const StyledGenresPageWrap = styled.div`
   `)}
 `;
 
-export const StyledGenresPageTitle = styled.h1`
+export const Title = styled.h1`
   padding: 0;
   margin: 0;
   font-weight: 700;
@@ -33,7 +33,7 @@ export const StyledGenresPageTitle = styled.h1`
   `)}
 `;
 
-export const StyledGenresPageList = styled.ul`
+export const List = styled.ul`
   height: 100%;
   display: grid;
   gap: 24px;
@@ -47,5 +47,3 @@ export const StyledGenresPageList = styled.ul`
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   `)}
 `;
-
-export const StyledGenresPageListItem = styled.li``;

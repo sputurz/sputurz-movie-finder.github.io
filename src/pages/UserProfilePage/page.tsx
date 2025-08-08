@@ -3,11 +3,7 @@ import { Container } from '../../components/Container';
 import { ErrorFallback } from '../../components/ErrorFallback';
 import { TabNav } from '../../components/TabNav';
 import { useMovieTop } from '../../hooks/useMovieTop';
-import {
-  StyledUserProfile,
-  StyledUserProfileTitle,
-  StyledUserProfileWrap,
-} from './UserProfilePage.styles.styles';
+import * as S from './UserProfilePage.styles.styles';
 import { ReactNode } from 'react';
 
 export default function UserProfilePage({
@@ -21,14 +17,14 @@ export default function UserProfilePage({
   if (!data) return null;
 
   return (
-    <StyledUserProfile>
+    <S.Wrap>
       <Container>
-        <StyledUserProfileWrap>
-          <StyledUserProfileTitle>Мой аккаунт</StyledUserProfileTitle>
+        <S.Inner>
+          <S.Title>Мой аккаунт</S.Title>
           <TabNav></TabNav>
           {children || <Outlet />}
-        </StyledUserProfileWrap>
+        </S.Inner>
       </Container>
-    </StyledUserProfile>
+    </S.Wrap>
   );
 }

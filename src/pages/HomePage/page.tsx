@@ -2,7 +2,7 @@ import { ErrorFallback } from '../../components/ErrorFallback';
 import { MoviePromo } from '../../components/MoviePromo';
 import { MovieTop } from '../../components/MovieTop/MovieTop';
 import { useMovieRandom } from '../../hooks/useMovieRandom';
-import { StyledHomePageTitle } from './HomePage.styles';
+import * as S from './HomePage.styles';
 
 export default function HomePage() {
   const { data, error, isLoading, isFetching, refetch } = useMovieRandom();
@@ -12,7 +12,7 @@ export default function HomePage() {
 
   return (
     <>
-      <StyledHomePageTitle>Главная страница - Маруся</StyledHomePageTitle>
+      <S.Title>Главная страница - Маруся</S.Title>
       <MoviePromo
         isLoading={isLoading}
         movie={data}

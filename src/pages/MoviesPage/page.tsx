@@ -1,15 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { Container } from '../../components/Container/Container';
 import { useMovies } from '../../hooks/useMovies';
-import {
-  StyledMoviesPage,
-  StyledMoviesPageList,
-  StyledMoviesPageItem,
-  StyledMoviesPageBackLink,
-  StyledMoviesPageWrap,
-  StyledMoviesPageHideTitle,
-  StyledMoviesPageBtn,
-} from './MoviesPage.styles';
+import * as S from './MoviesPage.styles';
 import { genres, getTransletedValue } from '../../utils/dictionarty';
 import { toUpperFirstChar } from '../../utils/toUpperFirstChar';
 import { ErrorFallback } from '../../components/ErrorFallback';
@@ -40,35 +32,33 @@ export default function MoviesPage() {
   if (!data) return null;
 
   return (
-    <StyledMoviesPage>
+    <S.Wrap>
       <Container>
-        <StyledMoviesPageHideTitle>
-          Поиск фильмов по заданными фильтрам
-        </StyledMoviesPageHideTitle>
-        <StyledMoviesPageWrap>
+        <S.Title>Поиск фильмов по заданными фильтрам</S.Title>
+        <S.Inner>
           {searchGenre ? (
-            <StyledMoviesPageBackLink to={'/genres'}>
+            <S.LinkItem to={'/genres'}>
               <Icon name="LeftIcon"></Icon>
               {toUpperFirstChar(
                 getTransletedValue(genres, currentLang, searchGenre) ||
                   searchGenre
               )}
-            </StyledMoviesPageBackLink>
+            </S.LinkItem>
           ) : null}
-          <StyledMoviesPageList>
+          <S.List>
             {data.pages.flat().map((movie) => (
-              <StyledMoviesPageItem key={movie.id}>
+              <S.ListItem key={movie.id}>
                 <MovieCard movie={movie}></MovieCard>
-              </StyledMoviesPageItem>
+              </S.ListItem>
             ))}
-          </StyledMoviesPageList>
+          </S.List>
           {hasNextPage ? (
-            <StyledMoviesPageBtn
+            <S.Btn
               onClick={() => fetchNextPage()}
               disabled={!hasNextPage || isFetchingNextPage}
             >
               Показать ещё
-            </StyledMoviesPageBtn>
+            </S.Btn>
           ) : null}
           {hasNextPage && (
             <InfiniteTrigger
@@ -76,8 +66,8 @@ export default function MoviesPage() {
               onIntersect={() => fetchNextPage()}
             />
           )}
-        </StyledMoviesPageWrap>
+        </S.Inner>
       </Container>
-    </StyledMoviesPage>
+    </S.Wrap>
   );
 }

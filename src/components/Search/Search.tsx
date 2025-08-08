@@ -5,7 +5,7 @@ import { useSearch } from '../../hooks/useSearch';
 import { ErrorFallback } from '../ErrorFallback';
 import { useDebouncedValue } from '../../hooks/useDebouncedValue';
 import { SearchCard } from '../SearchCard';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 
 export function Search() {
@@ -15,7 +15,6 @@ export function Search() {
   const { data, error } = useSearch(debouncedSearch);
   const [isMobileSearch, setIsMobileSearch] = useState(false);
   const wrapRef = useRef<HTMLLabelElement>(null);
-
   const isOutside = useOnClickOutside({
     ref: wrapRef,
   });
@@ -24,19 +23,39 @@ export function Search() {
     setIsMobileSearch(true);
     queueMicrotask(() => setFocus('searchQuery'));
     document.body.style.overflow = 'hidden';
+    window.history.pushState({ isSearchOpen: true }, '');
   };
 
   const onBackdrop = () => {
     setIsMobileSearch(false);
     document.body.style.overflow = '';
+
+    if (window.history.state?.isSearchOpen) {
+      window.history.back();
+    }
   };
 
   const handleReset = () => {
     reset({ searchQuery: '' });
     queueMicrotask(() => setFocus('searchQuery'));
-    setIsMobileSearch(false);
-    document.body.style.overflow = '';
   };
+
+  const onCardClick = () => {
+    handleReset();
+    if (isMobileSearch) onBackdrop();
+  };
+
+  useEffect(() => {
+    const handlePopState = () => {
+      if (isMobileSearch) {
+        onBackdrop();
+        window.history.pushState(null, '', window.location.pathname);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [isMobileSearch]);
 
   if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
 
@@ -58,9 +77,6 @@ export function Search() {
           {...register('searchQuery')}
           defaultValue=""
         />
-        <S.BtnReset $isEmpty={!searchValue} onClick={handleReset} type="button">
-          <Icon name="CloseIcon" />
-        </S.BtnReset>
 
         {data && data.length > 0 && !isOutside ? (
           <S.ResultList>
@@ -68,16 +84,17 @@ export function Search() {
               <S.ResultItem key={movie.id}>
                 <SearchCard
                   movie={movie}
-                  onCardClick={handleReset}
+                  onCardClick={onCardClick}
                 ></SearchCard>
               </S.ResultItem>
             ))}
           </S.ResultList>
         ) : null}
+
+        <S.BtnReset $isEmpty={!searchValue} onClick={handleReset} type="button">
+          <Icon name="CloseIcon" />
+        </S.BtnReset>
       </S.Wrap>
-      <span style={{ color: isOutside ? 'green' : 'red', fontWeight: 'bold' }}>
-        {!isOutside ? 'Внутри' : 'Снаружи'}
-      </span>
     </>
   );
 }
