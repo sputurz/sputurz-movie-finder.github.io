@@ -1,8 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Container } from '../../components/Container';
-import { ErrorFallback } from '../../components/ErrorFallback';
 import { TabNav } from '../../components/TabNav';
-import { useMovieTop } from '../../hooks/useMovieTop';
 import * as S from './UserProfilePage.styles.styles';
 import { ReactNode } from 'react';
 
@@ -11,11 +9,6 @@ export default function UserProfilePage({
 }: {
   children?: ReactNode;
 }) {
-  const { data, error } = useMovieTop();
-
-  if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
-  if (!data) return null;
-
   return (
     <S.Wrap>
       <Container>

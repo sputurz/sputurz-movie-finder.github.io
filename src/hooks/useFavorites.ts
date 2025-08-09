@@ -8,5 +8,6 @@ export function useFavorites() {
     queryKey: ['favorites'],
     queryFn: () => Api.getFavorites(),
     retry: 0,
+    refetchOnWindowFocus: false,
   });
 }

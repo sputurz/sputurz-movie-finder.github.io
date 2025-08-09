@@ -9,5 +9,6 @@ export function useSearch(searchValue: string) {
     queryFn: () => Api.getMovies({ count: 5, title: searchValue }),
     enabled: !!searchValue,
     retry: 0,
+    refetchOnWindowFocus: false,
   });
 }

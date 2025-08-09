@@ -8,5 +8,6 @@ export function useMovieRandom() {
     queryKey: ['random'],
     queryFn: () => Api.getMovieRandom(),
     retry: 0,
+    refetchOnWindowFocus: false,
   });
 }

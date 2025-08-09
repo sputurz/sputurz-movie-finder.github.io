@@ -8,5 +8,6 @@ export function useMovieTop() {
     queryKey: ['top10'],
     queryFn: () => Api.getMovieTop10(),
     retry: 0,
+    refetchOnWindowFocus: false,
   });
 }

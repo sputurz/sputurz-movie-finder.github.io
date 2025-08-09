@@ -20,5 +20,6 @@ export function useMovies(params: Omit<IGetMovies, 'page'>) {
     retry: 0,
     gcTime: 0, // в v5 заменяет cacheTime
     staleTime: 0,
+    refetchOnWindowFocus: false,
   });
 }

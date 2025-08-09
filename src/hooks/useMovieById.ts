@@ -8,5 +8,6 @@ export function useMovieById(movieId: IMovie['id']) {
     queryKey: ['movie'],
     queryFn: () => Api.getMovieById(movieId),
     retry: 0,
+    refetchOnWindowFocus: false,
   });
 }

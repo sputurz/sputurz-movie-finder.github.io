@@ -27,7 +27,7 @@ export const LinkItem = styled(LinkWithRef)`
 
   &:hover {
     opacity: 0.8;
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 
   ${vp767(css`

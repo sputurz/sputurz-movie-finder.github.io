@@ -8,5 +8,6 @@ export function useMovieGenres() {
     queryKey: ['genres'],
     queryFn: () => Api.getMovieGenres(),
     retry: 0,
+    refetchOnWindowFocus: false,
   });
 }
