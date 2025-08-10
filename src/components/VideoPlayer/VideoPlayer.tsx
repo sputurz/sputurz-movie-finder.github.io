@@ -25,7 +25,7 @@ export const VideoPlayer: FC<IProps> = ({
     <S.Backdrop onClick={onBackdrop}>
       <S.Wrap onClick={(e) => e.stopPropagation()}>
         {videoSrc ? (
-          <ReactPlayer src={videoSrc} />
+          <ReactPlayer src={videoSrc} playing={true} />
         ) : (
           <S.ErrorText>Видео не найдено</S.ErrorText>
         )}

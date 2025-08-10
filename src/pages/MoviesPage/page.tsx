@@ -10,6 +10,7 @@ import { InfiniteTrigger } from '../../components/InfiniteTrigger';
 import { MovieCard } from '../../components/MovieCard';
 import { selectLanguage } from '../../store/globalSlices/languageSlice';
 import { useAppSelector } from '../../store/hooks';
+import { Button } from '../../components/Button';
 
 export default function MoviesPage() {
   const currentLang = useAppSelector(selectLanguage);
@@ -54,12 +55,14 @@ export default function MoviesPage() {
             ))}
           </S.List>
           {hasNextPage ? (
-            <S.Btn
-              onClick={() => fetchNextPage()}
-              disabled={!hasNextPage || isFetchingNextPage}
-            >
-              Показать ещё
-            </S.Btn>
+            <>
+              <Button
+                onClick={() => fetchNextPage()}
+                isLoading={!hasNextPage || isFetchingNextPage}
+              >
+                Показать ещё
+              </Button>
+            </>
           ) : null}
           {hasNextPage && (
             <InfiniteTrigger

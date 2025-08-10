@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { transitionOpacity } from '../../styles/utils/variables';
-import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
 
 export const Backdrop = styled.div<{ $isOpen: boolean }>`
   position: absolute;
@@ -143,12 +142,6 @@ export const BtnClose = styled.button`
     top: 0;
     right: -72px;
   `)}
-`;
-
-export const BtnLogin = styled.button`
-  ${BtnPrimaryStyles}
-
-  width: 100%;
 `;
 
 export const SuccsessTitle = styled.span`

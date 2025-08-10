@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { VisuallyHidden } from '../../styles/utils/VisuallyHidden';
-import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
 import { Link } from 'react-router-dom';
 
 export const Wrap = styled.section`
@@ -20,6 +19,16 @@ export const Inner = styled.div`
   ${vp767(css`
     gap: 64px;
   `)}
+
+  button {
+    align-self: center;
+    background-color: #6a5dc2;
+
+    ${vp767(css`
+      width: 218px;
+      background-color: #67a5eb;
+    `)}
+  }
 `;
 
 export const Title = styled.h1`
@@ -72,8 +81,6 @@ export const ListItem = styled.li`
 `;
 
 export const Btn = styled.button`
-  ${BtnPrimaryStyles}
-
   align-self: center;
   width: 100%;
   background-color: #6a5dc2;

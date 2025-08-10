@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
 import { vp1023, vp767 } from '../../styles/utils/mixins';
-import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
-import { BtnSecondaryStyles } from '../../styles/global/BtnSecondary';
 import { Link } from 'react-router-dom';
 import { ImageLoader } from '../ImageLoader';
+import { BtnSecondaryStyles } from '../../styles/global/Btn';
 
 export const Inner = styled.div`
   display: grid;
@@ -146,15 +145,6 @@ export const BtnWrap = styled.div<{ $isAboutMovie?: boolean }>`
   }
 `;
 
-export const BtnVideo = styled.button`
-  ${BtnPrimaryStyles}
-`;
-
-export const BtnUpdate = styled.button`
-  ${BtnSecondaryStyles}
-  width: 68px;
-`;
-
 export const LinkItem = styled(Link)<{
   $iSdisabled?: boolean;
 }>`
@@ -171,12 +161,8 @@ export const LinkItem = styled(Link)<{
 
 export const BtnLike = styled.button<{ $isLiked?: boolean }>`
   ${BtnSecondaryStyles}
-  width: 68px;
 
   svg {
-    width: 24px;
-    height: 24px;
-
     color: ${({ $isLiked }) => ($isLiked ? '#B4A9FF' : 'transparent')};
     stroke: ${({ $isLiked }) => ($isLiked ? 'transparent' : '#ffffff')};
     stroke-width: 1.5;

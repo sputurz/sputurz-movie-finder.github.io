@@ -1,6 +1,7 @@
 import { useLogout } from '../../hooks/useLogout';
 import { selectUser } from '../../store/globalSlices/authSlice';
 import { useAppSelector } from '../../store/hooks';
+import { Button } from '../Button';
 import { Icon } from '../Icon';
 import * as S from './SettingTab.styles';
 
@@ -29,9 +30,9 @@ export default function SettingTab() {
         </S.ListItem>
       </S.List>
 
-      <S.BtnLogout onClick={handleLogout} disabled={isPending}>
+      <Button onClick={handleLogout} isLoading={isPending}>
         Выйти из аккаунта
-      </S.BtnLogout>
+      </Button>
     </S.Wrap>
   );
 }

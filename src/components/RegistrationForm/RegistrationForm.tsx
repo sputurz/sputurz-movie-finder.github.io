@@ -7,6 +7,7 @@ import { RegisterUserConfirm, RegisterUserSchema } from '../../models';
 import { useForm } from 'react-hook-form';
 import { registerUser } from '../../api/AuthApi';
 import { FC } from 'react';
+import { Button } from '../Button';
 
 interface IProps {
   onSuccess: () => void;
@@ -99,10 +100,9 @@ export const RegistrationForm: FC<IProps> = ({ onSuccess }) => {
           ></input>
         </FormField>
       </S.Wrap>
-
-      <S.BtnSubmit type="submit" disabled={RegisterMutation.isPending}>
+      <Button isLoading={RegisterMutation.isPending} type="submit" kind="auth">
         Создать аккаунт
-      </S.BtnSubmit>
+      </Button>
       {RegisterMutation.error && (
         <S.ErrorText>{RegisterMutation.error.message}</S.ErrorText>
       )}

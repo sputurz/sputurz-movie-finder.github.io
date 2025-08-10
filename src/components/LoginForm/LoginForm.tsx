@@ -9,6 +9,7 @@ import { getProfile, loginUser } from '../../api/AuthApi';
 import { closeAuthModal } from '../AuthModal/AuthModalSlice';
 import { useAppDispatch } from '../../store/hooks';
 import { setUser } from '../../store/globalSlices/authSlice';
+import { Button } from '../Button';
 
 export const LoginForm = () => {
   const dispatch = useAppDispatch();
@@ -67,9 +68,9 @@ export const LoginForm = () => {
         </FormField>
       </S.Wrap>
 
-      <S.BtnSubmit type="submit" disabled={loginMutation.isPending}>
+      <Button isLoading={loginMutation.isPending} type="submit" kind="auth">
         Войти
-      </S.BtnSubmit>
+      </Button>
       {loginMutation.error && (
         <S.ErrorText>{loginMutation.error.message}</S.ErrorText>
       )}

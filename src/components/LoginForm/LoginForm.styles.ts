@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
-import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
 
 export const Form = styled.form`
   display: flex;
@@ -18,16 +17,6 @@ export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-`;
-
-export const BtnSubmit = styled.button`
-  ${BtnPrimaryStyles}
-
-  width: 100%;
-
-  &:disabled {
-    background: #888888;
-  }
 `;
 
 export const ErrorText = styled.span`

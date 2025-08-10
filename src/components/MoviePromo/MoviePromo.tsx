@@ -9,6 +9,7 @@ import { useAppSelector } from '../../store/hooks';
 import { selectUser } from '../../store/globalSlices/authSlice';
 import { useLike } from '../../hooks/useLike';
 import { MovieTagList } from '../MovieTagList';
+import { Button } from '../Button';
 
 type IProps = {
   movie: IMovie;
@@ -81,9 +82,9 @@ export const MoviePromo: FC<IProps> = ({
               <S.Plot $isAboutMovie={isAboutMovie}>{movie.plot}</S.Plot>
             </S.TextWrap>
             <S.BtnWrap $isAboutMovie={isAboutMovie}>
-              <S.BtnVideo disabled={isBusy} onClick={onVideoBtn}>
+              <Button isDisabled={isBusy} onClick={onVideoBtn}>
                 Трейлер
-              </S.BtnVideo>
+              </Button>
               {showPlayer && (
                 <VideoPlayer
                   trailerYouTubeId={movie.trailerYoutubeId}
@@ -101,9 +102,9 @@ export const MoviePromo: FC<IProps> = ({
                 <Icon name="LikeIcon"></Icon>
               </S.BtnLike>
               {isAboutMovie ? null : (
-                <S.BtnUpdate onClick={onUpdate} disabled={isBusy}>
+                <Button onClick={onUpdate} isDisabled={isBusy} kind="secondary">
                   <Icon name="UpdateIcon"></Icon>
-                </S.BtnUpdate>
+                </Button>
               )}
             </S.BtnWrap>
           </S.Wrap>

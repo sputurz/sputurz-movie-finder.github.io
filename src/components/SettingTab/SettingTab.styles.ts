@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
-import { BtnPrimaryStyles } from '../../styles/global/BtnPrimary';
 
 export const Wrap = styled.div`
   display: flex;
@@ -12,16 +11,14 @@ export const Wrap = styled.div`
       gap: 64px;
     `
   )}
-`;
 
-export const BtnLogout = styled.button`
-  ${BtnPrimaryStyles}
-
-  ${vp767(
-    css`
-      width: 262px;
-    `
-  )}
+  button {
+    ${vp767(
+      css`
+        width: 262px;
+      `
+    )}
+  }
 `;
 
 export const List = styled.ul`

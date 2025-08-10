@@ -5,6 +5,7 @@ import { LoginForm } from '../LoginForm';
 import { RegistrationForm } from '../RegistrationForm';
 import { useModal } from '../../hooks/useModal';
 import { useEffect, useRef, useState } from 'react';
+import { Button } from '../Button';
 
 export default function AuthModal() {
   const {
@@ -73,7 +74,9 @@ export default function AuthModal() {
               <S.SuccsessText>
                 Используйте вашу электронную почту для входа
               </S.SuccsessText>
-              <S.BtnLogin onClick={onSuccessBtnClick}>Войти</S.BtnLogin>
+              <Button onClick={onSuccessBtnClick} kind="auth">
+                Войти
+              </Button>
             </>
           )}
           <S.BtnClose onClick={closeModal} aria-label={'Закрыть форму'}>
