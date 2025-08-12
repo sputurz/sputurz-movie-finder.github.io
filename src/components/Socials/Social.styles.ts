@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
-import {
-  transitionOpacity,
-  transitionTransform,
-} from '../../styles/utils/variables';
+import { transition } from '../../styles/utils/variables';
 
 export const Wrap = styled.ul`
   display: flex;
@@ -30,8 +27,7 @@ export const Item = styled.li`
 `;
 
 export const LinkItem = styled.a`
-  ${transitionOpacity}
-  ${transitionTransform}
+  ${transition('opacity, transform')};
 
   display: flex;
   align-items: center;

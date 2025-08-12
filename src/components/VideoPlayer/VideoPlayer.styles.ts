@@ -9,7 +9,7 @@ export const Backdrop = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 20;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--bg-backdrop);
   z-index: 60;
 `;
 
@@ -26,7 +26,7 @@ export const Wrap = styled.div`
   }
 
   ${vp767(css`
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--brdr-video);
     width: calc(100% - 160px);
     max-width: 960px;
     height: unset;
@@ -53,7 +53,7 @@ export const BtnClose = styled.button`
   line-height: 48px;
 
   svg {
-    color: #000000;
+    color: var(--color-text-inverse);
     width: 16px;
     height: 16px;
   }

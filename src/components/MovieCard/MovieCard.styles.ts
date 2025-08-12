@@ -12,8 +12,8 @@ export const Card = styled.div`
   aspect-ratio: 224 / 336;
   display: flex;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.33);
+  border: 1px solid var(--brdr-card);
+  box-shadow: 0px 0px 80px 0px var(--box-shadows);
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
@@ -67,7 +67,7 @@ export const Rating = styled.span`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: #6a5dc2;
+  color: var(--color-top);
   z-index: 2;
 `;
 

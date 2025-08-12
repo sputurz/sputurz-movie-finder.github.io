@@ -19,7 +19,7 @@ export const NavLinkStyles = css`
   }
 
   &.active {
-    color: #b4a9ff;
+    color: var(--color-active);
   }
 
   ${vp767(css`
@@ -31,7 +31,7 @@ export const NavLinkStyles = css`
 
     &.active {
       color: var(--color-text);
-      border-bottom: 1px solid rgba(151, 71, 255, 1);
+      border-bottom: 1px solid var(--brdr-active);
     }
   `)}
 `;

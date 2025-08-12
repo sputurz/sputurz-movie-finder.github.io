@@ -1,10 +1,7 @@
 import styled, { css } from 'styled-components';
 import { vp1023, vp767 } from '../../styles/utils/mixins';
 import { Link } from 'react-router-dom';
-import {
-  transitionOpacity,
-  transitionTransform,
-} from '../../styles/utils/variables';
+import { transition } from '../../styles/utils/variables';
 import React, { forwardRef } from 'react';
 
 const LinkWithRef = forwardRef<
@@ -13,8 +10,7 @@ const LinkWithRef = forwardRef<
 >((props, ref) => React.createElement(Link, { ...props, ref }));
 
 export const LinkItem = styled(LinkWithRef)`
-  ${transitionOpacity}
-  ${transitionTransform}
+  ${transition('opacity, transform')}
 
   display: flex;
   align-items: center;

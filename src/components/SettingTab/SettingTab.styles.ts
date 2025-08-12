@@ -52,7 +52,7 @@ export const Label = styled.span`
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--bg-setting-label);
   width: 48px;
   height: 48px;
   border-radius: 50%;

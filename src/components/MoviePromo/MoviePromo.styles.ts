@@ -155,7 +155,7 @@ export const LinkItem = styled(Link)<{
     css`
       color: var(--color-text-50);
       pointer-events: none;
-      background: #747474;
+      background-color: var(--bg-btn-secondary-disabled);
     `}
 `;
 
@@ -172,7 +172,8 @@ export const BtnLike = styled.button<{ $isLiked?: boolean }>`
 
   &:focus-visible svg,
   &:hover svg {
-    stroke: ${({ $isLiked }) => ($isLiked ? 'transparent' : '#0c0707ff')};
+    stroke: ${({ $isLiked }) =>
+      $isLiked ? 'transparent' : 'var( --color-text-inverse)'};
     color: ${({ $isLiked }) =>
       $isLiked ? 'var(--color-like)' : 'transparent'};
   }

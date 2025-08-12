@@ -14,8 +14,8 @@ export const Wrap = styled.div`
 `;
 
 export const Inner = styled.div`
-  border: 4px solid rgba(131, 131, 131, 1);
-  border-top: 4px solid white;
+  border: 4px solid var(--brdr-loader);
+  border-top: 4px solid var(--brdr-loader-bottom);
   border-radius: 50%;
   width: 40px;
   height: 40px;

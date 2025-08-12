@@ -31,7 +31,7 @@ export const Backdrop = styled.div<{ $isMobileSearch?: boolean }>`
   position: ${(props) => (props.$isMobileSearch ? 'absolute' : 'fixed')};
   inset: 0;
   background-color: ${(props) =>
-    props.$isMobileSearch ? 'rgba(0, 0, 0, 0.5)' : 'transparent'};
+    props.$isMobileSearch ? 'var(--bg-backdrop)' : 'transparent'};
   z-index: 49;
   pointer-events: ${(props) => (props.$isMobileSearch ? 'unset' : 'none')};
 `;

@@ -10,7 +10,7 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
   align-items: center;
   padding-top: env(safe-area-inset-top, 20px);
   z-index: 60;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--bg-backdrop);
 
   animation: ${({ $isOpen }) => ($isOpen ? 'fadeIn' : 'fadeOut')} 0.7s ease
     forwards;
@@ -36,7 +36,7 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
 `;
 
 export const Wrap = styled.div<{ $isOpen: boolean }>`
-  box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.33);
+  box-shadow: 0px 0px 80px 0px var(--box-shadows);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -104,7 +104,7 @@ export const BtnAuthType = styled.button`
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: #000000;
+  color: var(--color-text-modal);
 
   &:hover {
     opacity: 0.5;
@@ -148,7 +148,7 @@ export const SuccsessTitle = styled.span`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: #000000;
+  color: var(--color-text-modal);
   padding-top: 32px;
 
   ${vp767(css`
@@ -161,6 +161,6 @@ export const SuccsessText = styled.span`
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-  color: #000000;
+  color: var(--color-text-modal);
   padding: 24px 0;
 `;

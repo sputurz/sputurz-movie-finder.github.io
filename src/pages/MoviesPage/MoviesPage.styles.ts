@@ -22,11 +22,11 @@ export const Inner = styled.div`
 
   button {
     align-self: center;
-    background-color: #6a5dc2;
+    background-color: var(--bg-btn-next);
 
     ${vp767(css`
       width: 218px;
-      background-color: #67a5eb;
+      background-color: var(--bg-btn-primary);
     `)}
   }
 `;
@@ -77,16 +77,5 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   ${vp767(css`
     max-width: 224px;
-  `)}
-`;
-
-export const Btn = styled.button`
-  align-self: center;
-  width: 100%;
-  background-color: #6a5dc2;
-
-  ${vp767(css`
-    width: 218px;
-    background-color: #67a5eb;
   `)}
 `;

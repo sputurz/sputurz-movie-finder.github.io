@@ -17,7 +17,7 @@ export const Title = styled.span`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: #000000;
+  color: var(--color-text-inverse);
   text-align: center;
 `;
 

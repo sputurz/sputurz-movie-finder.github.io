@@ -7,12 +7,12 @@ export const LinkItem = styled(Link)`
   ${transitionTransform}
 
   height: 100%;
-  background: #0a0b0b;
+  background-color: var(--bg-genre-card);
   display: flex;
   flex-direction: column;
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.33);
+  border: 1px solid var(--brdr-card);
+  box-shadow: 0px 0px 80px 0px var(--box-shadows);
 
   &:hover {
     transform: scale(1.05);
@@ -26,7 +26,7 @@ export const ImgContainer = styled.div`
   padding-top: calc(220 / 335 * 100%);
   border-radius: 24px 24px 0 0;
   overflow: hidden;
-  background: #1a1a1a;
+  background-color: var(--bg-secondary);
 
   ${vp767(css`
     padding-top: calc(220 / 290 * 100%);

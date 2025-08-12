@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
 export const Wrap = styled.div`
-  color: white;
+  color: var(--color-text);
 `;
 
 export const List = styled.ul`

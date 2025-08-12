@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { transitionBorderColor } from '../../styles/utils/variables';
 
 export const LinkItem = styled(Link)`
-  ${transitionBorderColor}
+  ${transitionBorderColor};
+
   width: 220px;
   display: flex;
   flex-direction: column;
@@ -22,7 +23,7 @@ export const LinkItem = styled(Link)`
 
   &:hover,
   &:focus-visible {
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--brdr-search);
   }
 
   &:focus-visible {
