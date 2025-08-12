@@ -13,7 +13,7 @@ export const BtnMobile = styled.button`
   background-color: transparent;
 
   svg {
-    color: #ffffff;
+    color: var(--color-text);
     width: 24px;
     height: 24px;
   }
@@ -46,9 +46,9 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
 
   & > input {
     width: 100%;
-    caret-color: #ffffff;
-    color: #ffffff;
-    background: #393b3c;
+    caret-color: var(--color-text);
+    color: var(--color-text);
+    background: var(--bg-secondary);
     border: 1px solid transparent;
     border-radius: 8px;
     padding: 12px 52px 12px 52px;
@@ -57,26 +57,26 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
     line-height: 24px;
   }
 
-  & > input ::placeholder {
+  & > input::placeholder {
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-50);
   }
 
   &:focus-within > input,
   &:focus-within > textarea {
     outline: none;
-    border-color: #b4a9ff;
+    border-color: var(--color-input-hover);
   }
 
   &:hover > input,
   &:hover > textarea {
-    border-color: #b4a9ff;
+    border-color: var(--color-input-hover);
   }
 
   & > svg {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-50);
     position: absolute;
     width: 24px;
     height: 24px;
@@ -86,7 +86,7 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
 
   &:focus-within > svg,
   &:hover > svg {
-    color: #b4a9ff;
+    color: var(--color-input-hover);
   }
 
   ${vp767(css`
@@ -113,7 +113,7 @@ export const BtnReset = styled.button<{ $isEmpty?: boolean }>`
   padding: 0;
 
   svg {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-50);
     width: 24px;
     height: 24px;
   }
@@ -129,7 +129,7 @@ export const ResultList = styled.ul`
   margin: 0;
   list-style-type: none;
   position: absolute;
-  background-color: #393b3c;
+  background-color: var(--bg-secondary);
   border-radius: 8px;
   z-index: 40;
   width: 100%;

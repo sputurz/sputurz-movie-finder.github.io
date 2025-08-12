@@ -10,7 +10,7 @@ export const Wrap = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-text-70);
   }
 
   ${vp767(css`

@@ -2,10 +2,12 @@ import { createGlobalStyle, css } from 'styled-components';
 import { vp767 } from './utils/mixins';
 import { FontStyle } from './utils/fonts';
 import { NormalizeStyle } from './utils/normalize';
+import { ColorsStyle } from './utils/colors';
 
 export const GlobalStyle = createGlobalStyle`
 ${FontStyle}
 ${NormalizeStyle}
+${ColorsStyle}
 
  *,
 *::after,

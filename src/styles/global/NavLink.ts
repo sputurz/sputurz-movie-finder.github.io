@@ -11,7 +11,7 @@ export const NavLinkStyles = css`
   padding: 4px 0;
   font-size: 18px;
   line-height: 24px;
-  color: #ffffff;
+  color: var(--color-text);
   z-index: 15;
 
   &:hover {
@@ -30,7 +30,7 @@ export const NavLinkStyles = css`
     opacity: 1;
 
     &.active {
-      color: #ffffff;
+      color: var(--color-text);
       border-bottom: 1px solid rgba(151, 71, 255, 1);
     }
   `)}

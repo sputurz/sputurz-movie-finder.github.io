@@ -62,7 +62,7 @@ export const Rating = styled.span`
   position: absolute;
   left: -12px;
   top: -12px;
-  background: #ffffff;
+  background: var(--bg-primary);
   border-radius: 50px;
   font-weight: 700;
   font-size: 24px;
@@ -85,7 +85,7 @@ export const BtnDelete = styled.button`
   padding: 0;
   border: none;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
 
   svg {
     width: 24px;

@@ -21,7 +21,7 @@ export const LinkItem = styled(NavLink)`
   gap: 4px;
 
   &.active {
-    color: #ffffff;
+    color: var(--color-text);
     border-bottom: 1px solid rgba(151, 71, 255, 1);
   }
 
@@ -32,7 +32,7 @@ export const LinkItem = styled(NavLink)`
 
   &:first-child svg {
     color: transparent;
-    stroke: #ffffff;
+    stroke: var(--color-text);
     stroke-width: 1.5;
   }
 

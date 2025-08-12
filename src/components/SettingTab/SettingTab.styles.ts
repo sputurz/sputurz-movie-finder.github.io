@@ -59,7 +59,7 @@ export const Label = styled.span`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: #ffffff;
+  color: var(--color-text);
 
   & svg {
     width: 24px;
@@ -76,7 +76,7 @@ export const TagKey = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-50);
 
   ${vp767(css`
     font-size: 18px;
@@ -88,7 +88,7 @@ export const TagValue = styled.span`
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: #ffffff;
+  color: var(--color-text);
 
   ${vp767(css`
     font-size: 24px;

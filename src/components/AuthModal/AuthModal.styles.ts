@@ -72,7 +72,7 @@ export const Inner = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
   width: 100%;
   height: 100%;
   padding: 64px 20px 32px;
@@ -138,7 +138,7 @@ export const BtnClose = styled.button`
 
   ${vp767(css`
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: var(--bg-primary);
     top: 0;
     right: -72px;
   `)}

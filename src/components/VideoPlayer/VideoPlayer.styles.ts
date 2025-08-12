@@ -18,7 +18,7 @@ export const Wrap = styled.div`
   width: min(100vw, calc(100vh * (16 / 9)));
   height: min(100vh, calc(100vw * (9 / 16)));
   aspect-ratio: 16 / 9;
-  background-color: #393b3c;
+  background-color: var(--bg-secondary);
 
   youtube-video {
     height: 100% !important;
@@ -45,13 +45,12 @@ export const BtnClose = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
   padding: 0;
   border: none;
   font-weight: 700;
   font-size: 40px;
   line-height: 48px;
-  color: #ffffff;
 
   svg {
     color: #000000;
@@ -84,5 +83,5 @@ export const ErrorText = styled.span`
   font-size: 40px;
   line-height: 48px;
   text-align: center;
-  color: #ffffff;
+  color: var(--color-text);
 `;

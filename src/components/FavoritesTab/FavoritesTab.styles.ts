@@ -44,9 +44,10 @@ export const Item = styled.li`
 export const Text = styled.span`
   font-size: 18px;
   line-height: 24px;
+  color: var(--color-text);
 
   ${vp767(css`
     font-size: 24px;
     line-height: 32px;
-  `)}
+  `)};
 `;

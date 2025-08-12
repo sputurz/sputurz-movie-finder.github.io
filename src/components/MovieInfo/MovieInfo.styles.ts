@@ -19,7 +19,7 @@ export const Title = styled.h2`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: #ffffff;
+  color: var(--color-text);
 
   ${vp767(css`
     font-size: 40px;
@@ -59,12 +59,12 @@ export const Label = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-50);
 
   ${vp767(css`
     font-size: 18px;
     line-height: 24px;
-    color: #ffffff;
+    color: var(--color-text);
   `)}
 `;
 
@@ -72,7 +72,7 @@ export const Border = styled.div`
   ${vp767(
     css`
       height: 18px;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+      border-bottom: 1px dashed var(--color-text-50);
     `
   )}
 `;
@@ -81,5 +81,5 @@ export const Value = styled.span`
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  color: #ffffff;
+  color: var(--color-text);
 `;

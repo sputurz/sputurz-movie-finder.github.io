@@ -38,6 +38,7 @@ export const LinkItem = styled.a`
   justify-content: center;
 
   > svg {
+    color: var(--color-text);
     width: 100%;
     height: 100%;
   }

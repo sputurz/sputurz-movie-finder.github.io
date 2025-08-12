@@ -71,7 +71,7 @@ export const Tag = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-text-70);
   }
 
   ${vp767(css`
@@ -88,7 +88,7 @@ export const Title = styled.h2<{ $isAboutMovie?: boolean }>`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: #ffffff;
+  color: var(--color-text);
 
   ${vp767(css`
     font-size: 48px;
@@ -113,7 +113,7 @@ export const Plot = styled.p<{ $isAboutMovie?: boolean }>`
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text-70);
 
   ${vp767(css`
     font-size: 24px;
@@ -153,7 +153,7 @@ export const LinkItem = styled(Link)<{
   ${({ $iSdisabled }) =>
     $iSdisabled &&
     css`
-      color: rgba(255, 255, 255, 0.5);
+      color: var(--color-text-50);
       pointer-events: none;
       background: #747474;
     `}
@@ -163,14 +163,17 @@ export const BtnLike = styled.button<{ $isLiked?: boolean }>`
   ${BtnSecondaryStyles}
 
   svg {
-    color: ${({ $isLiked }) => ($isLiked ? '#B4A9FF' : 'transparent')};
-    stroke: ${({ $isLiked }) => ($isLiked ? 'transparent' : '#ffffff')};
+    color: ${({ $isLiked }) =>
+      $isLiked ? 'var(--color-like)' : 'transparent'};
+    stroke: ${({ $isLiked }) =>
+      $isLiked ? 'transparent' : 'var(--color-text)'};
     stroke-width: 1.5;
   }
 
   &:focus-visible svg,
   &:hover svg {
     stroke: ${({ $isLiked }) => ($isLiked ? 'transparent' : '#0c0707ff')};
-    color: ${({ $isLiked }) => ($isLiked ? '#B4A9FF' : 'transparent')};
+    color: ${({ $isLiked }) =>
+      $isLiked ? 'var(--color-like)' : 'transparent'};
   }
 `;
