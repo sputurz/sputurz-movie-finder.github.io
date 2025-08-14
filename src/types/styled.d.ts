@@ -1,0 +1,50 @@
+import 'styled-components';
+
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    bgPrimary: string;
+    bgSecondary: string;
+    bgGenreCard: string;
+    bgBackdrop: string;
+    bgSettingLabel: string;
+    colorError: string;
+    colorText: string;
+    colorTextInverse: string;
+    colorLike: string;
+    colorActive: string;
+    colorTop: string;
+    colorText40: string;
+    colorText50: string;
+    colorText70: string;
+    brdrActive: string;
+    brdrCard: string;
+    brdrVideo: string;
+    brdrSearch: string;
+    boxShadows: string;
+    brdrLoader: string;
+    brdrLoaderBottom: string;
+    brdrInput: string;
+    brdrInputError: string;
+    brdrInputHover: string;
+    colorInput: string;
+    colorInput40: string;
+    colorInputError: string;
+    colorInputHover: string;
+    brdrBtnPrimary: string;
+    brdrBtnSecondary: string;
+    brdrBtnSecondaryHover: string;
+    bgBtnPrimary: string;
+    bgBtnSecondary: string;
+    bgBtnNext: string;
+    bgBtnPrimaryHover: string;
+    bgBtnSecondaryHover: string;
+    bgBtnPrimaryDisabled: string;
+    bgBtnAuthDisabled: string;
+    bgBtnSecondaryDisabled: string;
+    colorBtnSecondaryHover: string;
+    bgRating1: string;
+    bgRating2: string;
+    bgRating3: string;
+    bgRating4: string;
+  }
+}

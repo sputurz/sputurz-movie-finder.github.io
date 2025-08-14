@@ -34,7 +34,7 @@ export const LinkItem = styled.a`
   justify-content: center;
 
   > svg {
-    color: var(--color-text);
+    color: ${(props) => props.theme.colorText};
     width: 100%;
     height: 100%;
   }

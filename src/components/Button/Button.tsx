@@ -8,7 +8,7 @@ interface IProps extends HTMLAttributes<HTMLButtonElement> {
   isDisabled?: boolean;
   kind?: 'primary' | 'secondary' | 'auth';
   type?: 'submit' | 'reset' | 'button';
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const Button: FC<IProps> = ({

@@ -11,7 +11,7 @@ export const ColorsStyle = css`
 
     /* text/svg color */
     --color-error: #dc3545;
-    --color-text: #ffffff;
+    --color-text: ${(props) => props.theme.colorText};
     --color-text-inverse: #000000;
     --color-like: #b4a9ff;
     --color-active: #b4a9ff;

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 
 export const Wrap = styled.div`
-  color: var(--color-text);
+  color: ${(props) => props.theme.colorText};
 `;
 
 export const List = styled.ul`
@@ -44,7 +44,7 @@ export const Item = styled.li`
 export const Text = styled.span`
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-text);
+  color: ${(props) => props.theme.colorText};
 
   ${vp767(css`
     font-size: 24px;

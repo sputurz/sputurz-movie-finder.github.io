@@ -21,7 +21,7 @@ export const LinkItem = styled(NavLink)`
   gap: 4px;
 
   &.active {
-    color: var(--color-text);
+    color: ${(props) => props.theme.colorText};
     border-bottom: 1px solid var(--brdr-active);
   }
 
@@ -32,7 +32,7 @@ export const LinkItem = styled(NavLink)`
 
   &:first-child svg {
     color: transparent;
-    stroke: var(--color-text);
+    stroke: ${(props) => props.theme.colorText};
     stroke-width: 1.5;
   }
 

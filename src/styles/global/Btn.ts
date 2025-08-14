@@ -14,7 +14,7 @@ export const BtnPrimaryStyles = css`
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-text);
+  color: ${(props) => props.theme.colorText};
   user-select: none;
   min-height: 58px;
   width: 100%;

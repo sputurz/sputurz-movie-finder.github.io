@@ -62,5 +62,5 @@ export const Title = styled.span`
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-text);
+  color: ${(props) => props.theme.colorText};
 `;

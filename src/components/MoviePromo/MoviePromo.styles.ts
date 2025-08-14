@@ -88,7 +88,7 @@ export const Title = styled.h2<{ $isAboutMovie?: boolean }>`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: var(--color-text);
+  color: ${(props) => props.theme.colorText};
 
   ${vp767(css`
     font-size: 48px;
@@ -166,7 +166,7 @@ export const BtnLike = styled.button<{ $isLiked?: boolean }>`
     color: ${({ $isLiked }) =>
       $isLiked ? 'var(--color-like)' : 'transparent'};
     stroke: ${({ $isLiked }) =>
-      $isLiked ? 'transparent' : 'var(--color-text)'};
+      $isLiked ? 'transparent' : '${(props) => props.theme.colorText};'};
     stroke-width: 1.5;
   }
 

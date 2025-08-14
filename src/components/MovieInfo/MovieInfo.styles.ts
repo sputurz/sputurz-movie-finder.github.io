@@ -19,7 +19,7 @@ export const Title = styled.h2`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: var(--color-text);
+  color: ${(props) => props.theme.colorText};
 
   ${vp767(css`
     font-size: 40px;
@@ -64,7 +64,7 @@ export const Label = styled.span`
   ${vp767(css`
     font-size: 18px;
     line-height: 24px;
-    color: var(--color-text);
+    color: ${(props) => props.theme.colorText};
   `)}
 `;
 
@@ -81,5 +81,5 @@ export const Value = styled.span`
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-text);
+  color: ${(props) => props.theme.colorText};
 `;

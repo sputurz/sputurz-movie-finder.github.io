@@ -13,7 +13,7 @@ export const BtnMobile = styled.button`
   background-color: transparent;
 
   svg {
-    color: var(--color-text);
+    color: ${(props) => props.theme.colorText};
     width: 24px;
     height: 24px;
   }
@@ -46,8 +46,8 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
 
   & > input {
     width: 100%;
-    caret-color: var(--color-text);
-    color: var(--color-text);
+    caret-color: ${(props) => props.theme.colorText};
+    color: ${(props) => props.theme.colorText};
     background: var(--bg-secondary);
     border: 1px solid transparent;
     border-radius: 8px;

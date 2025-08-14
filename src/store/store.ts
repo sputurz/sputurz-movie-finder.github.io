@@ -4,8 +4,14 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { languageSlice } from './globalSlices/languageSlice';
 import { authModalSlice } from '../components/AuthModal/AuthModalSlice';
 import { authSlice } from './globalSlices/authSlice';
+import { themeSlice } from './globalSlices/themeSlice';
 
-const rootReducer = combineSlices(languageSlice, authModalSlice, authSlice);
+const rootReducer = combineSlices(
+  languageSlice,
+  authModalSlice,
+  authSlice,
+  themeSlice
+);
 
 export type RootState = ReturnType<typeof rootReducer>;
 

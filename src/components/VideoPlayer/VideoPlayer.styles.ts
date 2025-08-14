@@ -83,5 +83,5 @@ export const ErrorText = styled.span`
   font-size: 40px;
   line-height: 48px;
   text-align: center;
-  color: var(--color-text);
+  color: ${(props) => props.theme.colorText};;
 `;

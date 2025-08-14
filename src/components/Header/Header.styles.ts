@@ -82,7 +82,7 @@ export const BtnModal = styled.button`
   align-items: center;
   justify-content: center;
   padding: 4px 0;
-  color: var(--color-text);
+  color: ${(props) => props.theme.colorText};
   background-color: transparent;
   border: none;
 

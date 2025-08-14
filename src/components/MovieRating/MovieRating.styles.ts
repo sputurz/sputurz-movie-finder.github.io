@@ -16,7 +16,7 @@ export const Wrap = styled.div<{
   background-color: ${(props) => props.$color};
 
   > svg {
-    color: var(--color-text);
+    color: ${(props) => props.theme.colorText};
     height: ${(props) => (props.$isSearch ? '10px' : '16px')};
     width: ${(props) => (props.$isSearch ? '10px' : '16px')};
   }
@@ -28,5 +28,5 @@ export const Text = styled.span<{
   font-weight: 700;
   font-size: ${(props) => (props.$isSearch ? '12px' : '18px')};
   line-height: ${(props) => (props.$isSearch ? '16px' : '24px')};
-  color: var(--color-text);
+  color: ${(props) => props.theme.colorText};
 `;
