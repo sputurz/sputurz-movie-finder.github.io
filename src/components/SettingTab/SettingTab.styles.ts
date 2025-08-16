@@ -76,9 +76,10 @@ export const TagKey = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: var(--color-text-50);
+  color: ${(props) => props.theme.colorText50};
 
   ${vp767(css`
+    color: ${(props) => props.theme.colorText};
     font-size: 18px;
     line-height: 24px;
   `)}
