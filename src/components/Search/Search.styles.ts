@@ -31,7 +31,7 @@ export const Backdrop = styled.div<{ $isMobileSearch?: boolean }>`
   position: ${(props) => (props.$isMobileSearch ? 'absolute' : 'fixed')};
   inset: 0;
   background-color: ${(props) =>
-    props.$isMobileSearch ? 'var(--bg-backdrop)' : 'transparent'};
+    props.$isMobileSearch ? props.theme.bgBackdrop : 'transparent'};
   z-index: 49;
   pointer-events: ${(props) => (props.$isMobileSearch ? 'unset' : 'none')};
 `;
@@ -48,7 +48,7 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
     width: 100%;
     caret-color: ${(props) => props.theme.colorText};
     color: ${(props) => props.theme.colorText};
-    background: var(--bg-secondary);
+    background: ${(props) => props.theme.bgSecondary};
     border: 1px solid transparent;
     border-radius: 8px;
     padding: 12px 52px 12px 52px;
@@ -67,12 +67,12 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
   &:focus-within > input,
   &:focus-within > textarea {
     outline: none;
-    border-color: var(--color-input-hover);
+    border-color: ${(props) => props.theme.colorInputHover};
   }
 
   &:hover > input,
   &:hover > textarea {
-    border-color: var(--color-input-hover);
+    border-color: ${(props) => props.theme.colorInputHover};
   }
 
   & > svg {
@@ -86,7 +86,7 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
 
   &:focus-within > svg,
   &:hover > svg {
-    color: var(--color-input-hover);
+    color: ${(props) => props.theme.colorInputHover};
   }
 
   ${vp767(css`
@@ -129,7 +129,7 @@ export const ResultList = styled.ul`
   margin: 0;
   list-style-type: none;
   position: absolute;
-  background-color: var(--bg-secondary);
+  background-color: ${(props) => props.theme.bgSecondary};
   border-radius: 8px;
   z-index: 40;
   width: 100%;

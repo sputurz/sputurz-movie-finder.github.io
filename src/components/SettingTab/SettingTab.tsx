@@ -1,20 +1,13 @@
 import { useLogout } from '../../hooks/useLogout';
 import { selectUser } from '../../store/globalSlices/authSlice';
-import { selectTheme, toggleTheme } from '../../store/globalSlices/themeSlice';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppSelector } from '../../store/hooks';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import * as S from './SettingTab.styles';
 
 export default function SettingTab() {
   const { handleLogout, isPending } = useLogout();
-  const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
-  const theme = useAppSelector(selectTheme);
-
-  const onTheme = () => {
-    dispatch(toggleTheme(theme === 'dark' ? 'light' : 'dark'));
-  };
 
   return (
     <S.Wrap>
@@ -36,12 +29,6 @@ export default function SettingTab() {
           </S.TextWrap>
         </S.ListItem>
       </S.List>
-
-      <Button onClick={onTheme}>
-        {theme === 'dark'
-          ? 'Сменить тему на светлую'
-          : 'Сменить тему на темную'}
-      </Button>
 
       <Button onClick={handleLogout} isLoading={isPending}>
         Выйти из аккаунта

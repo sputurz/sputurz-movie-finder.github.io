@@ -19,7 +19,7 @@ export const NavLinkStyles = css`
   }
 
   &.active {
-    color: var(--color-active);
+    color: ${(props) => props.theme.colorActive};
   }
 
   ${vp767(css`
@@ -31,7 +31,7 @@ export const NavLinkStyles = css`
 
     &.active {
       color: ${(props) => props.theme.colorText};
-      border-bottom: 1px solid var(--brdr-active);
+      border-bottom: 1px solid ${(props) => props.theme.brdrActive};
     }
   `)}
 `;

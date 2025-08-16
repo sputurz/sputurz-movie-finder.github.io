@@ -10,7 +10,7 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
   align-items: center;
   padding-top: env(safe-area-inset-top, 20px);
   z-index: 60;
-  background-color: var(--bg-backdrop);
+  background-color: ${(props) => props.theme.bgBackdrop};
 
   animation: ${({ $isOpen }) => ($isOpen ? 'fadeIn' : 'fadeOut')} 0.7s ease
     forwards;
@@ -36,7 +36,7 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
 `;
 
 export const Wrap = styled.div<{ $isOpen: boolean }>`
-  box-shadow: 0px 0px 80px 0px var(--box-shadows);
+  box-shadow: 0px 0px 80px 0px ${(props) => props.theme.boxShadows};
   position: relative;
   display: flex;
   flex-direction: column;
@@ -72,7 +72,7 @@ export const Inner = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--bg-primary);
+  background-color: ${(props) => props.theme.bgPrimary};
   width: 100%;
   height: 100%;
   padding: 64px 20px 32px;
@@ -104,7 +104,7 @@ export const BtnAuthType = styled.button`
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-text-modal);
+  color: ${(props) => props.theme.colorTextInverse};
 
   &:hover {
     opacity: 0.5;
@@ -138,7 +138,7 @@ export const BtnClose = styled.button`
 
   ${vp767(css`
     border-radius: 50%;
-    background-color: var(--bg-primary);
+    background-color: ${(props) => props.theme.bgPrimary};
     top: 0;
     right: -72px;
   `)}
@@ -148,7 +148,7 @@ export const SuccsessTitle = styled.span`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: var(--color-text-modal);
+  color: ${(props) => props.theme.colorTextInverse};
   padding-top: 32px;
 
   ${vp767(css`
@@ -161,6 +161,6 @@ export const SuccsessText = styled.span`
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-  color: var(--color-text-modal);
+  color: ${(props) => props.theme.colorTextInverse};
   padding: 24px 0;
 `;

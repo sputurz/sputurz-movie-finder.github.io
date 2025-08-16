@@ -71,7 +71,7 @@ export const Tag = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: var(--color-text-70);
+    color: ${(props) => props.theme.colorText70};
   }
 
   ${vp767(css`
@@ -113,7 +113,7 @@ export const Plot = styled.p<{ $isAboutMovie?: boolean }>`
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-text-70);
+  color: ${(props) => props.theme.colorText70};
 
   ${vp767(css`
     font-size: 24px;
@@ -164,7 +164,7 @@ export const BtnLike = styled.button<{ $isLiked?: boolean }>`
 
   svg {
     color: ${({ $isLiked }) =>
-      $isLiked ? 'var(--color-like)' : 'transparent'};
+      $isLiked ? '${(props) => props.theme.colorLike};' : 'transparent'};
     stroke: ${({ $isLiked }) =>
       $isLiked ? 'transparent' : '${(props) => props.theme.colorText};'};
     stroke-width: 1.5;
@@ -173,8 +173,8 @@ export const BtnLike = styled.button<{ $isLiked?: boolean }>`
   &:focus-visible svg,
   &:hover svg {
     stroke: ${({ $isLiked }) =>
-      $isLiked ? 'transparent' : 'var( --color-text-inverse)'};
+      $isLiked ? 'transparent' : '${(props) => props.theme.colorTextInverse};'};
     color: ${({ $isLiked }) =>
-      $isLiked ? 'var(--color-like)' : 'transparent'};
+      $isLiked ? '${(props) => props.theme.colorLike};' : 'transparent'};
   }
 `;

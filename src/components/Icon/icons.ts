@@ -32,5 +32,11 @@ export const SearchIcon = lazy(
 // movies
 export const LeftIcon = lazy(() => import('../../assets/icons/left.svg?react'));
 
+// theme
+export const DarkIcon = lazy(() => import('../../assets/icons/dark.svg?react'));
+export const LightIcon = lazy(
+  () => import('../../assets/icons/light.svg?react')
+);
+
 // Автоматический тип для имен иконок
 export type IconName = keyof typeof import('./icons');

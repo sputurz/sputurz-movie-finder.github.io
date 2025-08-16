@@ -29,11 +29,7 @@ body {
   font-family: 'Play';
   font-style: normal;
   font-weight: 400;
-  background-image: linear-gradient(
-      rgba(39, 135, 245, 0.2),
-      rgba(163, 147, 245, 0.2)
-    ),
-    linear-gradient(rgba(0, 0, 0, 1), rgba(39, 36, 36, 0.7));
+  background-image:  ${(props) => props.theme.bgBody};
 }
 
 main {

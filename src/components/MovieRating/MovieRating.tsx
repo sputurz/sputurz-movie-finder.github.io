@@ -1,20 +1,22 @@
 import { IMovie } from '../../models';
-import { setRatingColor } from '../../utils/setRatingColor';
+import { useRatingColor } from '../../hooks/useRatingColor';
 import { Icon } from '../Icon';
 import * as S from './MovieRating.styles';
 
 interface IProps {
-  rating: IMovie['tmdbRating'] | undefined | null;
+  rating: IMovie['tmdbRating'];
   isSearch?: boolean;
 }
 
 export function MovieRating({ rating, isSearch }: IProps) {
+  const color = useRatingColor(rating);
+
   if (typeof rating !== 'number' || isNaN(rating)) {
     return null;
   }
 
   return (
-    <S.Wrap $color={setRatingColor(rating)} $isSearch={isSearch}>
+    <S.Wrap $color={color} $isSearch={isSearch}>
       <Icon name="StarIcon"></Icon>
       <S.Text $isSearch={isSearch}>
         {rating.toFixed(1).replace('.', ',')}

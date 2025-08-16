@@ -9,7 +9,7 @@ export const Backdrop = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 20;
-  background-color: var(--bg-backdrop);
+  background-color: ${(props) => props.theme.bgBackdrop};
   z-index: 60;
 `;
 
@@ -18,7 +18,7 @@ export const Wrap = styled.div`
   width: min(100vw, calc(100vh * (16 / 9)));
   height: min(100vh, calc(100vw * (9 / 16)));
   aspect-ratio: 16 / 9;
-  background-color: var(--bg-secondary);
+  background-color: ${(props) => props.theme.bgSecondary};
 
   youtube-video {
     height: 100% !important;
@@ -26,7 +26,7 @@ export const Wrap = styled.div`
   }
 
   ${vp767(css`
-    border: 1px solid var(--brdr-video);
+    border: 1px solid ${(props) => props.theme.brdrVideo};
     width: calc(100% - 160px);
     max-width: 960px;
     height: unset;
@@ -45,7 +45,7 @@ export const BtnClose = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-primary);
+  background-color: ${(props) => props.theme.bgPrimary};
   padding: 0;
   border: none;
   font-weight: 700;
@@ -53,7 +53,7 @@ export const BtnClose = styled.button`
   line-height: 48px;
 
   svg {
-    color: var(--color-text-inverse);
+    color: ${(props) => props.theme.colorTextInverse};
     width: 16px;
     height: 16px;
   }
@@ -83,5 +83,5 @@ export const ErrorText = styled.span`
   font-size: 40px;
   line-height: 48px;
   text-align: center;
-  color: ${(props) => props.theme.colorText};;
+  color: ${(props) => props.theme.colorText};
 `;

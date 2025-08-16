@@ -23,5 +23,5 @@ export const ErrorText = styled.span`
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-error);
+  color: ${(props) => props.theme.colorError};
 `;

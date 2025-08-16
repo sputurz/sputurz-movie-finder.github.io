@@ -18,38 +18,38 @@ export const Label = styled.label<{ $isError?: boolean }>`
     width: 100%;
     border: 1px solid
       ${(props) =>
-        props.$isError ? 'var(--brdr-input-error)' : 'var(--brdr-input)'};
+        props.$isError ? props.theme.brdrInputError : props.theme.brdrInput};
     border-radius: 8px;
     padding: 16px 16px 16px 52px;
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
-    color: var(--color-input);
+    color: ${(props) => props.theme.colorInput};
   }
 
   & > input::placeholder {
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
-    color: var(--color-input-40);
+    color: ${(props) => props.theme.colorInput40};
   }
 
   &:focus-within > input,
   &:focus-within > textarea {
     outline: none;
-    border-color: var(--brdr-input-hover);
+    border-color: ${(props) => props.theme.brdrInputHover};
   }
 
   &:hover > input,
   &:hover > textarea {
-    border-color: var(--brdr-input-hover);
+    border-color: ${(props) => props.theme.brdrInputHover};
   }
 
   & > svg {
     ${transitionColor}
 
     color: ${(props) =>
-      props.$isError ? 'var(--color-input-error)' : 'var(--color-input-40)'};
+      props.$isError ? props.theme.colorInputError : props.theme.colorInput40};
     position: absolute;
     width: 24px;
     height: 24px;
@@ -59,7 +59,7 @@ export const Label = styled.label<{ $isError?: boolean }>`
 
   &:hover > svg,
   &:focus-within > svg {
-    color: var(--color-input-hover);
+    color: ${(props) => props.theme.colorInputHover};
   }
 `;
 
@@ -67,5 +67,5 @@ export const ErrorText = styled.span<{ $isError?: boolean }>`
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-input-error);
+  color: ${(props) => props.theme.colorInputError};
 `;

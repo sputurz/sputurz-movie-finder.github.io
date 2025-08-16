@@ -7,12 +7,12 @@ export const LinkItem = styled(Link)`
   ${transitionTransform}
 
   height: 100%;
-  background-color: var(--bg-genre-card);
+  background-color: ${(props) => props.theme.bgGenreCard};
   display: flex;
   flex-direction: column;
   border-radius: 24px;
-  border: 1px solid var(--brdr-card);
-  box-shadow: 0px 0px 80px 0px var(--box-shadows);
+  border: 1px solid ${(props) => props.theme.brdrCard};
+  box-shadow: 0px 0px 80px 0px ${(props) => props.theme.boxShadows};
 
   &:hover {
     transform: scale(1.05);
@@ -26,7 +26,7 @@ export const ImgContainer = styled.div`
   padding-top: calc(220 / 335 * 100%);
   border-radius: 24px 24px 0 0;
   overflow: hidden;
-  background-color: var(--bg-secondary);
+  background-color: ${(props) => props.theme.bgSecondary};
 
   ${vp767(css`
     padding-top: calc(220 / 290 * 100%);

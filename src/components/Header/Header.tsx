@@ -10,17 +10,21 @@ import { Nav } from '../Nav';
 import * as S from './Header.styles';
 import { Icon } from '../Icon';
 import { Search } from '../Search';
+import { selectTheme } from '../../store/globalSlices/themeSlice';
 
 export function Header() {
   const dispatch = useAppDispatch();
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
   const user = useAppSelector(selectUser);
+  const theme = useAppSelector(selectTheme);
 
   return (
     <S.Header>
       <Container>
         <S.Wrap>
-          <Logo src={'/logoBlack.svg'}></Logo>
+          <Logo
+            src={theme == 'dark' ? '/logoBlack.svg' : '/logoWhite.svg'}
+          ></Logo>
           <S.Inner>
             <Nav></Nav>
             <Search></Search>

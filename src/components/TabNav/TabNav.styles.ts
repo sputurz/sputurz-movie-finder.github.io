@@ -22,7 +22,7 @@ export const LinkItem = styled(NavLink)`
 
   &.active {
     color: ${(props) => props.theme.colorText};
-    border-bottom: 1px solid var(--brdr-active);
+    border-bottom: 1px solid ${(props) => props.theme.brdrActive};
   }
 
   & svg {

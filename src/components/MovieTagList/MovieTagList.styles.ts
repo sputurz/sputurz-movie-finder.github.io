@@ -10,7 +10,7 @@ export const Wrap = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: var(--color-text-70);
+    color: ${(props) => props.theme.colorText70};
   }
 
   ${vp767(css`

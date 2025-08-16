@@ -1,5 +1,10 @@
 export const darkTheme = {
   // bgr
+  bgBody: `linear-gradient(
+      rgba(39, 135, 245, 0.2),
+      rgba(163, 147, 245, 0.2)
+    ),
+    linear-gradient(rgba(0, 0, 0, 1), rgba(39, 36, 36, 0.7))`,
   bgPrimary: '#ffffff',
   bgSecondary: '#393b3c',
   bgGenreCard: '#0a0b0b',
@@ -62,22 +67,32 @@ export const darkTheme = {
 
 export const lightTheme = {
   // bgr
+  bgBody: `
+    linear-gradient(
+      rgba(39, 135, 245, 0.1),   
+      rgba(163, 147, 245, 0.1)   
+    ),
+    linear-gradient(
+      rgba(255, 255, 255, 1),    
+      rgba(240, 240, 240, 0.7)    
+    )
+  `,
   bgPrimary: '#ffffff',
   bgSecondary: '#393b3c',
-  bgGenreCard: '#0a0b0b',
+  bgGenreCard: '#e1f8f8',
   bgBackdrop: 'rgba(0, 0, 0, 0.5)',
   bgSettingLabel: 'rgba(255, 255, 255, 0.5)',
 
   // text/svg
   colorError: '#dc3545',
-  colorText: '#cc3a3aff',
-  colorTextInverse: '#000000',
+  colorText: '#000000',
+  colorTextInverse: '#ffffff',
   colorLike: '#b4a9ff',
   colorActive: '#b4a9ff',
   colorTop: '#6a5dc2',
-  colorText40: 'rgba(255, 255, 255, 0.4)',
-  colorText50: 'rgba(255, 255, 255, 0.5)',
-  colorText70: 'rgba(255, 255, 255, 0.7)',
+  colorText40: 'rgba(0, 0, 0, 0.4)',
+  colorText50: 'rgba(0, 0, 0, 0.5)',
+  colorText70: 'rgba(0, 0, 0, 0.7)',
 
   // brdr
   brdrActive: ' #dc5dfc',
@@ -86,7 +101,7 @@ export const lightTheme = {
   brdrSearch: 'rgba(255, 255, 255, 0.5)',
 
   // shdw
-  boxShadows: 'rgba(255, 255, 255, 0.33)',
+  boxShadows: 'rgba(0, 0, 0, 0.33)',
 
   // loader
   brdrLoader: '#838383',

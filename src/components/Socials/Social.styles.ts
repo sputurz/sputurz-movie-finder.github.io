@@ -6,14 +6,8 @@ export const Wrap = styled.ul`
   display: flex;
   gap: 24px;
   list-style-type: none;
-  padding: 0 0 12px;
+  padding: 0;
   margin: 0;
-  justify-content: flex-start;
-
-  ${vp767(css`
-    justify-content: flex-end;
-    padding: 2px 0;
-  `)}
 `;
 
 export const Item = styled.li`

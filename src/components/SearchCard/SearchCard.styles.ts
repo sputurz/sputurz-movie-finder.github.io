@@ -23,7 +23,7 @@ export const LinkItem = styled(Link)`
 
   &:hover,
   &:focus-visible {
-    border: 1px solid var(--brdr-search);
+    border: 1px solid ${(props) => props.theme.brdrSearch};
   }
 
   &:focus-visible {
@@ -54,7 +54,7 @@ export const Inner = styled.div`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: var(--color-text-70);
+  color: ${(props) => props.theme.colorText70};
   flex-wrap: wrap;
 `;
 

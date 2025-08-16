@@ -12,8 +12,8 @@ export const Card = styled.div`
   aspect-ratio: 224 / 336;
   display: flex;
   border-radius: 16px;
-  border: 1px solid var(--brdr-card);
-  box-shadow: 0px 0px 80px 0px var(--box-shadows);
+  border: 1px solid ${(props) => props.theme.brdrCard};
+  box-shadow: 0px 0px 80px 0px ${(props) => props.theme.boxShadows};
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
@@ -62,12 +62,12 @@ export const Rating = styled.span`
   position: absolute;
   left: -12px;
   top: -12px;
-  background: var(--bg-primary);
+  background: ${(props) => props.theme.bgPrimary};
   border-radius: 50px;
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: var(--color-top);
+  color: ${(props) => props.theme.colorTop};
   z-index: 2;
 `;
 
@@ -85,7 +85,7 @@ export const BtnDelete = styled.button`
   padding: 0;
   border: none;
   border-radius: 50%;
-  background-color: var(--bg-primary);
+  background-color: ${(props) => props.theme.bgPrimary};
 
   svg {
     width: 24px;

@@ -2,6 +2,7 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    bgBody: string;
     bgPrimary: string;
     bgSecondary: string;
     bgGenreCard: string;
