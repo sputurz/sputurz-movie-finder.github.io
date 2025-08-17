@@ -4,7 +4,7 @@ import { FontStyle } from './utils/fonts';
 import { NormalizeStyle } from './utils/normalize';
 import { ColorsStyle } from './utils/colors';
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{ $isTransitioning: boolean }>`
 ${FontStyle}
 ${NormalizeStyle}
 ${ColorsStyle}
@@ -29,7 +29,20 @@ body {
   font-family: 'Play';
   font-style: normal;
   font-weight: 400;
-  background-image:  ${(props) => props.theme.bgBody};
+ 
+  background-image: ${(props) => props.theme.bgBody};
+  transition: opacity 0.5s ease-in-out;
+  opacity: ${(props) => (props.$isTransitioning ? 0.5 : 1)};
+  
+    &::before {
+      content: '';
+      position: fixed;
+      inset:0;
+      background-image: ${(props) => props.theme.bgBody};
+      z-index: -1;
+      opacity: ${(props) => (props.$isTransitioning ? 0 : 1)};
+      transition: opacity 0.5s ease-in-out;
+    }
 }
 
 main {

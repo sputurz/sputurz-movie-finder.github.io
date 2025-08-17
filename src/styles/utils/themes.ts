@@ -77,26 +77,26 @@ export const lightTheme = {
       rgba(240, 240, 240, 0.7)    
     )
   `,
-  bgPrimary: '#ffffff',
+  bgPrimary: '#ffffffff',
   bgSecondary: '#393b3c',
   bgGenreCard: '#e1f8f8',
   bgBackdrop: 'rgba(0, 0, 0, 0.5)',
-  bgSettingLabel: 'rgba(255, 255, 255, 0.5)',
+  bgSettingLabel: 'rgba(0, 0, 0, 0.1)',
 
   // text/svg
   colorError: '#dc3545',
   colorText: '#000000',
   colorTextInverse: '#ffffff',
   colorLike: '#b4a9ff',
-  colorActive: '#b4a9ff',
+  colorActive: '#705afc',
   colorTop: '#6a5dc2',
   colorText40: 'rgba(0, 0, 0, 0.4)',
   colorText50: 'rgba(0, 0, 0, 0.5)',
   colorText70: 'rgba(0, 0, 0, 0.7)',
 
   // brdr
-  brdrActive: ' #dc5dfc',
-  brdrCard: 'rgba(255, 255, 255, 0.25)',
+  brdrActive: ' #9900ff',
+  brdrCard: 'rgba(0, 0, 0, 0.25)',
   brdrVideo: 'rgba(255, 255, 255, 0.5)',
   brdrSearch: 'rgba(255, 255, 255, 0.5)',
 

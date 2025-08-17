@@ -6,16 +6,19 @@ import { selectTheme } from './store/globalSlices/themeSlice';
 import { useAppSelector } from './store/hooks';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './styles/utils/themes';
+import { useBackgroundAnimation } from './hooks/useBackgroundAnimation';
 
 const queryClient = new QueryClient();
 
 export function App() {
   const theme = useAppSelector(selectTheme);
 
+  const isTransitioning = useBackgroundAnimation(theme);
+
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme == 'dark' ? darkTheme : lightTheme}>
-        <GlobalStyle />
+        <GlobalStyle $isTransitioning={isTransitioning} />
         <QueryClientProvider client={queryClient}>
           <AppRouter></AppRouter>
         </QueryClientProvider>
