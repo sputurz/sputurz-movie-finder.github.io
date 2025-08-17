@@ -153,9 +153,9 @@ export const LinkItem = styled(Link)<{
   ${({ $iSdisabled }) =>
     $iSdisabled &&
     css`
-      color: var(--color-text-50);
+      color: ${(props) => props.theme.colorText50}
       pointer-events: none;
-      background-color: var(--bg-btn-secondary-disabled);
+      background-color: ${(props) => props.theme.bgBtnSecondaryDisabled};
     `}
 `;
 
@@ -163,18 +163,18 @@ export const BtnLike = styled.button<{ $isLiked?: boolean }>`
   ${BtnSecondaryStyles}
 
   svg {
-    color: ${({ $isLiked }) =>
-      $isLiked ? '${(props) => props.theme.colorLike};' : 'transparent'};
-    stroke: ${({ $isLiked }) =>
-      $isLiked ? 'transparent' : '${(props) => props.theme.colorText};'};
+    color: ${({ $isLiked, theme }) =>
+      $isLiked ? theme.colorLike : 'transparent'};
+    stroke: ${({ $isLiked, theme }) =>
+      $isLiked ? 'transparent' : theme.colorText};
     stroke-width: 1.5;
   }
 
   &:focus-visible svg,
   &:hover svg {
-    stroke: ${({ $isLiked }) =>
-      $isLiked ? 'transparent' : '${(props) => props.theme.colorTextInverse};'};
-    color: ${({ $isLiked }) =>
-      $isLiked ? '${(props) => props.theme.colorLike};' : 'transparent'};
+    stroke: ${({ $isLiked, theme }) =>
+      $isLiked ? 'transparent' : theme.colorTextInverse};
+    color: ${({ $isLiked, theme }) =>
+      $isLiked ? theme.colorLike : 'transparent'};
   }
 `;

@@ -12,10 +12,12 @@ export const Wrap = styled.footer`
 
 export const Inner = styled.div`
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
+
   ${vp767(
     css`
-      flex-direction: row-reverse;
+      flex-direction: row;
     `
   )}
 `;

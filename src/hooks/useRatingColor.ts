@@ -2,7 +2,7 @@ import { useTheme } from 'styled-components';
 import { IMovie } from '../models';
 
 export function useRatingColor(rating: IMovie['tmdbRating']) {
-  const theme = useTheme(); // Достаём тему здесь
+  const theme = useTheme();
   if (rating >= 8) {
     return theme.bgRating1;
   } else if (rating >= 6) {

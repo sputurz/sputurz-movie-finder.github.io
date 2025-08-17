@@ -23,16 +23,12 @@ export function Search() {
     setIsMobileSearch(true);
     queueMicrotask(() => setFocus('searchQuery'));
     document.body.style.overflow = 'hidden';
-    window.history.pushState({ isSearchOpen: true }, '');
+    window.history.pushState(null, '');
   };
 
   const onBackdrop = () => {
     setIsMobileSearch(false);
     document.body.style.overflow = '';
-
-    if (window.history.state?.isSearchOpen) {
-      window.history.back();
-    }
   };
 
   const handleReset = () => {
@@ -45,6 +41,8 @@ export function Search() {
     if (isMobileSearch) onBackdrop();
   };
 
+  // пока в бэтке - кнопкой назад убераем поиск снова назад убераем бэкдроп
+  // нужен переход на react router
   useEffect(() => {
     const handlePopState = () => {
       if (isMobileSearch) {

@@ -27,6 +27,7 @@ export const darkTheme = {
   brdrCard: 'rgba(255, 255, 255, 0.25)',
   brdrVideo: 'rgba(255, 255, 255, 0.5)',
   brdrSearch: 'rgba(255, 255, 255, 0.5)',
+  brdrDash: 'rgba(255, 255, 255, 0.5)',
 
   // shdw
   boxShadows: 'rgba(255, 255, 255, 0.33)',
@@ -99,6 +100,7 @@ export const lightTheme = {
   brdrCard: 'rgba(0, 0, 0, 0.25)',
   brdrVideo: 'rgba(255, 255, 255, 0.5)',
   brdrSearch: 'rgba(255, 255, 255, 0.5)',
+  brdrDash: 'rgba(255, 255, 255, 0.5)',
 
   // shdw
   boxShadows: 'rgba(0, 0, 0, 0.33)',

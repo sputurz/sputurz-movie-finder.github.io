@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import {
   transitionOpacity,
   transitionTransform,
 } from '../../styles/utils/variables';
+import { vp767 } from '../../styles/utils/mixins';
 
 export const Card = styled.div`
   ${transitionTransform}
@@ -20,7 +21,7 @@ export const Card = styled.div`
 
   &:hover,
   &:focus {
-    transform: scale(1.05);
+    transform: scale(1.01);
   }
 
   button {
@@ -31,6 +32,13 @@ export const Card = styled.div`
   &:focus-within button {
     display: flex;
   }
+
+  ${vp767(css`
+    &:hover,
+    &:focus {
+      transform: scale(1.05);
+    }
+  `)}
 `;
 
 export const LinkItem = styled(Link)`

@@ -61,7 +61,7 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
-    color: var(--color-text-50);
+    color: ${(props) => props.theme.colorText50};
   }
 
   &:focus-within > input,
@@ -76,7 +76,7 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
   }
 
   & > svg {
-    color: var(--color-text-50);
+    color: ${(props) => props.theme.colorText50};
     position: absolute;
     width: 24px;
     height: 24px;
@@ -113,7 +113,7 @@ export const BtnReset = styled.button<{ $isEmpty?: boolean }>`
   padding: 0;
 
   svg {
-    color: var(--color-text-50);
+    color: ${(props) => props.theme.colorText50};
     width: 24px;
     height: 24px;
   }

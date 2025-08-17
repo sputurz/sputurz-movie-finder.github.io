@@ -15,8 +15,14 @@ export const LinkItem = styled(Link)`
   box-shadow: 0px 0px 80px 0px ${(props) => props.theme.boxShadows};
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
   }
+
+  ${vp767(css`
+    &:hover {
+      transform: scale(1.05);
+    }
+  `)}
 `;
 
 export const ImgContainer = styled.div`

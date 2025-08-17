@@ -59,7 +59,7 @@ export const Label = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: var(--color-text-50);
+  color: ${(props) => props.theme.colorText50};
 
   ${vp767(css`
     font-size: 18px;
@@ -72,7 +72,7 @@ export const Border = styled.div`
   ${vp767(
     css`
       height: 18px;
-      border-bottom: 1px dashed var(--color-text-50);
+      border-bottom: 1px dashed ${(props) => props.theme.brdrDash};
     `
   )}
 `;

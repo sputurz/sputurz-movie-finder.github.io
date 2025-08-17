@@ -17,7 +17,6 @@ export const Footer = () => {
     <S.Wrap>
       <Container>
         <S.Inner>
-          <Social></Social>
           <S.ThemeBtn
             aria-label={
               theme === 'dark'
@@ -33,6 +32,7 @@ export const Footer = () => {
           >
             <Icon name="DarkIcon"></Icon>
           </S.ThemeBtn>
+          <Social></Social>
         </S.Inner>
       </Container>
     </S.Wrap>

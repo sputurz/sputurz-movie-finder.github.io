@@ -20,6 +20,7 @@ declare module 'styled-components' {
     brdrActive: string;
     brdrCard: string;
     brdrVideo: string;
+    brdrDash: string;
     brdrSearch: string;
     boxShadows: string;
     brdrLoader: string;

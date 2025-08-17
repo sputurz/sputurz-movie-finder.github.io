@@ -4,12 +4,12 @@ import { transition, transitionBgrColor } from '../utils/variables';
 export const BtnPrimaryStyles = css`
   ${transitionBgrColor}
 
-  border: 1px solid var(--brdr-btn-primary);
+  border: 1px solid ${(props) => props.theme.brdrBtnPrimary};
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px 22px;
-  background-color: var(--bg-btn-primary);
+  background-color: ${(props) => props.theme.bgBtnPrimary};
   border-radius: 28px;
   font-weight: 700;
   font-size: 18px;
@@ -21,12 +21,12 @@ export const BtnPrimaryStyles = css`
 
   &:focus-visible,
   &:hover {
-    background-color: var(--bg-btn-primary-hover);
+    background-color: ${(props) => props.theme.bgBtnPrimaryHover};
   }
 
   &:disabled {
-    background-color: var(--bg-btn-primary-disabled);
-    color: var(--color-text-50);
+    background-color: ${(props) => props.theme.bgBtnPrimaryDisabled};
+    color: ${(props) => props.theme.colorText50};
     pointer-events: none;
   }
 `;
@@ -43,17 +43,17 @@ export const BtnSecondaryStyles = css`
   ${BtnPrimaryStyles}
   ${transition('color, border-color, background-color')}
 
-  background-color: var(--bg-btn-secondary);
-  border-color: var(--brdr-btn-secondary);
+  background-color: ${(props) => props.theme.bgBtnSecondary};
+  border-color: ${(props) => props.theme.brdrBtnSecondary};
 
   &:focus-visible,
   &:hover {
-    color: var(--color-btn-secondary-hover);
-    background-color: var(--bg-btn-secondary-hover);
-    border-color: var(--brdr-btn-secondary-hover);
+    color: ${(props) => props.theme.colorBtnSecondaryHover};
+    background-color: ${(props) => props.theme.bgBtnSecondaryHover};
+    border-color: ${(props) => props.theme.brdrBtnSecondaryHover};
   }
 
   &:disabled {
-    background-color: var(--bg-btn-secondary-disabled);
+    background-color: ${(props) => props.theme.bgBtnSecondaryDisabled};
   }
 `;
