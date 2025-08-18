@@ -6,8 +6,12 @@ import { RegistrationForm } from '../RegistrationForm';
 import { useModal } from '../../hooks/useModal';
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '../Button';
+import { useAppSelector } from '../../store/hooks';
+import { selectTheme } from '../../store/globalSlices/themeSlice';
 
 export default function AuthModal() {
+  const theme = useAppSelector(selectTheme);
+
   const {
     isOpen,
     authType,
@@ -18,6 +22,7 @@ export default function AuthModal() {
     onSuccessRegister,
     onSuccessBtnClick,
   } = useModal();
+
   const [shouldRender, setShouldRender] = useState(isOpen);
 
   const logoRef = useRef<HTMLAnchorElement>(null);
@@ -49,7 +54,10 @@ export default function AuthModal() {
     <S.Backdrop onClick={handleBackdropClick} $isOpen={isOpen}>
       <S.Wrap $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
         <S.Inner $isOpen={isOpen}>
-          <Logo src={'/logoWhite.svg'} ref={logoRef}></Logo>
+          <Logo
+            src={theme == 'dark' ? '/logoBlack.svg' : '/logoWhite.svg'}
+            ref={logoRef}
+          ></Logo>
           {!isRegisterSuccess ? (
             <>
               {authType === 'register' ? (

@@ -28,6 +28,7 @@ declare module 'styled-components' {
     brdrInput: string;
     brdrInputError: string;
     brdrInputHover: string;
+    bgInput: string;
     colorInput: string;
     colorInput40: string;
     colorInputError: string;
@@ -43,10 +44,15 @@ declare module 'styled-components' {
     bgBtnPrimaryDisabled: string;
     bgBtnAuthDisabled: string;
     bgBtnSecondaryDisabled: string;
+    colorBtnPrimary: string;
+    colorBtnSecondary: string;
     colorBtnSecondaryHover: string;
     bgRating1: string;
     bgRating2: string;
     bgRating3: string;
     bgRating4: string;
+    colorRating: string;
+    colorModal: string;
+    colorModalBtnClose: string;
   }
 }

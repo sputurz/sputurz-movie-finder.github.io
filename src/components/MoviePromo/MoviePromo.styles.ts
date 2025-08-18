@@ -153,7 +153,7 @@ export const LinkItem = styled(Link)<{
   ${({ $iSdisabled }) =>
     $iSdisabled &&
     css`
-      color: ${(props) => props.theme.colorText50}
+      color: ${(props) => props.theme.colorText50};
       pointer-events: none;
       background-color: ${(props) => props.theme.bgBtnSecondaryDisabled};
     `}

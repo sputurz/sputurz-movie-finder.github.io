@@ -14,7 +14,7 @@ export const BtnPrimaryStyles = css`
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: ${(props) => props.theme.colorText};
+  color: ${(props) => props.theme.colorBtnPrimary};
   user-select: none;
   min-height: 58px;
   width: 100%;
@@ -26,7 +26,7 @@ export const BtnPrimaryStyles = css`
 
   &:disabled {
     background-color: ${(props) => props.theme.bgBtnPrimaryDisabled};
-    color: ${(props) => props.theme.colorText50};
+    /* color: ${(props) => props.theme.colorText50}; */
     pointer-events: none;
   }
 `;
@@ -35,7 +35,7 @@ export const BtnAuthStyles = css`
   ${BtnPrimaryStyles}
 
   &:disabled {
-    background-color: var(--bg-btn-auth-disabled);
+    background-color: ${(props) => props.theme.bgBtnAuthDisabled};
   }
 `;
 
@@ -43,6 +43,7 @@ export const BtnSecondaryStyles = css`
   ${BtnPrimaryStyles}
   ${transition('color, border-color, background-color')}
 
+  color: ${(props) => props.theme.colorBtnSecondary};
   background-color: ${(props) => props.theme.bgBtnSecondary};
   border-color: ${(props) => props.theme.brdrBtnSecondary};
 

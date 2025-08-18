@@ -4,7 +4,6 @@ export const Wrap = styled.div<{
   $color?: string;
   $isSearch?: boolean;
 }>`
-  width: ${(props) => (props.$isSearch ? '47px' : '70px')};
   padding: ${(props) => (props.$isSearch ? '2px 8px' : '4px 12px')};
   background-color: red;
   border-radius: 16px;
@@ -14,11 +13,11 @@ export const Wrap = styled.div<{
   align-items: center;
 
   background-color: ${(props) => props.$color};
+  color: ${(props) => props.theme.colorRating};
 
   > svg {
-    color: ${(props) => props.theme.colorText};
-    height: ${(props) => (props.$isSearch ? '10px' : '16px')};
-    width: ${(props) => (props.$isSearch ? '10px' : '16px')};
+    height: 16px;
+    width: 16px;
   }
 `;
 
@@ -28,5 +27,4 @@ export const Text = styled.span<{
   font-weight: 700;
   font-size: ${(props) => (props.$isSearch ? '12px' : '18px')};
   line-height: ${(props) => (props.$isSearch ? '16px' : '24px')};
-  color: ${(props) => props.theme.colorText};
 `;

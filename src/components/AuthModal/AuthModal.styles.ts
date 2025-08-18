@@ -11,6 +11,7 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
   padding-top: env(safe-area-inset-top, 20px);
   z-index: 60;
   background-color: ${(props) => props.theme.bgBackdrop};
+  backdrop-filter: blur(4px);
 
   animation: ${({ $isOpen }) => ($isOpen ? 'fadeIn' : 'fadeOut')} 0.7s ease
     forwards;
@@ -43,7 +44,7 @@ export const Wrap = styled.div<{ $isOpen: boolean }>`
   border-radius: 24px;
   margin: 20px;
   width: 100%;
-  max-height: calc(100dvh - 40px);
+  max-height: calc(100vh - 40px);
   z-index: 1;
 
   /* animation: slideUp 0.3s ease forwards;
@@ -72,7 +73,8 @@ export const Inner = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${(props) => props.theme.bgPrimary};
+  background-image: ${(props) => props.theme.bgBody};
+  color: ${(props) => props.theme.colorModal};
   width: 100%;
   height: 100%;
   padding: 64px 20px 32px;
@@ -104,7 +106,7 @@ export const BtnAuthType = styled.button`
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: ${(props) => props.theme.colorTextInverse};
+  color: ${(props) => props.theme.colorModal};
 
   &:hover {
     opacity: 0.5;
@@ -126,6 +128,7 @@ export const BtnClose = styled.button`
   width: 48px;
   height: 48px;
   overflow: unset;
+  color: ${(props) => props.theme.colorModal};
 
   svg {
     width: 24px;
@@ -137,6 +140,7 @@ export const BtnClose = styled.button`
   }
 
   ${vp767(css`
+    color: ${(props) => props.theme.colorModalBtnClose};
     border-radius: 50%;
     background-color: ${(props) => props.theme.bgPrimary};
     top: 0;
@@ -148,7 +152,6 @@ export const SuccsessTitle = styled.span`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: ${(props) => props.theme.colorTextInverse};
   padding-top: 32px;
 
   ${vp767(css`
@@ -161,6 +164,5 @@ export const SuccsessText = styled.span`
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-  color: ${(props) => props.theme.colorTextInverse};
   padding: 24px 0;
 `;

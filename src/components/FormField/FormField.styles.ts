@@ -14,7 +14,7 @@ export const Label = styled.label<{ $isError?: boolean }>`
   & > textarea {
     ${transitionBorderColor}
 
-    background-color: transparent;
+    background-color: ${(props) => props.theme.bgInput};
     width: 100%;
     border: 1px solid
       ${(props) =>

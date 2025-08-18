@@ -22,11 +22,11 @@ export const Inner = styled.div`
 
   button {
     align-self: center;
-    background-color: var(--bg-btn-next);
+    background-color: ${(props) => props.theme.bgBtnNext};
 
     ${vp767(css`
       width: 218px;
-      background-color: var(--bg-btn-primary);
+      background-color: ${(props) => props.theme.bgBtnPrimary};
     `)}
   }
 `;
