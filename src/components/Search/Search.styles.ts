@@ -49,7 +49,7 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
     caret-color: ${(props) => props.theme.colorText};
     color: ${(props) => props.theme.colorText};
     background: ${(props) => props.theme.bgSecondary};
-    border: 1px solid transparent;
+    border: 1px solid ${(props) => props.theme.brdrSearch};
     border-radius: 8px;
     padding: 12px 52px 12px 52px;
     font-weight: 400;

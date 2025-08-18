@@ -21,7 +21,6 @@ declare module 'styled-components' {
     brdrCard: string;
     brdrVideo: string;
     brdrDash: string;
-    brdrSearch: string;
     boxShadows: string;
     brdrLoader: string;
     brdrLoaderBottom: string;
@@ -54,5 +53,7 @@ declare module 'styled-components' {
     colorRating: string;
     colorModal: string;
     colorModalBtnClose: string;
+    brdrSearch: string;
+    brdrSearchCard: string;
   }
 }

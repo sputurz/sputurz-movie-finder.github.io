@@ -32,7 +32,6 @@ export const ImgContainer = styled.div`
   padding-top: calc(220 / 335 * 100%);
   border-radius: 24px 24px 0 0;
   overflow: hidden;
-  background-color: ${(props) => props.theme.bgSecondary};
 
   ${vp767(css`
     padding-top: calc(220 / 290 * 100%);

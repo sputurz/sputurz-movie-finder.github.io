@@ -10,6 +10,7 @@ export const Backdrop = styled.div`
   align-items: center;
   z-index: 20;
   background-color: ${(props) => props.theme.bgBackdrop};
+  backdrop-filter: blur(4px);
   z-index: 60;
 `;
 
@@ -53,7 +54,7 @@ export const BtnClose = styled.button`
   line-height: 48px;
 
   svg {
-    color: ${(props) => props.theme.colorTextInverse};
+    color: ${(props) => props.theme.colorModalBtnClose};
     width: 16px;
     height: 16px;
   }

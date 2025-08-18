@@ -31,7 +31,6 @@ export const darkTheme = {
   brdrActive: '#dc5dfc',
   brdrCard: 'rgba(255, 255, 255, 0.25)',
   brdrVideo: 'rgba(255, 255, 255, 0.5)',
-  brdrSearch: 'rgba(255, 255, 255, 0.5)',
   brdrDash: 'rgba(255, 255, 255, 0.5)',
 
   // shdw
@@ -77,6 +76,10 @@ export const darkTheme = {
   // modal
   colorModal: '#ffffff',
   colorModalBtnClose: '#000000',
+
+  // search
+  brdrSearch: 'transparent',
+  brdrSearchCard: 'rgba(255, 255, 255, 0.5)',
 };
 
 export const lightTheme = {
@@ -92,7 +95,7 @@ export const lightTheme = {
     )
   `,
   bgPrimary: '#ffffffff',
-  bgSecondary: '#393b3c',
+  bgSecondary: '#ffffffff',
   bgGenreCard: '#e1f8f8',
   bgBackdrop: 'rgba(0, 0, 0, 0.5)',
   bgSettingLabel: 'rgba(0, 0, 0, 0.1)',
@@ -105,14 +108,13 @@ export const lightTheme = {
   colorActive: '#705afc',
   colorTop: '#6a5dc2',
   colorText40: 'rgba(0, 0, 0, 0.4)',
-  colorText50: 'rgba(0, 0, 0, 0.5)',
+  colorText50: 'rgba(0, 0, 0, 0.7)',
   colorText70: 'rgba(0, 0, 0, 0.7)',
 
   // brdr
   brdrActive: '#9900ff',
   brdrCard: 'rgba(0, 0, 0, 0.25)',
   brdrVideo: 'rgba(255, 255, 255, 0.5)',
-  brdrSearch: 'rgba(255, 255, 255, 0.5)',
   brdrDash: 'rgba(255, 255, 255, 0.5)',
 
   // shdw
@@ -158,4 +160,8 @@ export const lightTheme = {
   // modal
   colorModal: '#000000',
   colorModalBtnClose: '#000000',
+
+  // search
+  brdrSearch: 'rgba(0, 0, 0, 0.25)',
+  brdrSearchCard: 'rgba(0, 0, 0, 0.5)',
 };

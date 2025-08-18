@@ -23,7 +23,7 @@ export const LinkItem = styled(Link)`
 
   &:hover,
   &:focus-visible {
-    border: 1px solid ${(props) => props.theme.brdrSearch};
+    border: 1px solid ${(props) => props.theme.brdrSearchCard};
   }
 
   &:focus-visible {
