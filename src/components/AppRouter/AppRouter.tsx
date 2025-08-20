@@ -14,6 +14,7 @@ const HomePage = lazy(() => import('../../pages/HomePage/page'));
 const GenresPage = lazy(() => import('../../pages/GenresPage/page'));
 const MoviesPage = lazy(() => import('../../pages/MoviesPage/page'));
 const MoviePage = lazy(() => import('../../pages/MoviePage/page'));
+const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/page'));
 const UserProfilePage = lazy(() => import('../../pages/UserProfilePage/page'));
 const SettingTab = lazy(() => import('../../components/SettingTab/SettingTab'));
 const FavoritesTab = lazy(
@@ -45,6 +46,7 @@ const routerConfig = [
       </UserProfilePage>
     ),
   },
+  { path: '*', component: NotFoundPage },
 ] as const;
 
 export const AppRouter = () => {
