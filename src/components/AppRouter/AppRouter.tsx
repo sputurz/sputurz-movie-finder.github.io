@@ -20,6 +20,9 @@ const SettingTab = lazy(() => import('../../components/SettingTab/SettingTab'));
 const FavoritesTab = lazy(
   () => import('../../components/FavoritesTab/FavoritesTab')
 );
+const ProtectedRoute = lazy(
+  () => import('../../components/ProtectedRoute/ProtectedRoute')
+);
 
 const MoviePageWithKey = () => {
   const location = useLocation();
@@ -37,13 +40,15 @@ const routerConfig = [
   {
     path: '/profile/*',
     component: () => (
-      <UserProfilePage>
-        <Routes>
-          <Route index element={<Navigate to="favorites" replace />} />
-          <Route path="favorites" element={<FavoritesTab />} />
-          <Route path="settings" element={<SettingTab />} />
-        </Routes>
-      </UserProfilePage>
+      <ProtectedRoute>
+        <UserProfilePage>
+          <Routes>
+            <Route index element={<Navigate to="favorites" replace />} />
+            <Route path="favorites" element={<FavoritesTab />} />
+            <Route path="settings" element={<SettingTab />} />
+          </Routes>
+        </UserProfilePage>
+      </ProtectedRoute>
     ),
   },
   { path: '*', component: NotFoundPage },
