@@ -40,7 +40,7 @@ export const RegistrationForm: FC<IProps> = ({ onSuccess }) => {
         RegisterMutation.mutate({ email, password, name, surname });
       })}
     >
-      <S.Title>Регистрация</S.Title>
+      <S.Title>Registration</S.Title>
       <S.Wrap>
         <FormField
           errorMessage={errors.email?.message}
@@ -49,7 +49,7 @@ export const RegistrationForm: FC<IProps> = ({ onSuccess }) => {
           <Icon name="MailIcon"></Icon>
           <input
             type="text"
-            placeholder="Электронная почта"
+            placeholder="E-mail"
             autoComplete="email"
             {...register('email')}
           ></input>
@@ -58,7 +58,7 @@ export const RegistrationForm: FC<IProps> = ({ onSuccess }) => {
           <Icon name="UserIcon"></Icon>
           <input
             type="text"
-            placeholder="Имя"
+            placeholder="Name"
             autoComplete="given-name"
             {...register('name')}
           ></input>
@@ -70,7 +70,7 @@ export const RegistrationForm: FC<IProps> = ({ onSuccess }) => {
           <Icon name="UserIcon"></Icon>
           <input
             type="text"
-            placeholder="Фамилия"
+            placeholder="Surname"
             autoComplete="family-name"
             {...register('surname')}
           ></input>
@@ -82,7 +82,7 @@ export const RegistrationForm: FC<IProps> = ({ onSuccess }) => {
           <Icon name="PasswordIcon"></Icon>
           <input
             type="password"
-            placeholder="Пароль"
+            placeholder="Password"
             autoComplete="new-password"
             {...register('password')}
           ></input>
@@ -94,7 +94,7 @@ export const RegistrationForm: FC<IProps> = ({ onSuccess }) => {
           <Icon name="PasswordIcon"></Icon>
           <input
             type="password"
-            placeholder="Подтвердите пароль"
+            placeholder="Confirm password"
             autoComplete="new-password"
             {...register('confirmPassword')}
           ></input>

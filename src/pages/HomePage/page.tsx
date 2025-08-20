@@ -7,12 +7,12 @@ import * as S from './HomePage.styles';
 export default function HomePage() {
   const { data, error, isLoading, isFetching, refetch } = useMovieRandom();
 
-  if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
+  if (error) return <ErrorFallback>Error: {error.message}</ErrorFallback>;
   if (!data) return null;
 
   return (
     <>
-      <S.Title>Главная страница - Маруся</S.Title>
+      <S.Title>Main page</S.Title>
       <MoviePromo
         isLoading={isLoading}
         movie={data}

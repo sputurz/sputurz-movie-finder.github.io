@@ -11,12 +11,12 @@ export default function MoviePage() {
     Number(movieId)
   );
 
-  if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
+  if (error) return <ErrorFallback>Error: {error.message}</ErrorFallback>;
   if (!data) return null;
 
   return (
     <>
-      <S.Title>{` Cтраница - о фильме ${data.title}`}</S.Title>
+      <S.Title>{` Page - about movie: ${data.title}`}</S.Title>
 
       <MoviePromo
         isFetching={isFetching}

@@ -9,8 +9,8 @@ export function convertMinsToHoursMins(
 
   const hours = Math.floor(totalMins / 60);
   const mins = totalMins % 60;
-  const hoursStr = hours !== 0 ? `${hours} ч` : '';
-  const minsStr = mins !== 0 ? `${mins} мин` : '';
+  const hoursStr = hours !== 0 ? `${hours} h` : '';
+  const minsStr = mins !== 0 ? `${mins} min` : '';
 
   return `${hoursStr} ${minsStr}`.trim();
 }

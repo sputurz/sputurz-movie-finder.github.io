@@ -82,8 +82,12 @@ export const MoviePromo: FC<IProps> = ({
               <S.Plot $isAboutMovie={isAboutMovie}>{movie.plot}</S.Plot>
             </S.TextWrap>
             <S.BtnWrap $isAboutMovie={isAboutMovie}>
-              <Button isDisabled={isBusy} onClick={onVideoBtn}>
-                Трейлер
+              <Button
+                aria-label="Show movie trailer"
+                isDisabled={isBusy}
+                onClick={onVideoBtn}
+              >
+                Trailer
               </Button>
               {showPlayer && (
                 <VideoPlayer
@@ -94,15 +98,29 @@ export const MoviePromo: FC<IProps> = ({
                 />
               )}
               {isAboutMovie ? null : (
-                <S.LinkItem $iSdisabled={isBusy} to={`/movie/${movie.id}`}>
-                  о фильме
+                <S.LinkItem
+                  aria-label="About the movie"
+                  $iSdisabled={isBusy}
+                  to={`/movie/${movie.id}`}
+                >
+                  About the movie
                 </S.LinkItem>
               )}
-              <S.BtnLike $isLiked={isLiked} disabled={isBusy} onClick={onLike}>
+              <S.BtnLike
+                aria-label="Add movie to favorites"
+                $isLiked={isLiked}
+                disabled={isBusy}
+                onClick={onLike}
+              >
                 <Icon name="LikeIcon"></Icon>
               </S.BtnLike>
               {isAboutMovie ? null : (
-                <Button onClick={onUpdate} isDisabled={isBusy} kind="secondary">
+                <Button
+                  aria-label="Show new random movie"
+                  onClick={onUpdate}
+                  isDisabled={isBusy}
+                  kind="secondary"
+                >
                   <Icon name="UpdateIcon"></Icon>
                 </Button>
               )}

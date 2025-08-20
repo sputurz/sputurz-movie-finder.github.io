@@ -68,26 +68,22 @@ export default function AuthModal() {
               <S.BtnAuthType
                 onClick={toggleAuthType}
                 aria-label={
-                  authType === 'register'
-                    ? 'Перейти к авторизации'
-                    : 'Перейти к регистрации'
+                  authType === 'register' ? 'Go to login' : 'Go to register'
                 }
               >
-                {authType === 'register' ? 'Регистрация' : 'У меня есть пароль'}
+                {authType === 'register' ? 'I have a password' : 'Registration'}
               </S.BtnAuthType>
             </>
           ) : (
             <>
-              <S.SuccsessTitle>Регистрация завершена</S.SuccsessTitle>
-              <S.SuccsessText>
-                Используйте вашу электронную почту для входа
-              </S.SuccsessText>
+              <S.SuccsessTitle>Registration succsess</S.SuccsessTitle>
+              <S.SuccsessText>Use your email to login</S.SuccsessText>
               <Button onClick={onSuccessBtnClick} kind="auth">
-                Войти
+                Login
               </Button>
             </>
           )}
-          <S.BtnClose onClick={closeModal} aria-label={'Закрыть форму'}>
+          <S.BtnClose onClick={closeModal} aria-label={'Close form'}>
             <Icon name="CloseIcon"></Icon>
           </S.BtnClose>
         </S.Inner>

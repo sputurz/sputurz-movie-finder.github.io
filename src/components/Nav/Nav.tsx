@@ -5,10 +5,10 @@ export function Nav() {
   return (
     <S.Wrap>
       <S.LinkItem to={'/'} aria-label="Ссылка на главную страницу">
-        <S.LinkText>Главная</S.LinkText>
+        <S.LinkText>Main</S.LinkText>
       </S.LinkItem>
       <S.LinkItem to={'/genres'} aria-label="Ссылка на страницу с жанрами">
-        <S.LinkText>Жанры</S.LinkText>
+        <S.LinkText>Genres</S.LinkText>
         <Icon name="GenresIcon"></Icon>
       </S.LinkItem>
     </S.Wrap>

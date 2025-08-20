@@ -27,9 +27,9 @@ export const VideoPlayer: FC<IProps> = ({
         {videoSrc ? (
           <ReactPlayer src={videoSrc} playing={true} />
         ) : (
-          <S.ErrorText>Видео не найдено</S.ErrorText>
+          <S.ErrorText>Video not found</S.ErrorText>
         )}
-        <S.BtnClose onClick={onClose}>
+        <S.BtnClose aria-label="Close video" onClick={onClose}>
           <Icon name="CloseIcon"></Icon>
         </S.BtnClose>
       </S.Wrap>

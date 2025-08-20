@@ -12,7 +12,7 @@ export default function NotFoundPage() {
       <Container>
         <S.Wrap>
           <S.Title>
-            Ошибка 404<br></br>Страница не найдена
+            Error 404<br></br>Sorry, Page Not Found!
           </S.Title>
           <Logo
             src={theme == 'dark' ? '/logoBlack.svg' : '/logoWhite.svg'}

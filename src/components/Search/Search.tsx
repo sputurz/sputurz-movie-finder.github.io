@@ -71,7 +71,7 @@ export function Search() {
         <Icon name="SearchIcon" />
         <input
           type="text"
-          placeholder="Поиск"
+          placeholder="Search"
           {...register('searchQuery')}
           defaultValue=""
         />

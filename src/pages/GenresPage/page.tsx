@@ -12,14 +12,14 @@ export default function GenresPage() {
 
   const { data, error } = useMovieGenres();
 
-  if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
+  if (error) return <ErrorFallback>Error: {error.message}</ErrorFallback>;
   if (!data) return null;
 
   return (
     <S.Wrap>
       <Container>
         <S.Inner>
-          <S.Title>Жанры фильмов</S.Title>
+          <S.Title>Movie Genres</S.Title>
           <S.List>
             {data.map(
               (genre) =>

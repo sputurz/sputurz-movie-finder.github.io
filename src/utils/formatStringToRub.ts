@@ -3,5 +3,5 @@ export function formatStringToRub(str: string | undefined | null) {
     return '';
   }
 
-  return `${str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}  руб.`;
+  return `${str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}  ₽.`;
 }

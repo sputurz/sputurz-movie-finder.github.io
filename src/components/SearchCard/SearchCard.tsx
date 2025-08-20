@@ -10,7 +10,11 @@ interface IProps {
 
 export function SearchCard({ movie, onCardClick }: IProps) {
   return (
-    <S.LinkItem to={`/movie/${movie.id}`} onClick={onCardClick}>
+    <S.LinkItem
+      aria-label="Link to the found movie"
+      to={`/movie/${movie.id}`}
+      onClick={onCardClick}
+    >
       <S.Img
         src={
           movie.backdropUrl ? movie.posterUrl : '/images/movieCard/error.jpg'

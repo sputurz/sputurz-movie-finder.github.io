@@ -6,11 +6,11 @@ export function TabNav() {
     <S.Wrap>
       <S.LinkItem to="/profile/favorites">
         <Icon name="LikeIcon"></Icon>
-        <span>Избранное</span>
+        <span>Favorites</span>
       </S.LinkItem>
       <S.LinkItem to="/profile/settings">
         <Icon name="UserIcon"></Icon>
-        <span>Настройки</span>
+        <span>Settings</span>
       </S.LinkItem>
     </S.Wrap>
   );

@@ -30,16 +30,16 @@ export default function MoviesPage() {
       genre: searchGenre,
     });
 
-  if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
+  if (error) return <ErrorFallback>Error: {error.message}</ErrorFallback>;
   if (!data) return null;
 
   return (
     <S.Wrap>
       <Container>
-        <S.Title>Поиск фильмов по заданными фильтрам</S.Title>
+        <S.Title>Search for movies by specified filters</S.Title>
         <S.Inner>
           {searchGenre ? (
-            <S.LinkItem to={'/genres'}>
+            <S.LinkItem aria-label="Back to genres page" to={'/genres'}>
               <Icon name="LeftIcon"></Icon>
               {toUpperFirstChar(
                 getTransletedValue(genres, currentLang, searchGenre) ||
@@ -57,10 +57,11 @@ export default function MoviesPage() {
           {hasNextPage ? (
             <>
               <Button
+                aria-label="Show more"
                 onClick={() => fetchNextPage()}
                 isLoading={!hasNextPage || isFetchingNextPage}
               >
-                Показать ещё
+                Show more
               </Button>
             </>
           ) : null}

@@ -13,7 +13,7 @@ export default function UserProfilePage({
     <S.Wrap>
       <Container>
         <S.Inner>
-          <S.Title>Мой аккаунт</S.Title>
+          <S.Title>My profile</S.Title>
           <TabNav></TabNav>
           {children || <Outlet />}
         </S.Inner>

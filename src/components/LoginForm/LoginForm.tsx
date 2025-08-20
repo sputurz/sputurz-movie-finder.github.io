@@ -49,7 +49,7 @@ export const LoginForm = () => {
           <Icon name="MailIcon"></Icon>
           <input
             type="text"
-            placeholder="Электронная почта"
+            placeholder="E-mail"
             {...register('email')}
             autoComplete="email"
           ></input>
@@ -61,7 +61,7 @@ export const LoginForm = () => {
           <Icon name="PasswordIcon"></Icon>
           <input
             type="password"
-            placeholder="Пароль"
+            placeholder="Password"
             {...register('password')}
             autoComplete="current-password"
           ></input>
@@ -69,7 +69,7 @@ export const LoginForm = () => {
       </S.Wrap>
 
       <Button isLoading={loginMutation.isPending} type="submit" kind="auth">
-        Войти
+        Login
       </Button>
       {loginMutation.error && (
         <S.ErrorText>{loginMutation.error.message}</S.ErrorText>

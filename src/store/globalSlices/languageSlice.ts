@@ -1,6 +1,6 @@
 import { createAppSlice } from '../createAppSlice';
 
-const initialState: string = 'russian';
+const initialState: string = 'english';
 
 export const languageSlice = createAppSlice({
   name: 'language',

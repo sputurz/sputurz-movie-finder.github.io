@@ -10,12 +10,12 @@ type IProps = {
 
 export const MovieInfo: FC<IProps> = ({ movie }) => {
   const infoList = [
-    { label: 'Язык оригинала', value: movie.language },
-    { label: 'Бюджет', value: formatStringToRub(movie.budget) },
-    { label: 'Выручка', value: formatStringToRub(movie.revenue) },
-    { label: 'Режиссёр', value: movie.director },
-    { label: 'Продакшен', value: movie.production },
-    { label: 'Награды', value: movie.awardsSummary },
+    { label: 'Original language', value: movie.language },
+    { label: 'Budget', value: formatStringToRub(movie.budget) },
+    { label: 'Revenue', value: formatStringToRub(movie.revenue) },
+    { label: 'Director', value: movie.director },
+    { label: 'Production', value: movie.production },
+    { label: 'Awards', value: movie.awardsSummary },
   ] as const;
 
   return (

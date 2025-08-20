@@ -20,13 +20,13 @@ export const Footer = () => {
           <S.ThemeBtn
             aria-label={
               theme === 'dark'
-                ? 'Сменить тему на светлую'
-                : 'Сменить тему на темную'
+                ? 'Change theme to light'
+                : 'Change theme to dark'
             }
             title={
               theme === 'dark'
-                ? 'Сменить тему на светлую'
-                : 'Сменить тему на темную'
+                ? 'Change theme to light'
+                : 'Change theme to dark'
             }
             onClick={onTheme}
           >

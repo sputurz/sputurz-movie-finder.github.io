@@ -30,13 +30,16 @@ export function Header() {
             <Search></Search>
           </S.Inner>
           {isAuthenticated ? (
-            <S.LinkItem to={'/profile'}>
+            <S.LinkItem aria-label="Go to your profile" to={'/profile'}>
               <S.LinkText>{user?.name}</S.LinkText>
               <Icon name="UserIcon"></Icon>
             </S.LinkItem>
           ) : (
-            <S.BtnModal onClick={() => dispatch(openAuthModal())}>
-              <S.BtnModalText>Войти</S.BtnModalText>
+            <S.BtnModal
+              aria-label="Login"
+              onClick={() => dispatch(openAuthModal())}
+            >
+              <S.BtnModalText>Login</S.BtnModalText>
               <Icon name="UserIcon"></Icon>
             </S.BtnModal>
           )}

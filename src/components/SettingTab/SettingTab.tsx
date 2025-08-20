@@ -15,7 +15,7 @@ export default function SettingTab() {
         <S.ListItem>
           <S.Label>{`${user?.name[0]}${user?.surname[0]}`}</S.Label>
           <S.TextWrap>
-            <S.TagKey>Имя Фамилия</S.TagKey>
+            <S.TagKey>Name Surname</S.TagKey>
             <S.TagValue>{`${user?.name} ${user?.surname}`}</S.TagValue>
           </S.TextWrap>
         </S.ListItem>
@@ -24,14 +24,14 @@ export default function SettingTab() {
             <Icon name="MailIcon"></Icon>
           </S.Label>
           <S.TextWrap>
-            <S.TagKey>Электронная почта</S.TagKey>
+            <S.TagKey>E-mail</S.TagKey>
             <S.TagValue>{user?.email}</S.TagValue>
           </S.TextWrap>
         </S.ListItem>
       </S.List>
 
-      <Button onClick={handleLogout} isLoading={isPending}>
-        Выйти из аккаунта
+      <Button aria-label="Logout" onClick={handleLogout} isLoading={isPending}>
+        Logout
       </Button>
     </S.Wrap>
   );
