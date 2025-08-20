@@ -23,10 +23,6 @@ export function useLogout() {
     },
   });
 
-  // const handleLogout = useCallback(() => {
-  //   logoutMutation.mutate();
-  // }, [logoutMutation]);
-
   const handleLogout = () => {
     logoutMutation.mutate();
   };

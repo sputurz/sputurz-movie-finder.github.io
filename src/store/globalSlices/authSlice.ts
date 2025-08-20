@@ -38,7 +38,7 @@ export const authSlice = createAppSlice({
   selectors: {
     selectAuth: (state) => state,
     selectUser: (state) => state.user,
-    selectIsLoading: (state) => state.isLoading,
+    selectIsAuthLoading: (state) => state.isLoading,
     selectIsAuthenticated: (state) => state.isAuthenticated,
   },
 });
@@ -47,6 +47,6 @@ export const { setUser, clearUser, setLoading } = authSlice.actions;
 export const {
   selectAuth,
   selectUser,
-  selectIsLoading,
+  selectIsAuthLoading,
   selectIsAuthenticated,
 } = authSlice.selectors;

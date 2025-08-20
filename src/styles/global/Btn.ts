@@ -26,7 +26,6 @@ export const BtnPrimaryStyles = css`
 
   &:disabled {
     background-color: ${(props) => props.theme.bgBtnPrimaryDisabled};
-    /* color: ${(props) => props.theme.colorText50}; */
     pointer-events: none;
   }
 `;

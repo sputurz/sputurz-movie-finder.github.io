@@ -18,7 +18,6 @@ export const useAuthInit = () => {
     queryFn: Api.getProfile,
     retry: false,
     staleTime: 0,
-    // staleTime: 5 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
 

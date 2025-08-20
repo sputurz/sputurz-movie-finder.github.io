@@ -6,7 +6,6 @@ export function useRatingColor(rating: IMovie['tmdbRating']) {
   if (rating >= 8) {
     return theme.bgRating1;
   } else if (rating >= 6) {
-    // Упрощенное условие
     return theme.bgRating2;
   } else if (rating >= 4) {
     return theme.bgRating3;

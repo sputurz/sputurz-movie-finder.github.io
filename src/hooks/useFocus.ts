@@ -12,14 +12,10 @@ export function useFocus({ ref }: IProps): boolean {
     if (!container) return;
 
     const handleFocus = () => setIsFocused(true);
-    // const handleBlur = () => setIsFocused(false);
-
     container.addEventListener('focus', handleFocus);
-    // container.addEventListener('blur', handleBlur);
 
     return () => {
       container.removeEventListener('focus', handleFocus);
-      // container.removeEventListener('blur', handleBlur);
     };
   }, [ref]);
 
