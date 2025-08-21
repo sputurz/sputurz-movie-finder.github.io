@@ -12,32 +12,26 @@ export type User = z.infer<typeof UserSchema>;
 export const LoginUserSchema = z.object({
   email: z
     .string()
-    .min(5, 'Email должен содержать не менее пяти символов')
-    .email('Введите корректный email'),
-  password: z
-    .string()
-    .min(6, 'Пароль должен содержать не менее шести символов'),
+    .min(5, 'Field must contain at least 5 chars.')
+    .email('Enter a valid e-mail.'),
+  password: z.string().min(6, 'Field must contain at least 6 chars'),
 });
 
 export type LoginUser = z.infer<typeof LoginUserSchema>;
 
 export const RegisterUserSchema = z
   .object({
-    name: z.string().min(3, 'Имя должно содержать не менее трех символов'),
-    surname: z.string().min(3, 'Фамилия должна содержать не трех символов'),
+    name: z.string().min(3, 'Field must contain at least 3 chars'),
+    surname: z.string().min(3, 'Field must contain at least 3 chars'),
     email: z
       .string()
-      .email('Введите корректный email')
-      .min(5, 'Email должен содержать не менее пяти символов'),
-    password: z
-      .string()
-      .min(6, 'Пароль должен содержать не менее шести символов'),
-    confirmPassword: z
-      .string()
-      .min(6, 'Пароль должен содержать не менее шести символов'),
+      .email('Enter a valid e-mail.')
+      .min(5, 'Field must contain at least 5 chars'),
+    password: z.string().min(6, 'Field must contain at least 6 chars'),
+    confirmPassword: z.string().min(6, 'Field must contain at least 6 chars'),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: 'Пароли не совпадают',
+    message: `Passwords don't match`,
     path: ['confirmPassword'],
   });
 

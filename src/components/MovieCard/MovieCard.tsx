@@ -20,7 +20,10 @@ export function MovieCard({
 
   return (
     <S.Card>
-      <S.LinkItem to={`/movie/${movie.id}`}>
+      <S.LinkItem
+        to={`/movie/${movie.id}`}
+        aria-label={`Link to info about movie: ${movie.title}`}
+      >
         <S.Img
           src={
             movie.backdropUrl ? movie.posterUrl : '/images/movieCard/error.jpg'

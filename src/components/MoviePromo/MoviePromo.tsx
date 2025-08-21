@@ -103,7 +103,7 @@ export const MoviePromo: FC<IProps> = ({
                   $iSdisabled={isBusy}
                   to={`/movie/${movie.id}`}
                 >
-                  About the movie
+                  About
                 </S.LinkItem>
               )}
               <S.BtnLike

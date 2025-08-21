@@ -63,7 +63,7 @@ export const AppRouter = () => {
       fallback={
         <main>
           <ErrorFallback>
-            Что-то пошло не так. Пожалуйста, перезагрузите страницу.
+            Something went wrong. Please reload the page.
           </ErrorFallback>
         </main>
       }

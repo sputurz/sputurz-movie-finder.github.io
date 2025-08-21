@@ -55,11 +55,11 @@ export function Search() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, [isMobileSearch]);
 
-  if (error) return <ErrorFallback>Ошибка: {error.message}</ErrorFallback>;
+  if (error) return <ErrorFallback>Error: {error.message}</ErrorFallback>;
 
   return (
     <>
-      <S.BtnMobile onClick={onMobileSearch}>
+      <S.BtnMobile onClick={onMobileSearch} aria-label="Open search bar">
         <Icon name="SearchIcon" />
       </S.BtnMobile>
 

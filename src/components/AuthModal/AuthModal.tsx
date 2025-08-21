@@ -68,18 +68,20 @@ export default function AuthModal() {
               <S.BtnAuthType
                 onClick={toggleAuthType}
                 aria-label={
-                  authType === 'register' ? 'Go to login' : 'Go to register'
+                  authType === 'register' ? 'Go to Log In' : 'Go to Sing Up'
                 }
               >
-                {authType === 'register' ? 'I have a password' : 'Registration'}
+                {authType === 'register'
+                  ? 'Already have an account?'
+                  : ' Sign Up'}
               </S.BtnAuthType>
             </>
           ) : (
             <>
-              <S.SuccsessTitle>Registration succsess</S.SuccsessTitle>
-              <S.SuccsessText>Use your email to login</S.SuccsessText>
+              <S.SuccsessTitle>Sign Up succsess!</S.SuccsessTitle>
+              <S.SuccsessText>Use your e-mail to Log In</S.SuccsessText>
               <Button onClick={onSuccessBtnClick} kind="auth">
-                Login
+                Log In
               </Button>
             </>
           )}

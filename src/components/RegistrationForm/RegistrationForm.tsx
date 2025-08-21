@@ -40,7 +40,7 @@ export const RegistrationForm: FC<IProps> = ({ onSuccess }) => {
         RegisterMutation.mutate({ email, password, name, surname });
       })}
     >
-      <S.Title>Registration</S.Title>
+      <S.Title>Create a new account</S.Title>
       <S.Wrap>
         <FormField
           errorMessage={errors.email?.message}
@@ -101,7 +101,7 @@ export const RegistrationForm: FC<IProps> = ({ onSuccess }) => {
         </FormField>
       </S.Wrap>
       <Button isLoading={RegisterMutation.isPending} type="submit" kind="auth">
-        Создать аккаунт
+        Sign Up
       </Button>
       {RegisterMutation.error && (
         <S.ErrorText>{RegisterMutation.error.message}</S.ErrorText>

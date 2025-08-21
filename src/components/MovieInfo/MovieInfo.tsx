@@ -22,7 +22,7 @@ export const MovieInfo: FC<IProps> = ({ movie }) => {
     <section>
       <Container>
         <S.Wrap>
-          <S.Title>О фильме</S.Title>
+          <S.Title>About the movie</S.Title>
           <S.List>
             {infoList.map((item) =>
               item.value ? (

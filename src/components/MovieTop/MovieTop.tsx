@@ -14,7 +14,7 @@ export function MovieTop() {
     <section>
       <Container>
         <S.Wrap>
-          <S.Title>Топ 10 фильмов</S.Title>
+          <S.Title>Top 10 Movies</S.Title>
           <S.List>
             {data
               ? [...data]

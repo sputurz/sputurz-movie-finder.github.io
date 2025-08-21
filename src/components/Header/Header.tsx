@@ -36,7 +36,7 @@ export function Header() {
             </S.LinkItem>
           ) : (
             <S.BtnModal
-              aria-label="Login"
+              aria-label="Click to Log In "
               onClick={() => dispatch(openAuthModal())}
             >
               <S.BtnModalText>Login</S.BtnModalText>
