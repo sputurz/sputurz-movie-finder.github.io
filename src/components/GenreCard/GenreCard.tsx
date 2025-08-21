@@ -11,7 +11,10 @@ export function GenreCard({ genre, genreTranslated }: IProps) {
   const [hasError, setHasError] = useState(false);
 
   return (
-    <S.LinkItem to={`/movies?genre=${genre}`}>
+    <S.LinkItem
+      to={`/movies?genre=${genre}`}
+      aria-label={`Link to genre: ${genre}`}
+    >
       <S.ImgContainer>
         {hasError ? (
           <S.Img src={`/images/genre/error.jpg`} alt={genre} />

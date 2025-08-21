@@ -26,7 +26,7 @@ export function MovieCard({
       >
         <S.Img
           src={
-            movie.backdropUrl ? movie.posterUrl : '/images/movieCard/error.jpg'
+            movie.posterUrl ? movie.posterUrl : '/images/movieCard/error.jpg'
           }
           alt={movie.title}
         />
@@ -37,6 +37,7 @@ export function MovieCard({
           <Icon name="CloseIcon"></Icon>
         </S.BtnDelete>
       ) : null}
+      {!movie.posterUrl ? <S.ErrorText>{movie.title}</S.ErrorText> : null}
     </S.Card>
   );
 }

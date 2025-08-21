@@ -104,3 +104,18 @@ export const BtnDelete = styled.button`
     opacity: 0.5;
   }
 `;
+
+export const ErrorText = styled.span`
+  position: absolute;
+  display: flex;
+  text-align: center;
+  top: 40px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  justify-content: center;
+  align-items: center;
+  color: ${(props) => props.theme.colorText};
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+`;

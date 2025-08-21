@@ -11,14 +11,12 @@ interface IProps {
 export function SearchCard({ movie, onCardClick }: IProps) {
   return (
     <S.LinkItem
-      aria-label="Link to the found movie"
+      aria-label={`Link to the found movie: ${movie.title}`}
       to={`/movie/${movie.id}`}
       onClick={onCardClick}
     >
       <S.Img
-        src={
-          movie.backdropUrl ? movie.posterUrl : '/images/movieCard/error.jpg'
-        }
+        src={movie.posterUrl ? movie.posterUrl : '/images/movieCard/error.jpg'}
         alt={movie.title}
       ></S.Img>
       <S.Wrap>
