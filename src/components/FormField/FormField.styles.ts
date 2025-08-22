@@ -20,7 +20,7 @@ export const Label = styled.label<{ $isError?: boolean }>`
       ${(props) =>
         props.$isError ? props.theme.brdrInputError : props.theme.brdrInput};
     border-radius: 8px;
-    padding: 16px 16px 16px 52px;
+    padding: 16px 36px 16px 52px;
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;

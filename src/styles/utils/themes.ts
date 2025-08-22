@@ -96,7 +96,7 @@ export const lightTheme = {
   `,
   bgPrimary: '#ffffffff',
   bgSecondary: '#ffffffff',
-  bgGenreCard: '#e1f8f8',
+  bgGenreCard: '#d8d7ee',
   bgBackdrop: 'rgba(0, 0, 0, 0.5)',
   bgSettingLabel: 'rgba(0, 0, 0, 0.1)',
 

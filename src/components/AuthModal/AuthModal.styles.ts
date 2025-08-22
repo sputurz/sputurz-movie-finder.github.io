@@ -3,7 +3,7 @@ import { vp767 } from '../../styles/utils/mixins';
 import { transitionOpacity } from '../../styles/utils/variables';
 
 export const Backdrop = styled.div<{ $isOpen: boolean }>`
-  position: absolute;
+  position: fixed;
   inset: 0;
   display: flex;
   justify-content: center;

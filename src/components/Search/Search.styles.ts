@@ -28,7 +28,7 @@ export const BtnMobile = styled.button`
 `;
 
 export const Backdrop = styled.div<{ $isMobileSearch?: boolean }>`
-  position: ${(props) => (props.$isMobileSearch ? 'absolute' : 'fixed')};
+  position: fixed;
   inset: 0;
   background-color: ${(props) =>
     props.$isMobileSearch ? props.theme.bgBackdrop : 'transparent'};
