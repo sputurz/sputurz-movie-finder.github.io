@@ -1,5 +1,3 @@
-import { useAppSelector } from '../../store/hooks';
-import { selectAuthModal } from '../AuthModal/AuthModalSlice';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ErrorFallback } from '../ErrorFallback';
 import { Loader } from '../Loader';
@@ -9,6 +7,7 @@ import { useAuthInit } from '../../hooks/useAuthInit';
 import { ErrorBoundary } from 'react-error-boundary';
 import { lazy, Suspense } from 'react';
 import AuthModalHost from '../AuthModal/AuthModalHost';
+import { ScrollToTop } from '../ScrollToTop';
 
 const HomePage = lazy(() => import('../../pages/HomePage/page'));
 const GenresPage = lazy(() => import('../../pages/GenresPage/page'));
@@ -68,9 +67,10 @@ export const AppRouter = () => {
       }
     >
       <Suspense fallback={<Loader></Loader>}>
-        <Header></Header>
+        <Header />
         <AuthModalHost />
         <main>
+          <ScrollToTop />
           <Routes>
             {routerConfig.map((route) => (
               <Route
@@ -81,7 +81,7 @@ export const AppRouter = () => {
             ))}
           </Routes>
         </main>
-        <Footer></Footer>
+        <Footer />
       </Suspense>
     </ErrorBoundary>
   );

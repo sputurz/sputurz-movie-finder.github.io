@@ -1,6 +1,24 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
 import { transitionOpacity } from '../../styles/utils/variables';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
 
 export const Backdrop = styled.div<{ $isOpen: boolean }>`
   position: fixed;
@@ -12,30 +30,13 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
   z-index: 60;
   background-color: ${(props) => props.theme.bgBackdrop};
   backdrop-filter: blur(4px);
-  animation: ${({ $isOpen }) => ($isOpen ? 'fadeIn' : 'fadeOut')} 0.7s ease
-    forwards;
+  animation: ${({ $isOpen }) => css`
+    ${$isOpen ? fadeIn : fadeOut} 0.7s ease forwards
+  `};
   pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'auto')};
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
 `;
 
-export const Wrap = styled.div`
+export const Wrap = styled.div<{ $isOpen: boolean }>`
   box-shadow: 0px 0px 80px 0px ${(props) => props.theme.boxShadows};
   position: relative;
   display: flex;
@@ -46,24 +47,37 @@ export const Wrap = styled.div`
   max-height: calc(100vh - 40px);
   z-index: 1;
 
-  /* animation: slideUp 0.7s ease forwards; */
+  animation: ${({ $isOpen }) => ($isOpen ? 'slideUp' : 'slideDown')} 0.7s ease
+    forwards;
 
   ${vp767(
     css`
       width: 420px;
       margin: 20px auto;
     `
-  )}/* 
+  )}
+
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(60px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
-  } */
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+  }
 `;
 
 export const Inner = styled.div`

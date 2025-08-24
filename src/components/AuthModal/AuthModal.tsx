@@ -50,7 +50,7 @@ export default function AuthModal({ onExitComplete }: IProps) {
       onAnimationEnd={handleAnimationEnd}
       $isOpen={!isAnimatingOut}
     >
-      <S.Wrap onClick={(e) => e.stopPropagation()}>
+      <S.Wrap $isOpen={!isAnimatingOut} onClick={(e) => e.stopPropagation()}>
         <S.Inner>
           <Logo
             src={theme == 'dark' ? '/logoBlack.svg' : '/logoWhite.svg'}
