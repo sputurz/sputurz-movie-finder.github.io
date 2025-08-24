@@ -9,7 +9,11 @@ import { Button } from '../Button';
 import { useAppSelector } from '../../store/hooks';
 import { selectTheme } from '../../store/globalSlices/themeSlice';
 
-export default function AuthModal() {
+type IProps = {
+  onExitComplete?: () => void;
+};
+
+export default function AuthModal({ onExitComplete }: IProps) {
   const theme = useAppSelector(selectTheme);
 
   const {
@@ -23,37 +27,31 @@ export default function AuthModal() {
     onSuccessBtnClick,
   } = useModal();
 
-  const [shouldRender, setShouldRender] = useState(isOpen);
-
   const logoRef = useRef<HTMLAnchorElement>(null);
 
-  // !пока в бэта тесте =))
-  // автоскрол от кнопки к лого на случай если модалка будет "не в полное окно"
-  // const onToggleAuthType = () => {
-  //   toggleAuthType();
-
-  //   if (logoRef.current) {
-  //     logoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  //   }
-  // };
-
-  // фича для стиля анимации фейдаута
+  const [isAnimatingOut, setIsAnimatingOut] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
-      setShouldRender(true);
-    } else {
-      const timeout = setTimeout(() => setShouldRender(false), 700);
-      return () => clearTimeout(timeout);
+    if (!isOpen) {
+      setIsAnimatingOut(true);
     }
   }, [isOpen]);
 
-  if (!shouldRender) return null;
+  const handleAnimationEnd = () => {
+    if (isAnimatingOut) {
+      setIsAnimatingOut(false);
+      onExitComplete?.();
+    }
+  };
 
   return (
-    <S.Backdrop onClick={handleBackdropClick} $isOpen={isOpen}>
-      <S.Wrap $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
-        <S.Inner $isOpen={isOpen}>
+    <S.Backdrop
+      onClick={handleBackdropClick}
+      onAnimationEnd={handleAnimationEnd}
+      $isOpen={!isAnimatingOut}
+    >
+      <S.Wrap onClick={(e) => e.stopPropagation()}>
+        <S.Inner>
           <Logo
             src={theme == 'dark' ? '/logoBlack.svg' : '/logoWhite.svg'}
             ref={logoRef}

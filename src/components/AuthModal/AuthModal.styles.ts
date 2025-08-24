@@ -12,10 +12,9 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
   z-index: 60;
   background-color: ${(props) => props.theme.bgBackdrop};
   backdrop-filter: blur(4px);
-
   animation: ${({ $isOpen }) => ($isOpen ? 'fadeIn' : 'fadeOut')} 0.7s ease
     forwards;
-  pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
+  pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'auto')};
 
   @keyframes fadeIn {
     from {
@@ -36,7 +35,7 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
   }
 `;
 
-export const Wrap = styled.div<{ $isOpen: boolean }>`
+export const Wrap = styled.div`
   box-shadow: 0px 0px 80px 0px ${(props) => props.theme.boxShadows};
   position: relative;
   display: flex;
@@ -47,8 +46,14 @@ export const Wrap = styled.div<{ $isOpen: boolean }>`
   max-height: calc(100vh - 40px);
   z-index: 1;
 
-  /* animation: slideUp 0.3s ease forwards;
+  /* animation: slideUp 0.7s ease forwards; */
 
+  ${vp767(
+    css`
+      width: 420px;
+      margin: 20px auto;
+    `
+  )}/* 
   @keyframes slideUp {
     from {
       opacity: 0;
@@ -59,16 +64,9 @@ export const Wrap = styled.div<{ $isOpen: boolean }>`
       transform: translateY(0);
     }
   } */
-
-  ${vp767(
-    css`
-      width: 420px;
-      margin: 20px auto;
-    `
-  )}
 `;
 
-export const Inner = styled.div<{ $isOpen: boolean }>`
+export const Inner = styled.div`
   border-radius: inherit;
   display: flex;
   flex-direction: column;

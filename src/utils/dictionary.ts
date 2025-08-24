@@ -24,7 +24,7 @@ export const genres = {
   english: {
     history: 'history',
     horror: 'horror',
-    scifi: 'scifi',
+    scifi: 'sci-fi',
     'stand-up': 'stand-up',
     fantasy: 'fantasy',
     drama: 'drama',

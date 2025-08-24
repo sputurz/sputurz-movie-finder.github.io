@@ -18,6 +18,10 @@ export function Header() {
   const user = useAppSelector(selectUser);
   const theme = useAppSelector(selectTheme);
 
+  const handleOpenModal = () => {
+    dispatch(openAuthModal());
+  };
+
   return (
     <S.Header>
       <Container>
@@ -35,10 +39,7 @@ export function Header() {
               <Icon name="UserIcon"></Icon>
             </S.LinkItem>
           ) : (
-            <S.BtnModal
-              aria-label="Click to Log In "
-              onClick={() => dispatch(openAuthModal())}
-            >
+            <S.BtnModal aria-label="Click to Log In " onClick={handleOpenModal}>
               <S.BtnModalText>Login</S.BtnModalText>
               <Icon name="UserIcon"></Icon>
             </S.BtnModal>

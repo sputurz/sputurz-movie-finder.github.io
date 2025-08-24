@@ -16,9 +16,11 @@ export const authModalSlice = createAppSlice({
   reducers: {
     openAuthModal: (state) => {
       state.isOpen = true;
+      console.log(`openModal`);
     },
     closeAuthModal: (state) => {
       state.isOpen = false;
+      console.log(`closeModal`);
     },
   },
 
