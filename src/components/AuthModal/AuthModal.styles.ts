@@ -1,24 +1,10 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
-import { transitionOpacity } from '../../styles/utils/variables';
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-`;
+import {
+  animationFade,
+  animationSlide,
+  transitionOpacity,
+} from '../../styles/utils/variables';
 
 export const Backdrop = styled.div<{ $isOpen: boolean }>`
   position: fixed;
@@ -30,9 +16,7 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
   z-index: 60;
   background-color: ${(props) => props.theme.bgBackdrop};
   backdrop-filter: blur(4px);
-  animation: ${({ $isOpen }) => css`
-    ${$isOpen ? fadeIn : fadeOut} 0.7s ease forwards
-  `};
+  ${(props) => animationFade(props.$isOpen)}
   pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'auto')};
 `;
 
@@ -46,9 +30,7 @@ export const Wrap = styled.div<{ $isOpen: boolean }>`
   width: 100%;
   max-height: calc(100vh - 40px);
   z-index: 1;
-
-  animation: ${({ $isOpen }) => ($isOpen ? 'slideUp' : 'slideDown')} 0.7s ease
-    forwards;
+  ${(props) => animationSlide(props.$isOpen)}
 
   ${vp767(
     css`
@@ -56,28 +38,6 @@ export const Wrap = styled.div<{ $isOpen: boolean }>`
       margin: 20px auto;
     `
   )}
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(60px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideDown {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(60px);
-    }
-  }
 `;
 
 export const Inner = styled.div`
