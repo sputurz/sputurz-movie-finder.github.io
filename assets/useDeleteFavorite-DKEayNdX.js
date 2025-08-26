@@ -1,1 +1,0 @@
-import{e as o,a1 as r}from"./index-C2G7T-C2.js";import{u as s}from"./useMutation-CZcm_JsO.js";function c(i){const e=o(),t=s({mutationFn:r,async onSuccess(){e.invalidateQueries({queryKey:["me"]}),e.invalidateQueries({queryKey:["favorites"]})}}),n=()=>{t.mutate(i)},a=t.isPending;return{deleteFavoriteHandler:n,isPending:a}}export{c as u};
