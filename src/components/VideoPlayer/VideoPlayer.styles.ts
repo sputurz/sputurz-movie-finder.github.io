@@ -1,8 +1,12 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
-import { transitionOpacity } from '../../styles/utils/variables';
+import {
+  animationFade,
+  animationSlide,
+  transitionOpacity,
+} from '../../styles/utils/variables';
 
-export const Backdrop = styled.div`
+export const Backdrop = styled.div<{ $isOpen: boolean }>`
   position: fixed;
   inset: 0;
   display: flex;
@@ -11,15 +15,17 @@ export const Backdrop = styled.div`
   z-index: 20;
   background-color: ${(props) => props.theme.bgBackdrop};
   backdrop-filter: blur(4px);
+  ${(props) => animationFade(props.$isOpen)};
   z-index: 60;
 `;
 
-export const Wrap = styled.div`
+export const Wrap = styled.div<{ $isOpen: boolean }>`
   position: relative;
   width: min(100vw, calc(100vh * (16 / 9)));
   height: min(100vh, calc(100vw * (9 / 16)));
   aspect-ratio: 16 / 9;
   background-color: ${(props) => props.theme.bgSecondary};
+  ${(props) => animationSlide(props.$isOpen)};
 
   youtube-video {
     height: 100% !important;

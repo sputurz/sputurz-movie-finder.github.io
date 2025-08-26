@@ -4,12 +4,13 @@ import * as S from './MoviePromo.styles';
 import { MovieRating } from '../MovieRating';
 import { Icon } from '../Icon';
 import { Container } from '../Container';
-import { VideoPlayer } from '../VideoPlayer';
 import { useAppSelector } from '../../store/hooks';
 import { selectUser } from '../../store/globalSlices/authSlice';
 import { useLike } from '../../hooks/useLike';
 import { MovieTagList } from '../MovieTagList';
 import { Button } from '../Button';
+import { VideoPlayer } from '../VideoPlayer';
+import { useAnimation } from '../../hooks/useAnimation';
 
 type IProps = {
   movie: IMovie;
@@ -32,9 +33,11 @@ export const MoviePromo: FC<IProps> = ({
   const { onLike } = useLike(movie.id);
 
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [showPlayer, setShowPlayer] = useState(false);
+  const [isPlayerShown, setPlayerShow] = useState(false);
+  // const [isPlayerMounted, setPlayerMounted] = useState(false);
 
   const isBusy = isFetching || isLoading || !imageLoaded;
+  const [isPlayerMounted, setPlayerMounted, handleExited] = useAnimation();
 
   const onUpdate = () => {
     if (refetch) {
@@ -43,19 +46,24 @@ export const MoviePromo: FC<IProps> = ({
   };
 
   const onVideoBtn = () => {
-    setShowPlayer(true);
+    setPlayerMounted(true);
+    setPlayerShow(true);
     document.body.style.overflow = 'hidden';
   };
 
   const onBackdrop = () => {
-    setShowPlayer(false);
+    setPlayerShow(false);
     document.body.style.overflow = '';
   };
 
   const onClose = () => {
-    setShowPlayer(false);
+    setPlayerShow(false);
     document.body.style.overflow = '';
   };
+
+  // const handleExited = () => {
+  //   setPlayerMounted(false);
+  // };
 
   return (
     <section>
@@ -89,12 +97,14 @@ export const MoviePromo: FC<IProps> = ({
               >
                 Trailer
               </Button>
-              {showPlayer && (
+              {isPlayerMounted && (
                 <VideoPlayer
+                  isOpen={isPlayerShown}
                   trailerYouTubeId={movie.trailerYoutubeId}
                   trailerUrl={movie.trailerUrl}
                   onBackdrop={onBackdrop}
                   onClose={onClose}
+                  onExited={handleExited}
                 />
               )}
               {isAboutMovie ? null : (

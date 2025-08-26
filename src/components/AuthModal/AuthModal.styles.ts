@@ -16,8 +16,7 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
   z-index: 60;
   background-color: ${(props) => props.theme.bgBackdrop};
   backdrop-filter: blur(4px);
-  ${(props) => animationFade(props.$isOpen)}
-  pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'auto')};
+  ${(props) => animationFade(props.$isOpen)};
 `;
 
 export const Wrap = styled.div<{ $isOpen: boolean }>`
@@ -30,7 +29,7 @@ export const Wrap = styled.div<{ $isOpen: boolean }>`
   width: 100%;
   max-height: calc(100vh - 40px);
   z-index: 1;
-  ${(props) => animationSlide(props.$isOpen)}
+  ${(props) => animationSlide(props.$isOpen)};
 
   ${vp767(
     css`

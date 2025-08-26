@@ -2,22 +2,23 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import { selectAuthModal } from './AuthModalSlice';
 import { Loader } from '../Loader';
+import { useAnimation } from '../../hooks/useAnimation';
 
 const AuthModal = lazy(() => import('./AuthModal'));
 
 export default function AuthModalHost() {
   const isOpen = useAppSelector(selectAuthModal);
-  const [mounted, setMounted] = useState(isOpen);
+  const [mounted, setMounted, handleExited] = useAnimation();
 
   useEffect(() => {
     if (isOpen) setMounted(true);
-  }, [isOpen]);
+  }, [isOpen, setMounted]);
 
   if (!mounted) return null;
 
   return (
     <Suspense fallback={<Loader></Loader>}>
-      <AuthModal onExitComplete={() => setMounted(false)} />
+      <AuthModal onExitComplete={handleExited} />
     </Suspense>
   );
 }

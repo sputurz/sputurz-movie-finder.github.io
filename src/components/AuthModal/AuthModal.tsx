@@ -44,13 +44,21 @@ export default function AuthModal({ onExitComplete }: IProps) {
     }
   };
 
+  const handleBackdropClickSafe = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isAnimatingOut) return;
+    handleBackdropClick(e);
+  };
+
   return (
     <S.Backdrop
-      onClick={handleBackdropClick}
+      onClick={handleBackdropClickSafe}
       onAnimationEnd={handleAnimationEnd}
-      $isOpen={!isAnimatingOut}
+      $isOpen={!isAnimatingOut && isOpen}
     >
-      <S.Wrap $isOpen={!isAnimatingOut} onClick={(e) => e.stopPropagation()}>
+      <S.Wrap
+        $isOpen={!isAnimatingOut && isOpen}
+        onClick={(e) => e.stopPropagation()}
+      >
         <S.Inner>
           <Logo
             src={theme == 'dark' ? '/logoBlack.svg' : '/logoWhite.svg'}

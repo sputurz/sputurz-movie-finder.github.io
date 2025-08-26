@@ -4,7 +4,20 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import Api from '../api/api';
 import { clearUser } from '../store/globalSlices/authSlice';
 
-export function useLogout() {
+/**
+ * Хук для логаута
+ * @returns {Object} Объект с методами и состоянием
+ * @returns {Function} returns.handleLogout - Функция для обработки логаута
+ * @returns {boolean} returns.isPending - Флаг выполнения операции (загрузки)
+ *
+ * @example
+ * const { handleLogout, isPending } = useLogout();
+ *
+ * @description
+ * Хук разлагинивает пользователя и обновляет queryKey профиля. Метод handleLogout автоматически пересылает на главную страницу. Флаг returns.isPending из флага isPending хука useMutation().
+ */
+
+export function useLogout(): object {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const queryClient = useQueryClient();

@@ -10,6 +10,25 @@ import Api from '../api/api';
 import { AxiosError } from 'axios';
 import { User } from '../models';
 
+/**
+ * Хук для инициализации пользователя
+ * @returns {Object} returns.query - объект содержащий параметры хука useQuery
+ *
+ * @example
+ *  useAuthInit();
+ *
+ * @description
+ * Хук для инициализации пользователя. Используем хук вверху вашего приложения.
+ * Нужен для коректной работы аутентификации после перезапуска приложения. При
+ * наличии положительного ответа или ошибки сохранеяет пользователя в стейт
+ * Redux.
+ * Настройки запроса:
+ * - Не повторяет запрос при ошибках (retry: 0)
+ * - Не кэширует данные ( staleTime: 0)
+ * - Не обновляет данные при фокусе окна (refetchOnWindowFocus: false)
+ * - Использует ключ запроса профиля 'me'
+ */
+
 export const useAuthInit = () => {
   const dispatch = useDispatch();
 
