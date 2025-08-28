@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import { selectAuthModal } from './AuthModalSlice';
 import { Loader } from '../Loader';

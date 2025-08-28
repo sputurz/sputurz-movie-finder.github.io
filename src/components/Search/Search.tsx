@@ -71,6 +71,10 @@ export function Search() {
         <Icon name="SearchIcon" />
         <input
           type="text"
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck="false"
           placeholder="Search"
           {...register('searchQuery')}
           defaultValue=""

@@ -9,12 +9,15 @@ const LinkWithRef = forwardRef<
   React.ComponentProps<typeof Link>
 >((props, ref) => React.createElement(Link, { ...props, ref }));
 
+export const Wrap = styled.div`
+  display: flex;
+`;
+
 export const LinkItem = styled(LinkWithRef)`
   ${transition('opacity, transform')}
 
   display: flex;
   align-items: center;
-
   padding: 7px 0;
 
   img {

@@ -15,13 +15,15 @@ export const Logo = forwardRef<HTMLAnchorElement, IProps>(({ src }, ref) => {
   };
 
   return (
-    <S.LinkItem
-      to="/"
-      aria-label="Link to main page"
-      ref={ref}
-      onClick={handleClick}
-    >
-      <S.Img src={src} alt="Logo" />
-    </S.LinkItem>
+    <S.Wrap>
+      <S.LinkItem
+        to="/"
+        aria-label="Link to main page"
+        ref={ref}
+        onClick={handleClick}
+      >
+        <S.Img src={src} alt="Logo" />
+      </S.LinkItem>
+    </S.Wrap>
   );
 });

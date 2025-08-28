@@ -17,7 +17,7 @@ export const useModal = () => {
 
   const closeModal = () => {
     dispatch(closeAuthModal());
-    setAuthType('auth');
+    // setAuthType('auth');
   };
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {

@@ -17,7 +17,7 @@ import { clearUser } from '../store/globalSlices/authSlice';
  * Хук разлагинивает пользователя и обновляет queryKey профиля. Метод handleLogout автоматически пересылает на главную страницу. Флаг returns.isPending из флага isPending хука useMutation().
  */
 
-export function useLogout(): object {
+export function useLogout() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
