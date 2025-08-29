@@ -9,7 +9,7 @@ type IProps = {
 export const ErrorFallback: FC<IProps> = ({ children }) => {
   return (
     <Container>
-      <S.Wrap>{children}</S.Wrap>
+      <S.Text>{children}</S.Text>
     </Container>
   );
 };

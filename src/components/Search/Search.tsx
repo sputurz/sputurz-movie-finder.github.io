@@ -1,18 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { Icon } from '../Icon';
 import * as S from './Search.styles';
-import { useSearch } from '../../hooks/useSearch';
-import { ErrorFallback } from '../ErrorFallback';
-import { useDebouncedValue } from '../../hooks/useDebouncedValue';
-import { SearchCard } from '../SearchCard';
 import { useEffect, useRef, useState } from 'react';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
+import { SearchList } from '../SearchList';
 
 export function Search() {
   const { register, watch, reset, setFocus } = useForm();
   const searchValue = watch('searchQuery');
-  const debouncedSearch = useDebouncedValue(searchValue, 300);
-  const { data, error } = useSearch(debouncedSearch);
   const [isMobileSearch, setIsMobileSearch] = useState(false);
   const wrapRef = useRef<HTMLLabelElement>(null);
   const isOutside = useOnClickOutside({
@@ -55,8 +50,6 @@ export function Search() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, [isMobileSearch]);
 
-  if (error) return <ErrorFallback>Error: {error.message}</ErrorFallback>;
-
   return (
     <>
       <S.BtnMobile onClick={onMobileSearch} aria-label="Open search bar">
@@ -79,20 +72,11 @@ export function Search() {
           {...register('searchQuery')}
           defaultValue=""
         />
-
-        {data && data.length > 0 && !isOutside ? (
-          <S.ResultList>
-            {data?.map((movie) => (
-              <S.ResultItem key={movie.id}>
-                <SearchCard
-                  movie={movie}
-                  onCardClick={onCardClick}
-                ></SearchCard>
-              </S.ResultItem>
-            ))}
-          </S.ResultList>
-        ) : null}
-
+        <SearchList
+          isOutside={isOutside}
+          searchValue={searchValue}
+          onCardClick={onCardClick}
+        ></SearchList>
         <S.BtnReset $isEmpty={!searchValue} onClick={handleReset} type="button">
           <Icon name="CloseIcon" />
         </S.BtnReset>

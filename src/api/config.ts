@@ -4,14 +4,14 @@ export const BASE_URL = 'https://cinemaguide.skillbox.cc';
 
 const api = axios.create({
   baseURL: BASE_URL,
-  // timeout: 50,
+  // timeout: 5000,
   withCredentials: true,
 });
 
 interface PrismaError {
   name: string;
   clientVersion?: string;
-  [key: string]: unknown; // Для других возможных полей
+  [key: string]: unknown;
 }
 
 interface RequestOptions {
