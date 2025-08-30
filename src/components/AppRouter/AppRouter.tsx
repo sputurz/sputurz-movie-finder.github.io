@@ -49,7 +49,7 @@ const ProfileRoutes = () => {
           <Route index element={<Navigate to="favorites" replace />} />
           <Route path="favorites" element={<FavoritesTab />} />
           <Route path="settings" element={<SettingTab />} />
-          <Route path="*" element={<Navigate to="/404" replace />} />
+          {/* <Route path="*" element={<Navigate to="/404" replace />} /> */}
         </Routes>
       </UserProfilePage>
     </ProtectedRoute>

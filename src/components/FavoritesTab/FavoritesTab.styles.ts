@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
+import { fadeIn } from '../../styles/utils/variables';
 
 export const Wrap = styled.div`
   color: ${(props) => props.theme.colorText};
+  animation: ${fadeIn} 0.7s ease-in-out;
 `;
 
 export const List = styled.ul`

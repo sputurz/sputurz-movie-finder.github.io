@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
+import { fadeIn } from '../../styles/utils/variables';
 
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  animation: ${fadeIn} 0.7s ease-in-out;
 
   ${vp767(
     css`

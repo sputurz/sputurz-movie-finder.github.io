@@ -6,7 +6,7 @@ export const vpMobile = `767px`;
 export const vpTablet = `1023px`;
 
 // Animation
-const fadeIn = keyframes`
+export const fadeIn = keyframes`
   from {
     opacity: 0;
   }
@@ -15,7 +15,7 @@ const fadeIn = keyframes`
   }
 `;
 
-const fadeOut = keyframes`
+export const fadeOut = keyframes`
   from {
     opacity: 1;
   }
