@@ -19,7 +19,7 @@ export const Wrap = styled.ul<{ $isOpen: boolean }>`
   scrollbar-width: none;
   padding: 0 20px;
 
-  /* ${(props) => animationFade(props.$isOpen)}; */
+  ${(props) => animationFade(props.$isOpen)};
 
   &::-webkit-scrollbar {
     display: none;

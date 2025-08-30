@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import { vp767 } from '../../styles/utils/mixins';
-import { transitionOpacity } from '../../styles/utils/variables';
+import {
+  transitionBorderColor,
+  transitionOpacity,
+} from '../../styles/utils/variables';
 
 export const BtnMobile = styled.button`
   ${transitionOpacity}
@@ -45,6 +48,8 @@ export const Wrap = styled.label<{ $isMobileSearch?: boolean }>`
   z-index: 50;
 
   & > input {
+    ${transitionBorderColor}
+
     width: 100%;
     caret-color: ${(props) => props.theme.colorText};
     color: ${(props) => props.theme.colorText};

@@ -6,12 +6,15 @@ import { MovieInfo } from '../../components/MovieInfo';
 import { useMovieById } from '../../hooks/useMovieById';
 import { Container } from '../../components/Container';
 import { isMovie } from '../../models';
+import { Loader } from '../../components/Loader';
 
 export default function MoviePage() {
   const { movieId } = useParams();
   const { data, error, isLoading, isFetching, refetch } = useMovieById(
     Number(movieId)
   );
+
+  if (isLoading) return <Loader></Loader>;
 
   if (!isMovie(data)) {
     return (
@@ -24,7 +27,6 @@ export default function MoviePage() {
   }
 
   if (error) return <ErrorFallback>Error: {error.message}</ErrorFallback>;
-  if (!data) return null;
 
   return (
     <>

@@ -1,4 +1,10 @@
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useMatch,
+} from 'react-router-dom';
 import { ErrorFallback } from '../ErrorFallback';
 import { Loader } from '../Loader';
 import { Header } from '../Header';
@@ -28,6 +34,28 @@ const MoviePageWithKey = () => {
   return <MoviePage key={location.pathname} />;
 };
 
+const ProfileRoutes = () => {
+  const match = useMatch('/profile/:tab');
+  const validTabs = ['favorites', 'settings'];
+
+  if (match?.params.tab && !validTabs.includes(match.params.tab)) {
+    return <NotFoundPage />;
+  }
+
+  return (
+    <ProtectedRoute>
+      <UserProfilePage>
+        <Routes>
+          <Route index element={<Navigate to="favorites" replace />} />
+          <Route path="favorites" element={<FavoritesTab />} />
+          <Route path="settings" element={<SettingTab />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
+        </Routes>
+      </UserProfilePage>
+    </ProtectedRoute>
+  );
+};
+
 const routerConfig = [
   { path: '/', component: HomePage },
   { path: '/genres', component: GenresPage },
@@ -38,18 +66,9 @@ const routerConfig = [
   },
   {
     path: '/profile/*',
-    component: () => (
-      <ProtectedRoute>
-        <UserProfilePage>
-          <Routes>
-            <Route index element={<Navigate to="favorites" replace />} />
-            <Route path="favorites" element={<FavoritesTab />} />
-            <Route path="settings" element={<SettingTab />} />
-          </Routes>
-        </UserProfilePage>
-      </ProtectedRoute>
-    ),
+    component: ProfileRoutes,
   },
+  { path: '/404', component: NotFoundPage },
   { path: '*', component: NotFoundPage },
 ] as const;
 

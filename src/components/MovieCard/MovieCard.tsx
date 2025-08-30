@@ -30,6 +30,7 @@ export function MovieCard({
           }
           alt={movie.title}
         />
+        {!movie.posterUrl ? <S.ErrorText>{movie.title}</S.ErrorText> : null}
       </S.LinkItem>
       {isRatingShown ? <S.Rating>{indexRating}</S.Rating> : null}
       {isUserProfile ? (
@@ -37,7 +38,6 @@ export function MovieCard({
           <Icon name="CloseIcon"></Icon>
         </S.BtnDelete>
       ) : null}
-      {!movie.posterUrl ? <S.ErrorText>{movie.title}</S.ErrorText> : null}
     </S.Card>
   );
 }

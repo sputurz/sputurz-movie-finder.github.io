@@ -43,6 +43,7 @@ export const Card = styled.div`
 
 export const LinkItem = styled(Link)`
   ${transitionTransform}
+  position: relative;
 
   border-radius: inherit;
   user-select: none;

@@ -7,7 +7,7 @@ export const Wrap = styled.div`
   flex-direction: column;
   gap: 40px;
 
-  a {
+  div {
     align-self: center;
   }
 
