@@ -1,1 +1,0 @@
-import{a as t,p as c,S as u,T as i,j as e,g as l,U as d}from"./index-BAE7RUWI.js";const g=({children:s})=>{const o=t(c),a=t(u),n=i(),r=localStorage.getItem("authToken");return a?e.jsx(l,{}):!o&&!r?e.jsx(d,{to:"/",state:{from:n},replace:!0}):s};export{g as default};
