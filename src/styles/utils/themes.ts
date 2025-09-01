@@ -42,6 +42,7 @@ export const darkTheme = {
 
   // input
   brdrInput: 'transparent',
+  brdrInputAutofill: '#ffffff',
   brdrInputError: '#dc3545',
   brdrInputHover: ' #b4a9ff',
   bgInput: ' #393B3C',
@@ -126,6 +127,7 @@ export const lightTheme = {
 
   // input
   brdrInput: 'rgba(0, 0, 0, 0.4)',
+  brdrInputAutofill: '#ffffff',
   brdrInputError: '#dc3545',
   brdrInputHover: ' #b4a9ff',
   colorInput: '#000000',

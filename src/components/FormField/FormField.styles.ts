@@ -10,8 +10,8 @@ export const Label = styled.label<{ $isError?: boolean }>`
   flex-direction: column;
   width: 100%;
 
-  & > input,
-  & > textarea {
+  & input,
+  & textarea {
     ${transitionBorderColor}
 
     background-color: ${(props) => props.theme.bgInput};
@@ -25,6 +25,28 @@ export const Label = styled.label<{ $isError?: boolean }>`
     font-size: 18px;
     line-height: 24px;
     color: ${(props) => props.theme.colorInput};
+
+    /* Стили для автозаполнения в WebKit браузерах (Chrome, Safari, Edge) */
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px ${(props) => props.theme.bgInput} inset !important;
+      -webkit-text-fill-color: ${(props) => props.theme.colorInput} !important;
+      border-color: ${(props) => props.theme.brdrInputAutofill};
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    /* Стили для автозаполнения в Firefox, и стили для современных браузеров */
+    &:-moz-autofill,
+    &:-moz-autofill:hover,
+    &:-moz-autofill:focus,
+    &:autofill,
+    &:autofill:hover,
+    &:autofill:focus {
+      background-color: ${(props) => props.theme.bgInput} !important;
+      color: ${(props) => props.theme.colorInput} !important;
+      border-color: ${(props) => props.theme.brdrInputAutofill};
+    }
   }
 
   & > input::placeholder {
@@ -42,7 +64,7 @@ export const Label = styled.label<{ $isError?: boolean }>`
 
   &:hover > input,
   &:hover > textarea {
-    border-color: ${(props) => props.theme.brdrInputHover};
+    border-color: ${(props) => props.theme.brdrInputHover} !important;
   }
 
   & > svg {

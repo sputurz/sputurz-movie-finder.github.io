@@ -25,6 +25,7 @@ declare module 'styled-components' {
     brdrLoader: string;
     brdrLoaderBottom: string;
     brdrInput: string;
+    brdrInputAutofill: string;
     brdrInputError: string;
     brdrInputHover: string;
     bgInput: string;
