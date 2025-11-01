@@ -1,0 +1,1 @@
+import{a as t,p as c,T as u,U as i,j as e,g as l,V as d}from"./index-aNZWqHQ0.js";const g=({children:s})=>{const o=t(c),a=t(u),n=i(),r=localStorage.getItem("authToken");return a?e.jsx(l,{}):!o&&!r?e.jsx(d,{to:"/",state:{from:n},replace:!0}):s};export{g as default};
