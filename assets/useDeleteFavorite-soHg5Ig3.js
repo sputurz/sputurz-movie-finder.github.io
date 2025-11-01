@@ -1,0 +1,1 @@
+import{m as o,S as r}from"./index-DhUtAxaj.js";import{u as s}from"./useMutation-oz4Jr4cK.js";function c(i){const e=o(),t=s({mutationFn:r,async onSuccess(){e.invalidateQueries({queryKey:["me"]}),e.invalidateQueries({queryKey:["favorites"]})}}),n=()=>{t.mutate(i)},a=t.isPending;return{deleteFavoriteHandler:n,isPending:a}}export{c as u};
