@@ -16,7 +16,7 @@ export function App() {
   const isTransitioning = useBackgroundAnimation(theme);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/sputurz-movie-finder.github.io">
       <ThemeProvider theme={theme == 'dark' ? darkTheme : lightTheme}>
         <GlobalStyle $isTransitioning={isTransitioning} />
         <QueryClientProvider client={queryClient}>

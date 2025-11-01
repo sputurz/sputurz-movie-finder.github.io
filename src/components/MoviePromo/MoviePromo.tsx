@@ -70,7 +70,7 @@ export const MoviePromo: FC<IProps> = ({
       <Container>
         <S.Inner>
           <S.ImgWrap
-            src={movie.backdropUrl || '/images/moviePromo/error.jpg'}
+            src={movie.backdropUrl || './images/moviePromo/error.jpg'}
             alt={movie.title}
             isFetching={isFetching}
             isLoading={isLoading}

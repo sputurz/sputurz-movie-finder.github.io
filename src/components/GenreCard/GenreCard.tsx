@@ -17,10 +17,10 @@ export function GenreCard({ genre, genreTranslated }: IProps) {
     >
       <S.ImgContainer>
         {hasError ? (
-          <S.Img src={`/images/genre/error.jpg`} alt={genre} />
+          <S.Img src={`./images/genre/error.jpg`} alt={genre} />
         ) : (
           <S.Img
-            src={`/images/genre/${genre}.jpg`}
+            src={`./images/genre/${genre}.jpg`}
             alt={genre}
             onError={() => setHasError(true)}
           />

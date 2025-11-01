@@ -26,7 +26,7 @@ export function MovieCard({
       >
         <S.Img
           src={
-            movie.posterUrl ? movie.posterUrl : '/images/movieCard/error.jpg'
+            movie.posterUrl ? movie.posterUrl : './images/movieCard/error.jpg'
           }
           alt={movie.title}
         />

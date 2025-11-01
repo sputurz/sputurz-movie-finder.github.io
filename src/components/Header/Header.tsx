@@ -27,7 +27,7 @@ export function Header() {
       <Container>
         <S.Wrap>
           <Logo
-            src={theme == 'dark' ? '/logoBlack.svg' : '/logoWhite.svg'}
+            src={theme == 'dark' ? './logoBlack.svg' : './logoWhite.svg'}
           ></Logo>
           <S.Inner>
             <Nav></Nav>

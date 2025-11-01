@@ -61,7 +61,7 @@ export default function AuthModal({ onExitComplete }: IProps) {
       >
         <S.Inner>
           <Logo
-            src={theme == 'dark' ? '/logoBlack.svg' : '/logoWhite.svg'}
+            src={theme == 'dark' ? '/.logoBlack.svg' : '/.logoWhite.svg'}
             ref={logoRef}
           ></Logo>
           {!isRegisterSuccess ? (

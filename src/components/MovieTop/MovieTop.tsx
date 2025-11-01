@@ -18,7 +18,11 @@ export function MovieTop() {
           <S.List>
             {data
               ? [...data]
-                  .sort((a, b) => b.tmdbRating - a.tmdbRating)
+                  .sort((a, b) => {
+                    const ratingA = a.tmdbRating ?? 0;
+                    const ratingB = b.tmdbRating ?? 0;
+                    return ratingB - ratingA;
+                  })
                   .map((movie, index) => (
                     <S.Item key={movie.id}>
                       <MovieCard

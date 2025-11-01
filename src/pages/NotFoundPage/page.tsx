@@ -15,7 +15,7 @@ export default function NotFoundPage() {
             Error 404<br></br>Sorry, Page Not Found!
           </S.Title>
           <Logo
-            src={theme == 'dark' ? '/logoBlack.svg' : '/logoWhite.svg'}
+            src={theme == 'dark' ? './logoBlack.svg' : './logoWhite.svg'}
           ></Logo>
         </S.Wrap>
       </Container>

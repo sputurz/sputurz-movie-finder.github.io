@@ -16,6 +16,11 @@ import { IMovie } from '../models';
 
 export function useRatingColor(rating: IMovie['tmdbRating']) {
   const theme = useTheme();
+
+  if (!rating) {
+    return theme.bgRating4;
+  }
+
   if (rating >= 8) {
     return theme.bgRating1;
   } else if (rating >= 6) {
